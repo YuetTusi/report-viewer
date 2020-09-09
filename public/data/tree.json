@@ -1,0 +1,27 @@
+;var treeData=[
+    {
+        "name": "测试1",
+        "children": [
+            {
+                "name": "主页",
+                "path": "/"
+            },
+            {
+                "name": "page1",
+				"path": "/page1"
+            }
+        ]
+    },{
+		"name": "测试2",
+        "children": [
+            {
+                "name": "page2",
+				"path": "/page2"
+            },
+            {
+                "name": "page3",
+				"path": "/page3"
+            }
+        ]
+	}
+]
