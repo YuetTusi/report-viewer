@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
-import Table from 'antd/lib/table';
+import Button from 'antd/lib/button';
 import RootPanel from '@src/components/RootPanel';
 import Page1DataContainer from '@src/containers/Page1Data';
-import { RowData } from '@src/hooks/data/usePage1Data';
 import LoadingContainer from '@src/containers/Loading';
+import DisplayTable from '@src/components/DisplayTable';
+import { helper } from '@src/utils/helper';
 
 interface Prop {}
 
@@ -12,22 +13,10 @@ const Page1: FC<Prop> = (props) => {
     let { loading, setLoading } = LoadingContainer.useContainer();
 
     return (
-        <RootPanel visible={loading}>
+        <RootPanel loading={loading}>
             <div>
-                <button
-                    type="button"
-                    onClick={() => {
-                        let next = data!.map((i) => {
-                            if (i.id === 'e07e5aa3-4c53-4b0f-9a59-ccbd2159c056') {
-                                i.col1 = `Update_${(~~(Math.random() * 100000)).toString()}`;
-                            }
-                            return i;
-                        });
-                        setData(next);
-                    }}
-                >
-                    update
-                </button>
+                <Button type="primary">OK</Button>
+                <a>测试链接</a>
                 <button
                     type="button"
                     onClick={() => {
@@ -42,17 +31,36 @@ const Page1: FC<Prop> = (props) => {
             </div>
             <hr />
             <div>
-                <Table<RowData>
-                    columns={[
-                        { title: 'id', dataIndex: 'id' },
-                        {
-                            title: 'col1',
-                            dataIndex: 'col1'
-                        }
+                <DisplayTable
+                    columns={['姓名', '年龄']}
+                    data={[
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['张三', '28'],
+                        ['李四', '29'],
+                        ['234234234234234', '28'],
+                        ['李四', '29'],
+                        ['王五', '30']
                     ]}
-                    rowKey={(record) => record.id}
-                    dataSource={data}
-                ></Table>
+                ></DisplayTable>
             </div>
         </RootPanel>
     );

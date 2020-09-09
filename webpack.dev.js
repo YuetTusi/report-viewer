@@ -2,6 +2,8 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const themeUrl = path.resolve(__dirname, './styles/theme.less');
+
 const config = {
     mode: 'development',
     entry: './src/index.tsx',
@@ -49,7 +51,12 @@ const config = {
                     {
                         loader: 'less-loader',
                         options: {
-                            lessOptions: { javascriptEnabled: true }
+                            lessOptions: {
+                                javascriptEnabled: true,
+                                modifyVars: {
+                                    hack: `true; @import "${themeUrl}";`
+                                }
+                            }
                         }
                     }
                 ]

@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import SplitterLayout from 'react-splitter-layout';
 import { RouterConfig } from '@src/router';
-import { TreeBox, ContentBox } from '@src/components/styled/BoxStyle';
+import { TreeBox, ContentBox, LeftBox, RightBox } from '@src/components/styled/BoxStyle';
 import NavTree from '@src/components/NavTree';
 import NavTreeContainer from '@src/containers/NavTree';
 import '@root/styles/splitter-layout.less';
@@ -11,22 +11,21 @@ import 'antd/dist/antd.less';
 
 interface Prop {}
 
-const { clientWidth } = document.body;
-
 const Index: FC<Prop> = (props) => {
+    const { clientWidth } = document.body;
     return (
         <Router>
-            <SplitterLayout secondaryInitialSize={clientWidth - 280}>
-                <div>
+            <SplitterLayout primaryMinSize={260} secondaryInitialSize={clientWidth - 260}>
+                <LeftBox>
                     <TreeBox>
                         <NavTreeContainer.Provider>
                             <NavTree />
                         </NavTreeContainer.Provider>
                     </TreeBox>
-                </div>
-                <div>
+                </LeftBox>
+                <RightBox>
                     <ContentBox>{RouterConfig()}</ContentBox>
-                </div>
+                </RightBox>
             </SplitterLayout>
         </Router>
     );

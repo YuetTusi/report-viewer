@@ -1,5 +1,11 @@
 
+let _keyValue = 0;
+
 const helper = {
+    getKey(initalValue: number = 0) {
+        _keyValue = initalValue;
+        return `k_${_keyValue++}`;
+    },
     /**
      * 
      * @param filePath 文件路径
