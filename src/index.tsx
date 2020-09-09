@@ -1,8 +1,10 @@
 import ReactDOM from 'react-dom';
 import React, { FC } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
+import ConfigProvider from 'antd/lib/config-provider';
 import SplitterLayout from 'react-splitter-layout';
 import { RouterConfig } from '@src/router';
+import zhCN from 'antd/es/locale/zh_CN';
 import { TreeBox, ContentBox, LeftBox, RightBox } from '@src/components/styled/BoxStyle';
 import NavTree from '@src/components/NavTree';
 import NavTreeContainer from '@src/containers/NavTree';
@@ -24,7 +26,9 @@ const Index: FC<Prop> = (props) => {
                     </TreeBox>
                 </LeftBox>
                 <RightBox>
-                    <ContentBox>{RouterConfig()}</ContentBox>
+                    <ContentBox>
+                        <ConfigProvider locale={zhCN}>{RouterConfig()}</ConfigProvider>
+                    </ContentBox>
                 </RightBox>
             </SplitterLayout>
         </Router>

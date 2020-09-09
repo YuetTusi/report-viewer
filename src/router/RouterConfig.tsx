@@ -8,6 +8,9 @@ import Page2Data from '@src/containers/Page2Data';
 import Page3Data from '@src/containers/Page3Data';
 import Page1 from '@src/view/Page1';
 
+const router1 = 'Page1';
+const router2 = 'Page2';
+
 /**
  * 路由
  */
@@ -28,7 +31,7 @@ function RouterConfig() {
             <Route
                 path="/page2"
                 render={() => {
-                    const NextView = lazy(() => import('@src/view/Page2'));
+                    const NextView = lazy(() => import('../view/Page2'));
                     return (
                         <Suspense fallback={<LazyLoading />}>
                             <Page2Data.Provider>
@@ -41,7 +44,7 @@ function RouterConfig() {
             <Route
                 path="/page3"
                 render={() => {
-                    const NextView = lazy(() => import('@src/view/Page3'));
+                    const NextView = lazy(() => import('../view/Page3'));
                     return (
                         <Suspense fallback={<LazyLoading />}>
                             <Page3Data.Provider>

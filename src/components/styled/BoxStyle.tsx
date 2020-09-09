@@ -19,6 +19,9 @@ const ContentBox = styled.div`
  */
 const LeftBox = styled.div`
     width: auto;
+    background-color: #3d4c5a;
+    height: 100%;
+    color: #fff;
 `;
 
 /**
@@ -26,7 +29,6 @@ const LeftBox = styled.div`
  */
 const RightBox = styled.div`
     height: 100%;
-    //background-color: #eaeff3;
 `;
 
 export { TreeBox, ContentBox, LeftBox, RightBox };

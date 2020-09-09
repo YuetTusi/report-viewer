@@ -1,10 +1,11 @@
 ;var treeData=[
     {
         "name": "测试1",
+        "icon":"assert/images/tree/1_close.png",
         "children": [
             {
                 "name": "主页",
-                "path": "/"
+                "path": "/",
             },
             {
                 "name": "page1",
@@ -12,7 +13,8 @@
             }
         ]
     },{
-		"name": "测试2",
+        "name": "测试2",
+        "icon":"assert/images/tree/7.png",
         "children": [
             {
                 "name": "page2",
