@@ -5,7 +5,7 @@
         "children": [
             {
                 "name":"iPhoneXs",
-                "path":"/iPhone/0001",
+                "path":"/iphone/0001",
                 "type":"display",
                 "children":[
                     {
@@ -34,7 +34,8 @@
                     },{
                         "name":"帐户",
                         "path":"/samsung-account/0007",
-                        "type":"table"
+                        "type":"table",
+                        "icon":"assert/images/tree/5.png"
                     }
                 ]
             }

@@ -1,6 +1,4 @@
 
-let _keyValue = 0;
-
 const helper = {
 
     /**
@@ -53,6 +51,10 @@ const helper = {
             $script.addEventListener('load', () => {
                 document.body.removeChild($script);
                 resolve((window as any)[exportName]);
+            });
+            $script.addEventListener('error', (event) => {
+                document.body.removeChild($script);
+                reject(event);
             });
             document.body.appendChild($script);
         });

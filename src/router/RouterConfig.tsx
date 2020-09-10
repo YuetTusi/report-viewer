@@ -2,11 +2,9 @@ import React, { lazy, Suspense } from 'react';
 import { Route } from 'react-router-dom';
 import LazyLoading from '@src/components/LazyLoading';
 import NavTreeContainer from '@src/containers/NavTree';
-import DataTable from '@src/view/DataTable';
-import Chat from '@src/view/Chat';
-import Display from '@src/view/Display';
 import { TreeNode } from '@src/components/NavTree';
 import { helper } from '@src/utils/helper';
+import { ViewType } from '@src/router';
 
 let acc = 0; //计数
 
@@ -34,7 +32,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
         const { path, type, children } = nodes[i];
         if (path) {
             switch (type) {
-                case 'display':
+                case ViewType.Display:
                     routes.push(
                         <Route
                             path={`${subPath(path)}/:file`}
@@ -46,11 +44,11 @@ function recurrenceRoute(nodes: TreeNode[]) {
                                     </Suspense>
                                 );
                             }}
-                            key={`K_${i}_${acc++}`}
+                            key={`N_${acc++}`}
                         />
                     );
                     break;
-                case 'chat':
+                case ViewType.Chat:
                     routes.push(
                         <Route
                             path={`${subPath(path)}/:file`}
@@ -62,11 +60,11 @@ function recurrenceRoute(nodes: TreeNode[]) {
                                     </Suspense>
                                 );
                             }}
-                            key={`K_${i}_${acc++}`}
+                            key={`N_${acc++}`}
                         />
                     );
                     break;
-                case 'table':
+                case ViewType.Table:
                     routes.push(
                         <Route
                             path={`${subPath(path)}/:file`}
@@ -78,7 +76,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
                                     </Suspense>
                                 );
                             }}
-                            key={`K_${i}_${acc++}`}
+                            key={`N_${acc++}`}
                         />
                     );
                     break;

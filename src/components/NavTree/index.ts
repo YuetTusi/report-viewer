@@ -23,7 +23,11 @@ interface TreeNode {
     /**
      * 子结点
      */
-    children: TreeNode[]
+    children: TreeNode[],
+    /**
+     * 未知属性
+     */
+    [props: string]: any
 }
 
 export { TreeNode };

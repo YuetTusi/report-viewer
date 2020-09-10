@@ -1,6 +1,6 @@
-import React, { FC, useEffect, useState } from 'react';
-import { useParams, Router } from 'react-router-dom';
-import Table from 'antd/lib/table';
+import React, { FC, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import message from 'antd/lib/message';
 import { helper } from '@src/utils/helper';
 import { useMount } from '@src/hooks';
 
@@ -12,8 +12,12 @@ const Display: FC<Prop> = (props) => {
     const { file } = useParams<{ file: string }>();
 
     useMount(async () => {
-        const next = await helper.loadJSON(`public/data/${file}.json`, 'data');
-        setData(next);
+        try {
+            const next = await helper.loadJSON(`public/data/${file}.json`, 'data');
+            setData(next);
+        } catch (error) {
+            message.error('读取数据失败');
+        }
     });
 
     return (

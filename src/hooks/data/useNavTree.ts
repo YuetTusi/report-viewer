@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useJsonData } from '../useJsonData';
 import { TreeNode } from '@src/components/NavTree';
 
