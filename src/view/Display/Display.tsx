@@ -20,7 +20,9 @@ const Display: FC<Prop> = (props) => {
         <div>
             <h1>Display类页面</h1>
             <hr />
-            <div>{JSON.stringify(data)}</div>
+            <div>
+                <label>{data.title}</label>
+            </div>
         </div>
     );
 };

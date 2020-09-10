@@ -25,7 +25,9 @@ const DataTable: FC<Prop> = (props) => {
         <RootPanel loading={loading}>
             <h1>DataTable类页面</h1>
             <hr />
-            <div>{JSON.stringify(data)}</div>
+            <div>
+                <label>{data.title}</label>
+            </div>
         </RootPanel>
     );
 };

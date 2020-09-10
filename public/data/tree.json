@@ -4,7 +4,7 @@
         "icon":"assert/images/tree/7.png",
         "children": [
             {
-                "name":"iPhone",
+                "name":"iPhoneXs",
                 "path":"/iPhone/0001",
                 "type":"display",
                 "children":[
@@ -19,7 +19,7 @@
                     }
                 ]
             },{
-                "name":"三星",
+                "name":"三星GalaxyA90",
                 "path":"/samsung/0004",
                 "type":"display",
                 "children":[

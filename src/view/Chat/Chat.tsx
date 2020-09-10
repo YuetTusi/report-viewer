@@ -19,7 +19,9 @@ const Chat: FC<Prop> = (props) => {
         <div>
             <h1>Chat类页面</h1>
             <hr />
-            <div>{JSON.stringify(data)}</div>
+            <div>
+                <label>{data.title}</label>
+            </div>
         </div>
     );
 };
