@@ -31,6 +31,10 @@
                         "name":"照片",
                         "path":"/samsung-photo/0006",
                         "type":"table"
+                    },{
+                        "name":"帐户",
+                        "path":"/samsung-account/0007",
+                        "type":"table"
                     }
                 ]
             }

@@ -8,6 +8,7 @@ import zhCN from 'antd/es/locale/zh_CN';
 import { TreeBox, ContentBox, LeftBox, RightBox } from '@src/components/styled/BoxStyle';
 import NavTree from '@src/components/NavTree';
 import NavTreeContainer from '@src/containers/NavTree';
+import LoadingContainer from '@src/containers/Loading';
 import '@root/styles/splitter-layout.less';
 import 'antd/dist/antd.less';
 
@@ -27,7 +28,9 @@ const Index: FC<Prop> = (props) => {
                     <RightBox>
                         <ContentBox>
                             <ConfigProvider locale={zhCN}>
-                                <RouterConfig />
+                                <LoadingContainer.Provider>
+                                    <RouterConfig />
+                                </LoadingContainer.Provider>
                             </ConfigProvider>
                         </ContentBox>
                     </RightBox>

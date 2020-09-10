@@ -1,5 +1,6 @@
 import React, { lazy, Suspense } from 'react';
 import { Route } from 'react-router-dom';
+import LazyLoading from '@src/components/LazyLoading';
 import NavTreeContainer from '@src/containers/NavTree';
 import DataTable from '@src/view/DataTable';
 import Chat from '@src/view/Chat';
@@ -37,7 +38,14 @@ function recurrenceRoute(nodes: TreeNode[]) {
                     routes.push(
                         <Route
                             path={`${subPath(path)}/:file`}
-                            component={Display}
+                            render={() => {
+                                const NextView = lazy(() => import('@src/view/Display'));
+                                return (
+                                    <Suspense fallback={<LazyLoading />}>
+                                        <NextView />
+                                    </Suspense>
+                                );
+                            }}
                             key={`K_${i}_${acc++}`}
                         />
                     );
@@ -46,7 +54,14 @@ function recurrenceRoute(nodes: TreeNode[]) {
                     routes.push(
                         <Route
                             path={`${subPath(path)}/:file`}
-                            component={Chat}
+                            render={() => {
+                                const NextView = lazy(() => import('@src/view/Chat'));
+                                return (
+                                    <Suspense fallback={<LazyLoading />}>
+                                        <NextView />
+                                    </Suspense>
+                                );
+                            }}
                             key={`K_${i}_${acc++}`}
                         />
                     );
@@ -55,7 +70,14 @@ function recurrenceRoute(nodes: TreeNode[]) {
                     routes.push(
                         <Route
                             path={`${subPath(path)}/:file`}
-                            component={DataTable}
+                            render={() => {
+                                const NextView = lazy(() => import('@src/view/DataTable'));
+                                return (
+                                    <Suspense fallback={<LazyLoading />}>
+                                        <NextView />
+                                    </Suspense>
+                                );
+                            }}
                             key={`K_${i}_${acc++}`}
                         />
                     );

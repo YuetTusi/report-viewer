@@ -29,7 +29,7 @@ const helper = {
         }
     },
     /**
-     * @description 是否是null或undefined或空串
+     * @description 是否是null或undefined或空数组
      * @param val 任意值
      */
     isNullOrUndefinedOrEmptyArray(val: any): boolean {
