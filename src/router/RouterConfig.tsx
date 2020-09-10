@@ -1,61 +1,83 @@
 import React, { lazy, Suspense } from 'react';
 import { Route } from 'react-router-dom';
-import LoadingContainer from '@src/containers/Loading';
-import LazyLoading from '@src/components/LazyLoading';
-import Default from '@src/view/Default';
-import Page1Data from '@src/containers/Page1Data';
-import Page2Data from '@src/containers/Page2Data';
-import Page3Data from '@src/containers/Page3Data';
-import Page1 from '@src/view/Page1';
+import NavTreeContainer from '@src/containers/NavTree';
+import DataTable from '@src/view/DataTable';
+import Chat from '@src/view/Chat';
+import Display from '@src/view/Display';
+import { TreeNode } from '@src/components/NavTree';
+import { helper } from '@src/utils/helper';
 
-const router1 = 'Page1';
-const router2 = 'Page2';
+let acc = 0; //计数
+
+/**
+ * 截取路径
+ * @param pathWithParam 原带参数路径
+ */
+function subPath(pathWithParam: string) {
+    const pos = pathWithParam.lastIndexOf('/');
+    return pathWithParam.substring(0, pos);
+}
+
+/**
+ * 递归树生成路由
+ * @param {TreeNode[]} nodes 树结点集合
+ */
+function recurrenceRoute(nodes: TreeNode[]) {
+    let routes: JSX.Element[] = [];
+
+    if (helper.isNullOrUndefinedOrEmptyArray(nodes)) {
+        return routes;
+    }
+
+    for (let i = 0, len = nodes.length; i < len; i++) {
+        const { path, type, children } = nodes[i];
+        if (path) {
+            switch (type) {
+                case 'display':
+                    routes.push(
+                        <Route
+                            path={`${subPath(path)}/:file`}
+                            component={Display}
+                            key={`K_${i}_${acc++}`}
+                        />
+                    );
+                    break;
+                case 'chat':
+                    routes.push(
+                        <Route
+                            path={`${subPath(path)}/:file`}
+                            component={Chat}
+                            key={`K_${i}_${acc++}`}
+                        />
+                    );
+                    break;
+                case 'table':
+                    routes.push(
+                        <Route
+                            path={`${subPath(path)}/:file`}
+                            component={DataTable}
+                            key={`K_${i}_${acc++}`}
+                        />
+                    );
+                    break;
+            }
+        }
+        if (children && children.length > 0) {
+            routes = routes.concat(recurrenceRoute(children));
+        }
+    }
+
+    return routes;
+}
 
 /**
  * 路由
  */
 function RouterConfig() {
-    return (
-        <>
-            <Route path="/" exact={true} component={Default} />
-            <Route
-                path="/page1"
-                render={() => (
-                    <LoadingContainer.Provider>
-                        <Page1Data.Provider>
-                            <Page1 />
-                        </Page1Data.Provider>
-                    </LoadingContainer.Provider>
-                )}
-            />
-            <Route
-                path="/page2"
-                render={() => {
-                    const NextView = lazy(() => import('../view/Page2'));
-                    return (
-                        <Suspense fallback={<LazyLoading />}>
-                            <Page2Data.Provider>
-                                <NextView />
-                            </Page2Data.Provider>
-                        </Suspense>
-                    );
-                }}
-            />
-            <Route
-                path="/page3"
-                render={() => {
-                    const NextView = lazy(() => import('../view/Page3'));
-                    return (
-                        <Suspense fallback={<LazyLoading />}>
-                            <Page3Data.Provider>
-                                <NextView />
-                            </Page3Data.Provider>
-                        </Suspense>
-                    );
-                }}
-            />
-        </>
-    );
+    const { data } = NavTreeContainer.useContainer();
+    const temp = recurrenceRoute(data!);
+
+    return <>{temp}</>;
 }
 
 export { RouterConfig };

@@ -17,20 +17,22 @@ const Index: FC<Prop> = (props) => {
     const { clientWidth } = document.body;
     return (
         <Router>
-            <SplitterLayout primaryMinSize={260} secondaryInitialSize={clientWidth - 260}>
-                <LeftBox>
-                    <TreeBox>
-                        <NavTreeContainer.Provider>
+            <NavTreeContainer.Provider>
+                <SplitterLayout primaryMinSize={260} secondaryInitialSize={clientWidth - 260}>
+                    <LeftBox>
+                        <TreeBox>
                             <NavTree />
-                        </NavTreeContainer.Provider>
-                    </TreeBox>
-                </LeftBox>
-                <RightBox>
-                    <ContentBox>
-                        <ConfigProvider locale={zhCN}>{RouterConfig()}</ConfigProvider>
-                    </ContentBox>
-                </RightBox>
-            </SplitterLayout>
+                        </TreeBox>
+                    </LeftBox>
+                    <RightBox>
+                        <ContentBox>
+                            <ConfigProvider locale={zhCN}>
+                                <RouterConfig />
+                            </ConfigProvider>
+                        </ContentBox>
+                    </RightBox>
+                </SplitterLayout>
+            </NavTreeContainer.Provider>
         </Router>
     );
 };

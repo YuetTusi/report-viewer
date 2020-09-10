@@ -1,29 +1,39 @@
 ;var treeData=[
     {
-        "name": "测试1",
-        "icon":"assert/images/tree/1_close.png",
-        "children": [
-            {
-                "name": "主页",
-                "path": "/",
-            },
-            {
-                "name": "page1",
-				"path": "/page1"
-            }
-        ]
-    },{
-        "name": "测试2",
+        "name": "测试案件",
         "icon":"assert/images/tree/7.png",
         "children": [
             {
-                "name": "page2",
-				"path": "/page2"
-            },
-            {
-                "name": "page3",
-				"path": "/page3"
+                "name":"iPhone",
+                "path":"/iPhone/0001",
+                "type":"display",
+                "children":[
+                    {
+                        "name":"微信",
+                        "path":"/iphone-wechat/0002",
+                        "type":"chat"
+                    },{
+                        "name":"照片",
+                        "path":"/iphone-photo/0003",
+                        "type":"table"
+                    }
+                ]
+            },{
+                "name":"三星",
+                "path":"/samsung/0004",
+                "type":"display",
+                "children":[
+                    {
+                        "name":"微信",
+                        "path":"/samsung-wechat/0005",
+                        "type":"chat"
+                    },{
+                        "name":"照片",
+                        "path":"/samsung-photo/0006",
+                        "type":"table"
+                    }
+                ]
             }
         ]
-	}
+    }
 ]

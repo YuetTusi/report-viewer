@@ -14,7 +14,7 @@ const NavTree: FC<Prop> = (props) => {
     const { data } = NavTreeContainer.useContainer();
 
     useEffect(() => {
-        $.fn.zTree.init(
+        var tree = $.fn.zTree.init(
             $('#navTree'),
             {
                 callback: {
@@ -25,6 +25,7 @@ const NavTree: FC<Prop> = (props) => {
             },
             data
         );
+        tree.expandAll(true);
     }, [data]);
 
     return <ul id="navTree" className="ztree"></ul>;

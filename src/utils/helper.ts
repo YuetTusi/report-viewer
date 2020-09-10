@@ -2,9 +2,44 @@
 let _keyValue = 0;
 
 const helper = {
-    getKey(initalValue: number = 0) {
-        _keyValue = initalValue;
-        return `k_${_keyValue++}`;
+
+    /**
+     * @description 是否是null或undefined
+     * @param val 任意值
+     */
+    isNullOrUndefined(val: any): boolean {
+        if (Object.prototype.toString.call(val) === '[object Undefined]' ||
+            Object.prototype.toString.call(val) === '[object Null]') {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    /**
+     * @description 是否是null或undefined或空串
+     * @param val 任意值
+     */
+    isNullOrUndefinedOrEmptyString(val: any): boolean {
+        if (Object.prototype.toString.call(val) === '[object Undefined]' ||
+            Object.prototype.toString.call(val) === '[object Null]' ||
+            val == '') {
+            return true;
+        } else {
+            return false;
+        }
+    },
+    /**
+     * @description 是否是null或undefined或空串
+     * @param val 任意值
+     */
+    isNullOrUndefinedOrEmptyArray(val: any): boolean {
+        if (Object.prototype.toString.call(val) === '[object Undefined]' ||
+            Object.prototype.toString.call(val) === '[object Null]' ||
+            val.length === 0) {
+            return true;
+        } else {
+            return false;
+        }
     },
     /**
      * 
