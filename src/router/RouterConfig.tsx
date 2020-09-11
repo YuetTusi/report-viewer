@@ -4,7 +4,7 @@ import LazyLoading from '@src/components/LazyLoading';
 import NavTreeContainer from '@src/containers/NavTree';
 import { TreeNode } from '@src/components/NavTree';
 import { helper } from '@src/utils/helper';
-import { ViewType } from '@src/router';
+import { ViewType } from '@src/types/View';
 
 let acc = 0; //计数
 
@@ -13,8 +13,8 @@ let acc = 0; //计数
  * @param pathWithParam 原带参数路径
  */
 function subPath(pathWithParam: string) {
-    const pos = pathWithParam.lastIndexOf('/');
-    return pathWithParam.substring(0, pos);
+	const pos = pathWithParam.lastIndexOf('/');
+	return pathWithParam.substring(0, pos);
 }
 
 /**
@@ -22,82 +22,82 @@ function subPath(pathWithParam: string) {
  * @param {TreeNode[]} nodes 树结点集合
  */
 function recurrenceRoute(nodes: TreeNode[]) {
-    let routes: JSX.Element[] = [];
+	let routes: JSX.Element[] = [];
 
-    if (helper.isNullOrUndefinedOrEmptyArray(nodes)) {
-        return routes;
-    }
+	if (helper.isNullOrUndefinedOrEmptyArray(nodes)) {
+		return routes;
+	}
 
-    for (let i = 0, len = nodes.length; i < len; i++) {
-        const { path, type, children } = nodes[i];
-        if (path) {
-            switch (type) {
-                case ViewType.Display:
-                    routes.push(
-                        <Route
-                            path={`${subPath(path)}/:file`}
-                            render={() => {
-                                const NextView = lazy(() => import('@src/view/Display'));
-                                return (
-                                    <Suspense fallback={<LazyLoading />}>
-                                        <NextView />
-                                    </Suspense>
-                                );
-                            }}
-                            key={`N_${acc++}`}
-                        />
-                    );
-                    break;
-                case ViewType.Chat:
-                    routes.push(
-                        <Route
-                            path={`${subPath(path)}/:file`}
-                            render={() => {
-                                const NextView = lazy(() => import('@src/view/Chat'));
-                                return (
-                                    <Suspense fallback={<LazyLoading />}>
-                                        <NextView />
-                                    </Suspense>
-                                );
-                            }}
-                            key={`N_${acc++}`}
-                        />
-                    );
-                    break;
-                case ViewType.Table:
-                    routes.push(
-                        <Route
-                            path={`${subPath(path)}/:file`}
-                            render={() => {
-                                const NextView = lazy(() => import('@src/view/DataTable'));
-                                return (
-                                    <Suspense fallback={<LazyLoading />}>
-                                        <NextView />
-                                    </Suspense>
-                                );
-                            }}
-                            key={`N_${acc++}`}
-                        />
-                    );
-                    break;
-            }
-        }
-        if (children && children.length > 0) {
-            routes = routes.concat(recurrenceRoute(children));
-        }
-    }
+	for (let i = 0, len = nodes.length; i < len; i++) {
+		const { path, type, children } = nodes[i];
+		if (path) {
+			switch (type) {
+				case ViewType.Display:
+					routes.push(
+						<Route
+							path={`${subPath(path)}/:file`}
+							render={() => {
+								const NextView = lazy(() => import('@src/view/Display'));
+								return (
+									<Suspense fallback={<LazyLoading />}>
+										<NextView />
+									</Suspense>
+								);
+							}}
+							key={`N_${acc++}`}
+						/>
+					);
+					break;
+				case ViewType.Chat:
+					routes.push(
+						<Route
+							path={`${subPath(path)}/:file`}
+							render={() => {
+								const NextView = lazy(() => import('@src/view/Chat'));
+								return (
+									<Suspense fallback={<LazyLoading />}>
+										<NextView />
+									</Suspense>
+								);
+							}}
+							key={`N_${acc++}`}
+						/>
+					);
+					break;
+				case ViewType.Table:
+					routes.push(
+						<Route
+							path={`${subPath(path)}/:file`}
+							render={() => {
+								const NextView = lazy(() => import('@src/view/DataTable'));
+								return (
+									<Suspense fallback={<LazyLoading />}>
+										<NextView />
+									</Suspense>
+								);
+							}}
+							key={`N_${acc++}`}
+						/>
+					);
+					break;
+			}
+		}
+		if (children && children.length > 0) {
+			routes = routes.concat(recurrenceRoute(children));
+		}
+	}
 
-    return routes;
+	return routes;
 }
 
 /**
  * 路由
  */
 function RouterConfig() {
-    const { data } = NavTreeContainer.useContainer();
-    const temp = recurrenceRoute(data!);
+	const { data } = NavTreeContainer.useContainer();
+	const temp = recurrenceRoute(data!);
 
-    return <>{temp}</>;
+	return <>{temp}</>;
 }
 
 export { RouterConfig };
