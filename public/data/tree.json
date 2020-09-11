@@ -1,41 +1,47 @@
 ;var treeData=[
     {
         "name": "测试案件",
-        "icon":"assert/jquery/css/zTreeStyle/img/diy/7.png",
+        "icon":"public/images/tree/case.png",
         "children": [
             {
                 "name":"iPhoneXs",
                 "path":"/iphone/0001",
                 "type":"display",
+                "icon":"public/images/tree/device.png",
                 "children":[
                     {
                         "name":"微信",
                         "path":"/iphone-wechat/0002",
-                        "type":"chat"
+                        "type":"chat",
+                        "icon":"public/images/tree/wechat.png"
                     },{
                         "name":"照片",
                         "path":"/iphone-photo/0003",
-                        "type":"table"
+                        "type":"table",
+                        "icon":"public/images/tree/photo.png"
                     }
                 ]
             },{
                 "name":"三星GalaxyA90",
                 "path":"/samsung/0004",
                 "type":"display",
+                "icon":"public/images/tree/device.png",
                 "children":[
                     {
                         "name":"微信",
                         "path":"/samsung-wechat/0005",
-                        "type":"chat"
+                        "type":"chat",
+                        "icon":"public/images/tree/wechat.png"
                     },{
                         "name":"照片",
                         "path":"/samsung-photo/0006",
-                        "type":"table"
+                        "type":"table",
+                        "icon":"public/images/tree/photo.png"
                     },{
                         "name":"帐户",
                         "path":"/samsung-account/0007",
                         "type":"table",
-                        "icon":"assert/jquery/css/zTreeStyle/img/diy/5.png"
+                        "icon":"public/images/tree/account.png"
                     }
                 ]
             }
