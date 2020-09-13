@@ -5,11 +5,13 @@ import { helper } from '@src/utils/helper';
 import { useParams } from 'react-router-dom';
 import { useMount } from '@src/hooks';
 import LoadingContainer from '@src/containers/Loading';
+import VideoModal from '@src/components/VideoModal';
 
 interface Prop {}
 
 const DataTable: FC<Prop> = (props) => {
 	const [data, setData] = useState<any>({});
+	const [visible, setVisible] = useState<boolean>(false);
 
 	const { file } = useParams<{ file: string }>();
 
@@ -34,6 +36,21 @@ const DataTable: FC<Prop> = (props) => {
 			<div>
 				<label>{data.title}</label>
 			</div>
+			<div>
+				<button
+					type="button"
+					onClick={() => {
+						setVisible((prev) => !prev);
+					}}
+				>
+					ShowVideoModel
+				</button>
+			</div>
+			<VideoModal
+				visible={visible}
+				src={'public/video/1.mp4'}
+				closeHandle={() => setVisible(false)}
+			/>
 		</RootPanel>
 	);
 };
