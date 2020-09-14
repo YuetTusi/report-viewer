@@ -22,17 +22,20 @@ interface Prop {
  * 视频播放弹框
  */
 const VideoModal: FC<Prop> = (props) => {
-	const videoRef = useRef<any>();
-
-	console.log('render...');
+	const videoRef = useRef<HTMLVideoElement | null>(null);
 
 	const cancelHandle = (event: MouseEvent<HTMLElement>) => {
-		videoRef.current.pause();
+		videoRef.current!.pause();
 		props.closeHandle!();
 	};
 
 	const exportHandle = (event: MouseEvent<HTMLElement>) => {
 		window.open(props.src);
+	};
+
+	const videoCanPlay = (event: SyntheticEvent<HTMLVideoElement>) => {
+		console.log(event.currentTarget.videoHeight);
+		console.log(event.currentTarget.videoWidth);
 	};
 
 	return (
@@ -54,6 +57,7 @@ const VideoModal: FC<Prop> = (props) => {
 				<video
 					src={props.src}
 					ref={videoRef}
+					onCanPlay={videoCanPlay}
 					controls={true}
 					style={{ maxWidth: '800px', maxHeight: '550px' }}></video>
 			</VideoBox>

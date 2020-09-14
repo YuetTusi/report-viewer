@@ -16,7 +16,27 @@ enum ViewType {
     Chat = 'chat'
 }
 
-
+/**
+ * 列类型
+ */
+enum ColumnType {
+    /**
+     * 文本
+     */
+    Text = 'text',
+    /**
+     * 视频
+     */
+    Video = 'video',
+    /**
+     * 音频
+     */
+    Audio = 'audio',
+    /**
+     * 照片
+     */
+    Photo = 'photo'
+}
 
 /**
  * 页面数据
@@ -32,4 +52,4 @@ interface ViewData {
     [prop: string]: any
 }
 
-export { ViewData, ViewType };
+export { ViewData, ViewType, ColumnType };
