@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import message from 'antd/lib/message';
 import { PanelBox } from '@src/components/styled/BoxStyle';
 import RootPanel from '@src/components/RootPanel';
+import AudioModal from '@src/components/AudioModal';
 import VideoModal from '@src/components/VideoModal';
 import PhotoModal from '@src/components/PhotoModal';
 import DisplayTable from '@src/components/DisplayTable';
@@ -65,6 +66,13 @@ const DataTable: FC<Prop> = (props) => {
 	}, []);
 
 	/**
+	 * 关闭音频框
+	 */
+	const closeAudioModalHandle = useCallback(() => {
+		setAudioModalVisible(false);
+	}, [audioModalVisible]);
+
+	/**
 	 * 关闭视频框
 	 */
 	const closeVideoModalHandle = useCallback(() => {
@@ -95,6 +103,11 @@ const DataTable: FC<Prop> = (props) => {
 					</PartContent>
 				</PartBox>
 			</PanelBox>
+			<AudioModal
+				visible={audioModalVisible}
+				src={rowVal.current}
+				closeHandle={closeAudioModalHandle}
+			/>
 			<VideoModal
 				visible={videoModalVisible}
 				src={rowVal.current}

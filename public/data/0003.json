@@ -3,15 +3,16 @@
     "columnData":[
         { "header": 'id', "type": "text" },
         { "header": '视频', "type": "video" },
-        {"header":'照片', "type":"photo"}
+        {"header":'照片', "type":"photo"},
+        {"header":'音频', "type":"audio"}
     ],
     "tableData":[
-        [{ "value": '1' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"}],
-        [{ "value": '2' }, { "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },{"value":"public/images/photo/1f.jpg"}],
-        [{ "value": '3' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"}],
-        [{ "value": '4' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"}],
-        [{ "value": '5' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"}],
-        [{ "value": '6' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"}],
-        [{ "value": '7' }, { "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },{"value":"public/images/photo/1f.jpg"}]
+        [{ "value": '1' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"},{"value":"public/audio/sdl.mp3"}],
+        [{ "value": '2' }, { "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },{"value":"public/images/photo/1f.jpg"},{"value":"public/audio/sdl.mp3"}],
+        [{ "value": '3' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"},{"value":"public/audio/sdl.mp3"}],
+        [{ "value": '4' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"},{"value":"public/audio/sdl.mp3"}],
+        [{ "value": '5' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"},{"value":"public/audio/sdl.mp3"}],
+        [{ "value": '6' }, { "value": "public/video/1.mp4" },{"value":"public/images/photo/1f.jpg"},{"value":"public/audio/sdl.mp3"}],
+        [{ "value": '7' }, { "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },{"value":"public/images/photo/1f.jpg"},{"value":"public/audio/sdl.mp3"}]
     ]
 }

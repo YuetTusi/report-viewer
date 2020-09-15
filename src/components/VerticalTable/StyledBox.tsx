@@ -21,7 +21,7 @@ const RowBox = styled.tr`
 const CellBox = styled.td`
 	border-right: 1px solid #e8e8e8;
 	border-bottom: 1px solid #e8e8e8;
-	padding: 5px 10px;
+	padding: 10px 10px;
 
 	:first-child {
 		font-weight: bold;

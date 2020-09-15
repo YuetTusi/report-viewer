@@ -2,11 +2,11 @@ import React, { FC, memo, MouseEvent, SyntheticEvent, useRef } from 'react';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
-import { PhotoBox } from './ModalStyled';
+import { AudioBox } from './ModalStyled';
 
 interface Prop {
 	/**
-	 * 照片文件路径
+	 * 音频文件路径
 	 */
 	src: string;
 	/**
@@ -20,10 +20,13 @@ interface Prop {
 }
 
 /**
- * 视频播放弹框
+ * 音频播放弹框
  */
-const PhotoModal: FC<Prop> = (props) => {
+const AudioModal: FC<Prop> = (props) => {
+	const fileRef = useRef<HTMLAudioElement | null>(null);
+
 	const cancelHandle = (event: MouseEvent<HTMLElement>) => {
+		fileRef.current!.pause();
 		props.closeHandle!();
 	};
 
@@ -31,8 +34,10 @@ const PhotoModal: FC<Prop> = (props) => {
 		window.open(props.src);
 	};
 
-	const loadError = (event: SyntheticEvent<HTMLImageElement>) => {
-		message.error('照片加载失败');
+	const videoCanPlay = (event: SyntheticEvent<HTMLAudioElement>) => {};
+
+	const loadError = (event: SyntheticEvent<HTMLAudioElement>) => {
+		message.error('音频加载失败');
 	};
 
 	return (
@@ -47,25 +52,26 @@ const PhotoModal: FC<Prop> = (props) => {
 					关闭
 				</Button>
 			]}
-			width={850}
+			width={600}
 			maskClosable={false}
-			title="照片">
-			<PhotoBox>
-				<img
+			title="音频">
+			<AudioBox>
+				<audio
 					src={props.src}
+					ref={fileRef}
+					onCanPlay={videoCanPlay}
 					onError={loadError}
-					alt="照片"
-					style={{ maxWidth: '800px', maxHeight: '550px' }}
+					controls={true}
 				/>
-			</PhotoBox>
+			</AudioBox>
 		</Modal>
 	);
 };
 
-PhotoModal.defaultProps = {
+AudioModal.defaultProps = {
 	visible: true,
 	src: 'public/',
 	closeHandle: () => {}
 };
 
-export default memo(PhotoModal);
+export default memo(AudioModal);

@@ -12,6 +12,7 @@ import NavTreeContainer from '@src/containers/NavTree';
 import LoadingContainer from '@src/containers/Loading';
 import '@root/styles/splitter-layout.less';
 import 'antd/dist/antd.less';
+import '@root/styles/default.less';
 
 interface Prop {}
 

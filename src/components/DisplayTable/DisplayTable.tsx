@@ -18,6 +18,7 @@ const DisplayTable: FC<Prop> = (props) => {
 				rowKey={(record) => record._id}
 				size="small"
 				bordered={true}
+				rowClassName={() => 'az-report-row'}
 				pagination={{
 					defaultPageSize: 10
 				}}

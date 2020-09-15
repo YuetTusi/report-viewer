@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const PhotoBox = styled.div`
+const AudioBox = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -8,4 +8,4 @@ const PhotoBox = styled.div`
 	height: auto;
 `;
 
-export { PhotoBox };
+export { AudioBox };
