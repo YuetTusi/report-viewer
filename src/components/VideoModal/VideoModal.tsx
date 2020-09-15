@@ -1,6 +1,7 @@
 import React, { FC, memo, MouseEvent, SyntheticEvent, useRef } from 'react';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
+import message from 'antd/lib/message';
 import { VideoBox } from './ModalStyled';
 
 interface Prop {
@@ -38,6 +39,10 @@ const VideoModal: FC<Prop> = (props) => {
 		console.log(event.currentTarget.videoWidth);
 	};
 
+	const loadError = (event: SyntheticEvent<HTMLVideoElement>) => {
+		message.error('视频加载失败');
+	};
+
 	return (
 		<Modal
 			visible={props.visible}
@@ -50,7 +55,7 @@ const VideoModal: FC<Prop> = (props) => {
 					关闭
 				</Button>
 			]}
-			width={820}
+			width={850}
 			maskClosable={false}
 			title="视频">
 			<VideoBox>
@@ -58,8 +63,10 @@ const VideoModal: FC<Prop> = (props) => {
 					src={props.src}
 					ref={videoRef}
 					onCanPlay={videoCanPlay}
+					onError={loadError}
 					controls={true}
-					style={{ maxWidth: '800px', maxHeight: '550px' }}></video>
+					style={{ maxWidth: '800px', maxHeight: '550px' }}
+				/>
 			</VideoBox>
 		</Modal>
 	);
