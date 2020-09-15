@@ -13,7 +13,11 @@ enum ViewType {
     /**
      * 聊天类
      */
-    Chat = 'chat'
+    Chat = 'chat',
+    /**
+     * 列表类（纵表）
+     */
+    List = 'list'
 }
 
 /**

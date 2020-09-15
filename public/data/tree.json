@@ -1,6 +1,8 @@
 ;var treeData=[
     {
         "name": "测试案件",
+        "path":"/case/0000",
+        "type":"list",
         "icon":"public/images/tree/case.png",
         "children": [
             {

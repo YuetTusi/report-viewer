@@ -32,6 +32,22 @@ function recurrenceRoute(nodes: TreeNode[]) {
 		const { path, type, children } = nodes[i];
 		if (path) {
 			switch (type) {
+				case ViewType.List:
+					routes.push(
+						<Route
+							path={`${subPath(path)}/:file`}
+							render={() => {
+								const NextView = lazy(() => import('@src/view/DataList'));
+								return (
+									<Suspense fallback={<LazyLoading />}>
+										<NextView />
+									</Suspense>
+								);
+							}}
+							key={`N_${acc++}`}
+						/>
+					);
+					break;
 				case ViewType.Display:
 					routes.push(
 						<Route
