@@ -39,7 +39,11 @@ enum ColumnType {
     /**
      * 照片
      */
-    Photo = 'photo'
+    Photo = 'photo',
+    /**
+     * 预览
+     */
+    Preview = 'preview'
 }
 
 /**

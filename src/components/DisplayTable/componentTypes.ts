@@ -15,7 +15,13 @@ interface Prop {
      * @param val 值
      * @param type 列类型
      */
-    actionHandle: (val: any, type: ColumnType) => void
+    actionHandle: (val: any, type: ColumnType) => void,
+    /**
+     * 横向滚动外界宽度
+     */
+    scroll?: {
+        x: string | number
+    }
 }
 
 export { Prop };

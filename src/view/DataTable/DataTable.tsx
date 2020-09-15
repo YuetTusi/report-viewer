@@ -55,6 +55,7 @@ const DataTable: FC<Prop> = (props) => {
 				setVideoModalVisible(true);
 				break;
 			case ColumnType.Photo:
+			case ColumnType.Preview:
 				setPhotoModalVisible(true);
 				break;
 			case ColumnType.Audio:

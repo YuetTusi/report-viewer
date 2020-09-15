@@ -59,6 +59,24 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						align: 'center',
 						width: 60
 					};
+				case ColumnType.Preview:
+					return {
+						title: header,
+						render: (url: string, record: DisplayTableColumn) => (
+							<img
+								onClick={() => {
+									props.actionHandle(url, type);
+								}}
+								src={url}
+								alt={url}
+								style={{ cursor: 'pointer', width: '50px', height: '50px' }}
+							/>
+						),
+						dataIndex: `col_${i}`,
+						key: `col_${i}`,
+						align: 'center',
+						width: 80
+					};
 				default:
 					return {
 						title: header,
