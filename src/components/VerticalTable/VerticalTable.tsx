@@ -1,5 +1,6 @@
-import { helper } from '@src/utils/helper';
 import React, { FC } from 'react';
+import Empty from 'antd/lib/empty';
+import { helper } from '@src/utils/helper';
 import { Prop } from './componentTypes';
 import { CellBox, RowBox, TableBox } from './StyledBox';
 
@@ -17,7 +18,17 @@ const renderRow = (rows: string[], index: number) => {
  */
 const renderTable = (data: Array<string[]>) => {
 	if (helper.isNullOrUndefinedOrEmptyArray(data)) {
-		return <table></table>;
+		return (
+			<TableBox>
+				<tbody>
+					<RowBox>
+						<CellBox>
+							<Empty />
+						</CellBox>
+					</RowBox>
+				</tbody>
+			</TableBox>
+		);
 	} else {
 		const rows = data.map((item, i) => {
 			return renderRow(item, i);

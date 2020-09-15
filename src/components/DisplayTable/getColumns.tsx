@@ -37,7 +37,9 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 							</Button>
 						),
 						dataIndex: `col_${i}`,
-						key: `col_${i}`
+						key: `col_${i}`,
+						align: 'center',
+						width: 60
 					};
 				case ColumnType.Photo:
 					return {
@@ -53,7 +55,9 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 							</Button>
 						),
 						dataIndex: `col_${i}`,
-						key: `col_${i}`
+						key: `col_${i}`,
+						align: 'center',
+						width: 60
 					};
 				default:
 					return {
