@@ -4,11 +4,13 @@ import message from 'antd/lib/message';
 import { PanelBox } from '@src/components/styled/BoxStyle';
 import RootPanel from '@src/components/RootPanel';
 import VideoModal from '@src/components/VideoModal';
+import PhotoModal from '@src/components/PhotoModal';
 import DisplayTable from '@src/components/DisplayTable';
 import LoadingContainer from '@src/containers/Loading';
 import { helper } from '@src/utils/helper';
 import { useMount } from '@src/hooks';
 import { ColumnType } from '@src/types/View';
+import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
 
 interface Prop {}
 
@@ -17,9 +19,11 @@ interface Prop {}
  */
 const DataTable: FC<Prop> = (props) => {
 	const { file } = useParams<{ file: string }>();
-	const rowVal = useRef<any>(null);
+	const rowVal = useRef<any>(null); //当前用户击中的值
 	const [data, setData] = useState<Record<string, any>>({}); //页面数据
-	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false);
+	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
+	const [audioModalVisible, setAudioModalVisible] = useState<boolean>(false); //音频框显示
+	const [photoModalVisible, setPhotoModalVisible] = useState<boolean>(false); //照片框显示
 
 	const { loading, setLoading } = LoadingContainer.useContainer();
 
@@ -49,6 +53,12 @@ const DataTable: FC<Prop> = (props) => {
 			case ColumnType.Video:
 				setVideoModalVisible(true);
 				break;
+			case ColumnType.Photo:
+				setPhotoModalVisible(true);
+				break;
+			case ColumnType.Audio:
+				setAudioModalVisible(true);
+				break;
 			default:
 				break;
 		}
@@ -61,22 +71,39 @@ const DataTable: FC<Prop> = (props) => {
 		setVideoModalVisible(false);
 	}, [videoModalVisible]);
 
+	/**
+	 * 关闭照片框
+	 */
+	const closePhotoModalHandle = useCallback(() => {
+		setPhotoModalVisible(false);
+	}, [photoModalVisible]);
+
 	return (
 		<RootPanel loading={loading}>
 			<PanelBox>
-				<h1>{data.title}</h1>
+				<MainTitle>{data.title ?? ''}</MainTitle>
 			</PanelBox>
 			<PanelBox>
-				<DisplayTable
-					columns={data.columnData ?? []}
-					data={data.tableData ?? []}
-					actionHandle={actionHandle}
-				/>
+				<PartBox>
+					<PartCaption>标题</PartCaption>
+					<PartContent>
+						<DisplayTable
+							columns={data.columnData ?? []}
+							data={data.tableData ?? []}
+							actionHandle={actionHandle}
+						/>
+					</PartContent>
+				</PartBox>
 			</PanelBox>
 			<VideoModal
 				visible={videoModalVisible}
 				src={rowVal.current}
 				closeHandle={closeVideoModalHandle}
+			/>
+			<PhotoModal
+				visible={photoModalVisible}
+				src={rowVal.current}
+				closeHandle={closePhotoModalHandle}
 			/>
 		</RootPanel>
 	);

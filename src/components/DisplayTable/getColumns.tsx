@@ -49,7 +49,7 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 								onClick={() => {
 									props.actionHandle(val, type);
 								}}>
-								查看
+								<Icon type="search" />
 							</Button>
 						),
 						dataIndex: `col_${i}`,

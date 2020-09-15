@@ -40,7 +40,7 @@ const PanelBox = styled.div`
 	background-color: #fff;
 	border-radius: 4px;
 	border: 1px solid #e5e7e8;
-	box-shadow: 1px 1px 1px #e5e7e8;
+	box-shadow: 1px 1px 1px #dadada;
 `;
 
 export { TreeBox, ContentBox, LeftBox, RightBox, PanelBox };
