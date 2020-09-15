@@ -1,3 +1,10 @@
 ;var data={
-    "title":"帐户页数据测试"
+    "title":"0007页数据测试",
+    "columnData":[
+        { "header": 'id', "type": "text" },
+        { "header": '视频', "type": "video" }
+    ],
+    "tableData":[
+        [{ "value": '2' }, { "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" }]
+    ]
 }

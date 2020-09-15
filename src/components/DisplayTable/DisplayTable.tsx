@@ -3,6 +3,7 @@ import Table from 'antd/lib/table';
 import { getColumns } from './getColumns';
 import { getDataSource } from './getDataSource';
 import { Prop } from './componentTypes';
+import { DisplayTableCell } from './types';
 
 /**
  * 纯展示表格
@@ -11,7 +12,7 @@ import { Prop } from './componentTypes';
 const DisplayTable: FC<Prop> = (props) => {
 	return (
 		<div>
-			<Table<Record<string, any>>
+			<Table<DisplayTableCell>
 				columns={getColumns(props)}
 				dataSource={getDataSource(props.data)}
 				rowKey={(record) => record._id}

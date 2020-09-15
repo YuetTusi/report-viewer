@@ -1,10 +1,12 @@
-function getDataSource(data: Array<string[]>) {
+import { DisplayTableCell } from './types';
+
+function getDataSource(data: Array<DisplayTableCell[]>) {
 	let results: any[] = [];
 
 	for (let i = 0; i < data.length; i++) {
 		results.push(
-			data[i].reduce((prev: any, current: any, index) => {
-				prev[`col_${index}`] = current;
+			data[i].reduce((prev: any, current: DisplayTableCell, index) => {
+				prev[`col_${index}`] = current.value;
 				return prev;
 			}, {})
 		);

@@ -1,5 +1,5 @@
 import { ColumnType } from "@src/types/View";
-import { DisplayTableColumn } from "./types";
+import { DisplayTableCell, DisplayTableColumn } from "./types";
 
 interface Prop {
     /**
@@ -9,7 +9,7 @@ interface Prop {
     /**
      * 表格数据
      */
-    data: Array<string[]>,
+    data: Array<DisplayTableCell[]>,
     /**
      * 列动作回调
      * @param val 值

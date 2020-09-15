@@ -14,5 +14,18 @@ interface DisplayTableColumn {
     type: ColumnType
 }
 
+/**
+ * 单元格
+ */
+interface DisplayTableCell {
+    /**
+     * 值
+     */
+    value: string,
+    /**
+     * 其它属性
+     */
+    [extra: string]: any
+}
 
-export { DisplayTableColumn };
+export { DisplayTableColumn, DisplayTableCell };
