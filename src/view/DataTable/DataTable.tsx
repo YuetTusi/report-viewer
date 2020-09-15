@@ -13,8 +13,8 @@ import { ColumnType } from '@src/types/View';
 interface Prop {}
 
 const columnData: DisplayTableColumn[] = [
-	{ headerText: 'id', type: ColumnType.Text },
-	{ headerText: '视频', type: ColumnType.Video }
+	{ header: 'id', type: ColumnType.Text },
+	{ header: '视频', type: ColumnType.Video }
 ];
 
 const tableData: Array<string[]> = [

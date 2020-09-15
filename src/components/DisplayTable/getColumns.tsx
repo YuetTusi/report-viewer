@@ -14,18 +14,18 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 	if (props.columns.length === 0) {
 		return [];
 	} else {
-		return props.columns.map(({ headerText, type }, i) => {
+		return props.columns.map(({ header, type }, i) => {
 			switch (type) {
 				case ColumnType.Text:
 					return {
-						title: headerText,
+						title: header,
 						dataIndex: `col_${i}`,
 						key: `col_${i}`
 					};
 				case ColumnType.Audio:
 				case ColumnType.Video:
 					return {
-						title: headerText,
+						title: header,
 						render: (val: any, record: DisplayTableColumn) => (
 							<Button
 								type="primary"
@@ -41,7 +41,7 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					};
 				case ColumnType.Photo:
 					return {
-						title: headerText,
+						title: header,
 						render: (val: any, record: DisplayTableColumn) => (
 							<Button
 								type="primary"
@@ -57,7 +57,7 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					};
 				default:
 					return {
-						title: headerText,
+						title: header,
 						dataIndex: `col_${i}`,
 						key: `col_${i}`
 					};

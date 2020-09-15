@@ -7,11 +7,12 @@ interface DisplayTableColumn {
     /**
      * 列头
      */
-    headerText: string,
+    header: string,
     /**
      * 类型
      */
     type: ColumnType
 }
+
 
 export { DisplayTableColumn };

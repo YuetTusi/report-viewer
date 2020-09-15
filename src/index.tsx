@@ -1,6 +1,7 @@
 import ReactDOM from 'react-dom';
-import React, { FC } from 'react';
+import React, { FC, useEffect, useState, useRef } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
+import throttle from 'lodash/throttle';
 import ConfigProvider from 'antd/lib/config-provider';
 import zhCN from 'antd/es/locale/zh_CN';
 import SplitterLayout from 'react-splitter-layout';
@@ -16,10 +17,28 @@ interface Prop {}
 
 const Index: FC<Prop> = (props) => {
 	const { clientWidth } = document.body;
+
+	const rightWidth = useRef<number>(document.body.clientWidth - 260);
+
+	const resizeHandle = throttle((event: any) => {
+		const [, $second] = document.querySelectorAll<HTMLDivElement>('.layout-pane');
+		$second.style.width = `${rightWidth.current}px`;
+	}, 400);
+
+	useEffect(() => {
+		window.addEventListener('resize', resizeHandle);
+		return () => {
+			window.removeEventListener('resize', resizeHandle);
+		};
+	}, []);
+
 	return (
 		<Router>
 			<NavTreeContainer.Provider>
-				<SplitterLayout primaryMinSize={260} secondaryInitialSize={clientWidth - 260}>
+				<SplitterLayout
+					primaryMinSize={260}
+					secondaryInitialSize={clientWidth - 260}
+					onSecondaryPaneSizeChange={(size: number) => (rightWidth.current = size)}>
 					<LeftBox>
 						<TreeBox>
 							<NavTree />
