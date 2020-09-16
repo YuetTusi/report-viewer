@@ -1,0 +1,4 @@
+
+interface Prop { }
+
+export { Prop }
