@@ -6,7 +6,7 @@ import { TreeNode } from '@src/components/NavTree';
  */
 function useNavTree() {
 
-    const [data, setData] = useJsonData<TreeNode[]>('public/data/tree.json', 'treeData');
+    const [data, setData] = useJsonData<TreeNode[]>('public/data/tree.json', 'data');
 
     return { data, setData };
 }

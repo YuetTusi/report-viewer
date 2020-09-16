@@ -1,4 +1,4 @@
-;var treeData=[
+;var data=[
     {
         "name": "测试案件",
         "path":"/case/0000",

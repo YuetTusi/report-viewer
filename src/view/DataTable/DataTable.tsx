@@ -20,7 +20,7 @@ interface Prop {}
  */
 const DataTable: FC<Prop> = (props) => {
 	const { file } = useParams<{ file: string }>();
-	const rowVal = useRef<any>(null); //当前用户击中的值
+	const actionVal = useRef<any>(null); //当前用户击中的值
 	const [data, setData] = useState<Record<string, any>>({}); //页面数据
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [audioModalVisible, setAudioModalVisible] = useState<boolean>(false); //音频框显示
@@ -49,7 +49,7 @@ const DataTable: FC<Prop> = (props) => {
 	 * @param type 列类型
 	 */
 	const actionHandle = useCallback((val: any, type: ColumnType) => {
-		rowVal.current = val;
+		actionVal.current = val;
 		switch (type) {
 			case ColumnType.Video:
 				setVideoModalVisible(true);
@@ -97,8 +97,8 @@ const DataTable: FC<Prop> = (props) => {
 					<PartCaption>标题</PartCaption>
 					<PartContent>
 						<DisplayTable
-							columns={data.columnData ?? []}
-							data={data.tableData ?? []}
+							columns={data.column ?? []}
+							data={data.table ?? []}
 							actionHandle={actionHandle}
 						/>
 					</PartContent>
@@ -106,17 +106,17 @@ const DataTable: FC<Prop> = (props) => {
 			</PanelBox>
 			<AudioModal
 				visible={audioModalVisible}
-				src={rowVal.current}
+				src={actionVal.current}
 				closeHandle={closeAudioModalHandle}
 			/>
 			<VideoModal
 				visible={videoModalVisible}
-				src={rowVal.current}
+				src={actionVal.current}
 				closeHandle={closeVideoModalHandle}
 			/>
 			<PhotoModal
 				visible={photoModalVisible}
-				src={rowVal.current}
+				src={actionVal.current}
 				closeHandle={closePhotoModalHandle}
 			/>
 		</RootPanel>
