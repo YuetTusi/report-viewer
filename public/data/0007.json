@@ -4,7 +4,7 @@
         { "header": 'id', "type": "text" },
         { "header": '视频', "type": "video" }
     ],
-    "table":[
+    "row":[
         [{ "value": '2' }, { "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" }]
     ]
 }

@@ -21,7 +21,7 @@ const DisplayTable: FC<Prop> = (props) => {
 				rowClassName={() => 'az-report-row'}
 				scroll={props.scroll}
 				pagination={{
-					defaultPageSize: 10
+					defaultPageSize: 15
 				}}
 			/>
 		</div>

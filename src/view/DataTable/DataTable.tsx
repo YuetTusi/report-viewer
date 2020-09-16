@@ -98,7 +98,7 @@ const DataTable: FC<Prop> = (props) => {
 					<PartContent>
 						<DisplayTable
 							columns={data.column ?? []}
-							data={data.table ?? []}
+							data={data.row ?? []}
 							actionHandle={actionHandle}
 						/>
 					</PartContent>
