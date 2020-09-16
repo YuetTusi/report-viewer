@@ -14,8 +14,14 @@ interface TreeNode {
     icon?: string,
     /**
      * 路由路径
+     * 格式：/[路由名称]/[JSON文件名]
+     * 举例：/wechat/04302532
      */
     path?: string,
+    /**
+     * 数据文件位置
+     */
+    dir?: string,
     /**
      * 页面类型
      */

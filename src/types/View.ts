@@ -60,4 +60,17 @@ interface ViewData {
     [prop: string]: any
 }
 
-export { ViewData, ViewType, ColumnType };
+/**
+ * 视图页基类型
+ */
+interface BaseView {
+    /**
+     * 数据文件路径
+     * 此属性会由树结点上的dir属性传入
+     * 后续版本可能由树数据中定义JSON文件路径
+     * 需由此目录拼接JSON文件名
+     */
+    dataFilePath?: string
+}
+
+export { ViewData, ViewType, ColumnType, BaseView };

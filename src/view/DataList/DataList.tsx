@@ -8,8 +8,9 @@ import { PanelBox } from '@src/components/styled/BoxStyle';
 import VerticalTable from '@src/components/VerticalTable';
 import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
 import { helper } from '@src/utils/helper';
+import { BaseView } from '@src/types/View';
 
-interface Prop {}
+interface Prop extends BaseView {}
 
 /**
  * 纵表类页面

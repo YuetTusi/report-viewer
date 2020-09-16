@@ -9,6 +9,7 @@
                 "name":"iPhoneXs",
                 "path":"/iphone/0001",
                 "type":"display",
+                "dir":"public/data/",
                 "icon":"public/images/tree/device.png",
                 "children":[
                     {

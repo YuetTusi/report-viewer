@@ -3,14 +3,17 @@ import { useParams } from 'react-router-dom';
 import message from 'antd/lib/message';
 import { helper } from '@src/utils/helper';
 import { useMount } from '@src/hooks';
-import { ViewData } from '@src/types/View';
+import { BaseView, ViewData } from '@src/types/View';
 
-interface Prop {}
+interface Prop extends BaseView {}
 
 const Display: FC<Prop> = (props) => {
 	const [data, setData] = useState<ViewData>();
 
 	const { file } = useParams<{ file: string }>();
+
+	// console.log(props.dataFilePath);
+	// console.log(file);
 
 	useMount(async () => {
 		try {

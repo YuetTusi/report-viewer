@@ -1,10 +1,10 @@
-import React, { lazy, Suspense } from 'react';
+import React, { FC, lazy, Suspense } from 'react';
 import { Route } from 'react-router-dom';
 import LazyLoading from '@src/components/LazyLoading';
 import NavTreeContainer from '@src/containers/NavTree';
 import { TreeNode } from '@src/components/NavTree';
 import { helper } from '@src/utils/helper';
-import { ViewType } from '@src/types/View';
+import { BaseView, ViewType } from '@src/types/View';
 
 let acc = 0; //计数
 
@@ -29,7 +29,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
 	}
 
 	for (let i = 0, len = nodes.length; i < len; i++) {
-		const { path, type, children } = nodes[i];
+		const { path, type, dir, children } = nodes[i];
 		if (path) {
 			switch (type) {
 				case ViewType.List:
@@ -37,42 +37,12 @@ function recurrenceRoute(nodes: TreeNode[]) {
 						<Route
 							path={`${subPath(path)}/:file`}
 							render={() => {
-								const NextView = lazy(() => import('@src/view/DataList'));
-								return (
-									<Suspense fallback={<LazyLoading />}>
-										<NextView />
-									</Suspense>
+								const NextView = lazy<FC<BaseView>>(
+									() => import('@src/view/DataList')
 								);
-							}}
-							key={`N_${acc++}`}
-						/>
-					);
-					break;
-				case ViewType.Display:
-					routes.push(
-						<Route
-							path={`${subPath(path)}/:file`}
-							render={() => {
-								const NextView = lazy(() => import('@src/view/Display'));
 								return (
 									<Suspense fallback={<LazyLoading />}>
-										<NextView />
-									</Suspense>
-								);
-							}}
-							key={`N_${acc++}`}
-						/>
-					);
-					break;
-				case ViewType.Chat:
-					routes.push(
-						<Route
-							path={`${subPath(path)}/:file`}
-							render={() => {
-								const NextView = lazy(() => import('@src/view/Chat'));
-								return (
-									<Suspense fallback={<LazyLoading />}>
-										<NextView />
+										<NextView dataFilePath={dir} />
 									</Suspense>
 								);
 							}}
@@ -85,10 +55,46 @@ function recurrenceRoute(nodes: TreeNode[]) {
 						<Route
 							path={`${subPath(path)}/:file`}
 							render={() => {
-								const NextView = lazy(() => import('@src/view/DataTable'));
+								const NextView = lazy<FC<BaseView>>(
+									() => import('@src/view/DataTable')
+								);
 								return (
 									<Suspense fallback={<LazyLoading />}>
-										<NextView />
+										<NextView dataFilePath={dir} />
+									</Suspense>
+								);
+							}}
+							key={`N_${acc++}`}
+						/>
+					);
+					break;
+				case ViewType.Display:
+					routes.push(
+						<Route
+							path={`${subPath(path)}/:file`}
+							render={() => {
+								const NextView = lazy<FC<BaseView>>(
+									() => import('@src/view/Display')
+								);
+								return (
+									<Suspense fallback={<LazyLoading />}>
+										<NextView dataFilePath={dir} />
+									</Suspense>
+								);
+							}}
+							key={`N_${acc++}`}
+						/>
+					);
+					break;
+				case ViewType.Chat:
+					routes.push(
+						<Route
+							path={`${subPath(path)}/:file`}
+							render={() => {
+								const NextView = lazy<FC<BaseView>>(() => import('@src/view/Chat'));
+								return (
+									<Suspense fallback={<LazyLoading />}>
+										<NextView dataFilePath={dir} />
 									</Suspense>
 								);
 							}}

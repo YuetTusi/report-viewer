@@ -10,10 +10,10 @@ import DisplayTable from '@src/components/DisplayTable';
 import LoadingContainer from '@src/containers/Loading';
 import { helper } from '@src/utils/helper';
 import { useMount } from '@src/hooks';
-import { ColumnType } from '@src/types/View';
+import { BaseView, ColumnType } from '@src/types/View';
 import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
 
-interface Prop {}
+interface Prop extends BaseView {}
 
 /**
  * 表格类页面

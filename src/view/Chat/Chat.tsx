@@ -7,8 +7,9 @@ import { helper } from '@src/utils/helper';
 import RootPanel from '@src/components/RootPanel';
 import { PanelBox } from '@src/components/styled/BoxStyle';
 import { MainTitle } from '@src/components/styled/StyleWidget';
+import { BaseView } from '@src/types/View';
 
-interface Prop {}
+interface Prop extends BaseView {}
 
 const Chat: FC<Prop> = (props) => {
 	const [data, setData] = useState<any>({});
