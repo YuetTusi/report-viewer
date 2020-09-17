@@ -100,6 +100,7 @@ const DataTable: FC<Prop> = (props) => {
 							columns={data.column ?? []}
 							data={data.row ?? []}
 							actionHandle={actionHandle}
+							scroll={{ x: 'max-content' }}
 						/>
 					</PartContent>
 				</PartBox>

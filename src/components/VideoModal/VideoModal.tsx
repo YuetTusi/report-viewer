@@ -48,10 +48,10 @@ const VideoModal: FC<Prop> = (props) => {
 			visible={props.visible}
 			onCancel={cancelHandle}
 			footer={[
-				<Button type="primary" onClick={exportHandle} key="B_0">
+				<Button type="primary" onClick={exportHandle} icon="download" key="B_0">
 					导出
 				</Button>,
-				<Button type="default" onClick={cancelHandle} key="B_1">
+				<Button type="default" onClick={cancelHandle} icon="close-circle" key="B_1">
 					关闭
 				</Button>
 			]}
