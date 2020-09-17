@@ -16,7 +16,7 @@ const FileBox = styled.div`
 	align-items: center;
 	color: #3d4c5a;
 	padding: 10px;
-	background-color: #01c0c8;
+	background-color: #efefef;
 	cursor: pointer;
 
 	.left-ico {
@@ -24,7 +24,7 @@ const FileBox = styled.div`
 		justify-content: center;
 		align-items: center;
 		font-size: 2rem;
-		background-color: #3d4c5a;
+		background-color: #01c0c8;
 		padding: 10px 8px;
 		border-radius: 5px;
 		color: #fff;
@@ -34,9 +34,7 @@ const FileBox = styled.div`
 		padding: 0 20px;
 
 		a {
-			&:hover {
-				color: #fff;
-			}
+			font-style: normal;
 		}
 	}
 `;

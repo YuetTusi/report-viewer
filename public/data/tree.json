@@ -6,7 +6,7 @@
         "icon":"public/images/tree/case.png",
         "children": [
             {
-                "name":"iPhoneXs",
+                "name":"iPhoneXs(100/<em>500</em>)",
                 "path":"/iphone/0001",
                 "type":"table",
                 "dir":"public/data/",

@@ -9,26 +9,29 @@ interface Prop {}
  * 树导航组件
  */
 const NavTree: FC<Prop> = (props) => {
-    const history = useHistory();
+	const history = useHistory();
 
-    const { data } = NavTreeContainer.useContainer();
+	const { data } = NavTreeContainer.useContainer();
 
-    useEffect(() => {
-        var tree = $.fn.zTree.init(
-            $('#navTree'),
-            {
-                callback: {
-                    onClick(event: MouseEvent, id: string, node: any) {
-                        history.replace(node.path);
-                    }
-                }
-            },
-            data
-        );
-        tree.expandAll(true);
-    }, [data]);
+	useEffect(() => {
+		var tree = $.fn.zTree.init(
+			$('#navTree'),
+			{
+				callback: {
+					onClick(event: MouseEvent, id: string, node: any) {
+						history.replace(node.path);
+					}
+				},
+				view: {
+					nameIsHTML: true
+				}
+			},
+			data
+		);
+		tree.expandAll(true);
+	}, [data]);
 
-    return <ul id="navTree" className="ztree"></ul>;
+	return <ul id="navTree" className="ztree"></ul>;
 };
 
 export default memo(NavTree);
