@@ -1,3 +1,106 @@
 ;var data={
-    "title":"微信页数据测试"
+    "title": "微信聊天Mock测试",
+    "caption":"聊天记录",
+	"records": [
+		{
+			"id": "1",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"聊天内容",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": true
+		},{
+			"id": "2",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/1f.jpg",
+            "content":"聊天内容",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},{
+			"id": "3",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"聊天内容",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": true,
+			"del": false
+		},{
+			"id": "4",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"聊天内容-回复",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},{
+			"id": "5",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"聊天内容",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},		{
+			"id": "6",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"聊天内容",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": true
+		},{
+			"id": "7",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/1f.jpg",
+            "content":"聊天内容",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},{
+			"id": "8",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"聊天内容",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": true,
+			"del": false
+		},{
+			"id": "9",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"聊天内容-回复",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},{
+			"id": "10",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"聊天内容",
+            "type":"text",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},{
+			"id": "11",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/default_avatar.jpg",
+            "content":"这是最后一条记录",
+            "type":"text",
+            "time":"2020-09-17 12:34:00",
+			"send": false,
+			"del": true
+		}
+	]
 }

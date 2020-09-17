@@ -42,7 +42,7 @@ const Chat: FC<Prop> = (props) => {
 				<PartBox>
 					<PartCaption>XXX聊天记录</PartCaption>
 					<PartContent>
-						<ChatList />
+						<ChatList data={data.records} />
 					</PartContent>
 				</PartBox>
 			</PanelBox>

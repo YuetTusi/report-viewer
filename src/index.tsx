@@ -19,11 +19,11 @@ interface Prop {}
 const Index: FC<Prop> = (props) => {
 	const { clientWidth } = document.body;
 
-	const rightWidth = useRef<number>(document.body.clientWidth - 260);
+	const rightWidth = useRef<number>(document.body.clientWidth - 300);
 
 	const resizeHandle = throttle((event: any) => {
 		const [, $second] = document.querySelectorAll<HTMLDivElement>('.layout-pane');
-		$second.style.width = `${document.body.clientWidth - 260}px`;
+		$second.style.width = `${document.body.clientWidth - 300}px`;
 	}, 400);
 
 	useEffect(() => {
@@ -37,8 +37,8 @@ const Index: FC<Prop> = (props) => {
 		<Router>
 			<NavTreeContainer.Provider>
 				<SplitterLayout
-					primaryMinSize={260}
-					secondaryInitialSize={clientWidth - 260}
+					primaryMinSize={300}
+					secondaryInitialSize={clientWidth - 300}
 					onSecondaryPaneSizeChange={(size: number) => (rightWidth.current = size)}>
 					<LeftBox>
 						<TreeBox>

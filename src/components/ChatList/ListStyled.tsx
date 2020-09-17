@@ -8,21 +8,25 @@ const ListRoot = styled.ul`
 const ListRow = styled.li`
 	list-style-type: none;
 	margin: 0;
-	padding: 10px 10px;
+	padding: 2px 10px;
 `;
 
 const Send = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-start;
+	align-items: center;
 
 	& .avatar {
 		display: block;
 		position: relative;
-		top: 28px;
 		width: 50px;
 		height: 50px;
 		border: 1px solid #efefef;
+	}
+
+	& .ant-tag {
+		margin-left: 10px;
 	}
 
 	& .text-box {
@@ -72,11 +76,11 @@ const Reply = styled.div`
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: flex-start;
+	align-items: center;
 
 	& .avatar {
 		display: block;
 		position: relative;
-		top: 28px;
 		width: 50px;
 		height: 50px;
 		border: 1px solid #efefef;
@@ -133,4 +137,12 @@ const Reply = styled.div`
 	}
 `;
 
-export { ListRoot, ListRow, Send, Reply };
+const PageBox = styled.div`
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 10px;
+	padding: 20px 10px;
+	border-top: 1px solid #efefef;
+`;
+
+export { ListRoot, ListRow, Send, Reply, PageBox };
