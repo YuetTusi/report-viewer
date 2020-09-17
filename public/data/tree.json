@@ -8,7 +8,7 @@
             {
                 "name":"iPhoneXs",
                 "path":"/iphone/0001",
-                "type":"display",
+                "type":"table",
                 "dir":"public/data/",
                 "icon":"public/images/tree/device.png",
                 "children":[
@@ -27,7 +27,7 @@
             },{
                 "name":"三星GalaxyA90",
                 "path":"/samsung/0004",
-                "type":"display",
+                "type":"table",
                 "icon":"public/images/tree/device.png",
                 "children":[
                     {

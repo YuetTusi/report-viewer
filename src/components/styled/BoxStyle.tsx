@@ -11,7 +11,7 @@ const TreeBox = styled.div`
  * 内容区div
  */
 const ContentBox = styled.div`
-	display: block;
+	display: relative;
 `;
 
 /**

@@ -1,5 +1,6 @@
 import React, { FC, lazy, Suspense } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
+import Default from '@src/view/Default';
 import LazyLoading from '@src/components/LazyLoading';
 import NavTreeContainer from '@src/containers/NavTree';
 import { TreeNode } from '@src/components/NavTree';
@@ -25,6 +26,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
 	let routes: JSX.Element[] = [];
 
 	if (helper.isNullOrUndefinedOrEmptyArray(nodes)) {
+		routes.push(<Route path="/default" component={Default} key={`N_${acc++}`} />);
 		return routes;
 	}
 
@@ -107,6 +109,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
 		if (children && children.length > 0) {
 			routes = routes.concat(recurrenceRoute(children));
 		}
+		// routes.push(<Redirect to="/default" />); //缺省路由
 	}
 
 	return routes;
@@ -119,7 +122,13 @@ function RouterConfig() {
 	const { data } = NavTreeContainer.useContainer();
 	const temp = recurrenceRoute(data!);
 
-	return <>{temp}</>;
+	return (
+		<Switch>
+			<Route path="/default" component={Default} />
+			{temp}
+			<Redirect to="/default" />
+		</Switch>
+	);
 }
 
 export { RouterConfig };

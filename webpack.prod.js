@@ -64,6 +64,30 @@ const config = {
 						}
 					}
 				]
+			},
+			{
+				test: /\.(png|jpg|jpeg|gif|ico)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							outputPath: '/images',
+							publicPath: './images'
+						}
+					}
+				]
+			},
+			{
+				test: /\.(woff|woff2|ttf|otf|eot|svg)$/,
+				use: [
+					{
+						loader: 'file-loader',
+						options: {
+							outputPath: '/fonts',
+							publicPath: './fonts'
+						}
+					}
+				]
 			}
 		]
 	},
