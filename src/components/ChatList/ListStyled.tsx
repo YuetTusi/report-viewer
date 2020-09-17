@@ -19,10 +19,10 @@ const Send = styled.div`
 	& .avatar {
 		display: block;
 		position: relative;
-		top: 20px;
+		top: 28px;
 		width: 50px;
 		height: 50px;
-		border: 1px solid silver;
+		border: 1px solid #efefef;
 	}
 
 	& .text-box {
@@ -33,11 +33,11 @@ const Send = styled.div`
 
 	& .talk {
 		position: relative;
-		max-width: 400px;
+		max-width: 500px;
 		height: auto;
 		border: 1px solid #d1d8dc;
 		padding: 5px;
-		color: #222;
+		color: #3d4c5a;
 		line-height: 2rem;
 		background-color: #fff;
 		:after {
@@ -70,16 +70,16 @@ const Send = styled.div`
 `;
 const Reply = styled.div`
 	display: flex;
-	flex-direction: row;
-	justify-content: flex-end;
+	flex-direction: row-reverse;
+	justify-content: flex-start;
 
 	& .avatar {
 		display: block;
 		position: relative;
-		top: 20px;
+		top: 28px;
 		width: 50px;
 		height: 50px;
-		border: 1px solid silver;
+		border: 1px solid #efefef;
 	}
 
 	& .text-box {
@@ -98,10 +98,10 @@ const Reply = styled.div`
 
 	& .talk {
 		position: relative;
-		max-width: 400px;
+		max-width: 500px;
 		border: 1px solid #d1d8dc;
 		padding: 5px;
-		color: #222;
+		color: #3d4c5a;
 		line-height: 2rem;
 		background-color: #94ee6a;
 		:after {

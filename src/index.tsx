@@ -23,7 +23,7 @@ const Index: FC<Prop> = (props) => {
 
 	const resizeHandle = throttle((event: any) => {
 		const [, $second] = document.querySelectorAll<HTMLDivElement>('.layout-pane');
-		$second.style.width = `${rightWidth.current}px`;
+		$second.style.width = `${document.body.clientWidth - 260}px`;
 	}, 400);
 
 	useEffect(() => {

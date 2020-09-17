@@ -6,7 +6,10 @@ import { Prop } from './componentTypes';
 import { DisplayTableCell } from './types';
 
 /**
- * 纯展示表格
+ * 表格组件
+ * 可由数据定制列（对应ColumnType枚举）
+ * text:文本列(默认),preview:图片预览列,
+ * video:视频列,audio:音频列,photo:照片列
  * @param props
  */
 const DisplayTable: FC<Prop> = (props) => {

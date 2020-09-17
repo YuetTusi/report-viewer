@@ -10,18 +10,21 @@ const ChatList: FC<Prop> = (props) => {
 		<ListRoot>
 			<ListRow>
 				<Send>
-					<img src="#" className="avatar" />
+					<img src="public/images/photo/default_avatar.jpg" className="avatar" />
 					<div className="text-box">
 						<div className="user-name">
 							妄念<em>(12345)</em>
 						</div>
-						<div className="talk">聊天内容</div>
+						<div className="talk">
+							聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容，聊天内容
+						</div>
 						<time>2010-01-01 10:00:23</time>
 					</div>
 				</Send>
 			</ListRow>
 			<ListRow>
 				<Reply>
+					<img src="public/images/photo/default_avatar.jpg" className="avatar" />
 					<div className="text-box">
 						<div className="user-name">
 							妄念<em>(12345)</em>
@@ -29,12 +32,11 @@ const ChatList: FC<Prop> = (props) => {
 						<div className="talk">聊天内容</div>
 						<time>2010-01-01 10:00:24</time>
 					</div>
-					<img src="#" className="avatar" />
 				</Reply>
 			</ListRow>
 			<ListRow>
 				<Send>
-					<img src="#" className="avatar" />
+					<img src="public/images/photo/default_avatar.jpg" className="avatar" />
 					<div className="text-box">
 						<div className="user-name">
 							妄念<em>(12345)</em>
@@ -46,7 +48,7 @@ const ChatList: FC<Prop> = (props) => {
 			</ListRow>
 			<ListRow>
 				<Send>
-					<img src="#" className="avatar" />
+					<img src="public/images/photo/default_avatar.jpg" className="avatar" />
 					<div className="text-box">
 						<div className="user-name">
 							妄念<em>(12345)</em>
