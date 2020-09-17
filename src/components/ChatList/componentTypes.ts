@@ -1,3 +1,30 @@
+enum ChatType {
+    /**
+     * 文本消息
+     */
+    Text = 'text',
+    /**
+     * 语音消息
+     */
+    Audio = 'audio',
+    /**
+     * 视频消息
+     */
+    Video = 'video',
+    /**
+     * 图片消息
+     */
+    Photo = 'photo',
+    /**
+     * 红包
+     */
+    Reward = 'reward',
+    /**
+     * 文件
+     */
+    File = 'file'
+}
+
 /**
  * 聊天记录
  */
@@ -19,6 +46,10 @@ interface ChatData {
      */
     content: string,
     /**
+     * 消息类型
+     */
+    type: ChatType,
+    /**
      * 时间
      */
     time: string,
@@ -39,7 +70,15 @@ interface Prop {
     /**
      * 聊天记录
      */
-    data: ChatData[]
+    data: ChatData[],
+    /**
+     * 打开照片handle
+     */
+    photoHandle: (src: string) => void,
+    /**
+     * 打开视频handle
+     */
+    videoHandle: (src: string) => void
 }
 
-export { Prop, ChatData };
+export { Prop, ChatData, ChatType };

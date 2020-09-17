@@ -1,58 +1,16 @@
 import React, { FC, useState } from 'react';
+import Button from 'antd/lib/button';
+import Icon from 'antd/lib/icon';
 import Empty from 'antd/lib/empty';
 import Pagination from 'antd/lib/pagination';
 import Tag from 'antd/lib/tag';
+import RedBag from './RedBag';
+import AttachFile from './AttachFile';
 import { ListRoot, ListRow, Reply, Send, PageBox } from './ListStyled';
-import { ChatData, Prop } from './componentTypes';
+import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
 
 const defaultPageSize = 10;
-
-/**
- * 渲染聊天记录
- * @param {ChatData[]} records 聊天数据
- */
-const renderList = (records: ChatData[], pageIndex: number, pageSize: number = defaultPageSize) => {
-	return records
-		.slice((pageIndex - 1) * pageSize, (pageIndex - 1) * pageSize + pageSize)
-		.map((item, i) => {
-			if (item.send) {
-				return (
-					<ListRow key={`chat_${i}`}>
-						<Reply>
-							<img src={item.avatar} className="avatar" />
-							<div className="text-box">
-								<div className="user-name">
-									<span>{item.nickname}</span>
-									<em>({item.id})</em>
-								</div>
-								<div className="talk">{item.content}</div>
-								<time>{item.time}</time>
-							</div>
-							{item.del ? <Tag color="red">已删除</Tag> : null}
-						</Reply>
-					</ListRow>
-				);
-			} else {
-				return (
-					<ListRow key={`chat_${i}`}>
-						<Send>
-							<img src={item.avatar} className="avatar" />
-							<div className="text-box">
-								<div className="user-name">
-									<span>{item.nickname}</span>
-									<em>({item.id})</em>
-								</div>
-								<div className="talk">{item.content}</div>
-								<time>{item.time}</time>
-							</div>
-							{item.del ? <Tag color="red">已删除</Tag> : null}
-						</Send>
-					</ListRow>
-				);
-			}
-		});
-};
 
 /**
  * 聊天展示组件
@@ -68,8 +26,109 @@ const ChatList: FC<Prop> = (props) => {
 	 * @param pageSize 分页尺寸
 	 */
 	const pageChange = (page: number, pageSize?: number) => {
-		console.log(page);
 		setCurrent(page);
+	};
+
+	/**
+	 * 渲染聊天内容
+	 */
+	const renderContent = (record: ChatData) => {
+		switch (record?.type) {
+			case ChatType.Text:
+				return <div className="talk">{record.content}</div>;
+			case ChatType.Audio:
+				return (
+					<div className="talk">
+						<audio src={record.content} controls={true} />
+					</div>
+				);
+			case ChatType.Video:
+				return (
+					<div className="talk">
+						<label htmlFor="videoPlayButton">视频：</label>
+						<Button
+							onClick={() => props.videoHandle(record.content)}
+							name="videoPlayButton"
+							type="primary">
+							<Icon type="play-circle" />
+						</Button>
+					</div>
+				);
+			case ChatType.Photo:
+				return (
+					<div className="talk">
+						<img
+							onClick={() => props.photoHandle(record.content)}
+							src={record.content}
+							alt={record.content}
+						/>
+					</div>
+				);
+			case ChatType.Reward:
+				return (
+					<div className="talk">
+						<RedBag msg={record.content} />
+					</div>
+				);
+			case ChatType.File:
+				return (
+					<div className="talk">
+						<AttachFile msg={record.content} />
+					</div>
+				);
+			default:
+				return <div className="talk">{record.content}</div>;
+		}
+	};
+
+	/**
+	 * 渲染聊天记录
+	 * @param {ChatData[]} records 聊天数据
+	 */
+	const renderList = (
+		records: ChatData[],
+		pageIndex: number,
+		pageSize: number = defaultPageSize
+	) => {
+		return records
+			.slice((pageIndex - 1) * pageSize, (pageIndex - 1) * pageSize + pageSize)
+			.map((item, i) => {
+				if (item.send) {
+					return (
+						<ListRow key={`chat_${i}`}>
+							<Reply>
+								<img src={item.avatar} className="avatar" />
+								<div className="text-box">
+									<div className="user-name">
+										<span>{item.nickname}</span>
+										<em>({item.id})</em>
+									</div>
+									{renderContent(item)}
+									<time>{item.time}</time>
+								</div>
+								{item.del ? <Tag color="red">已删除</Tag> : null}
+							</Reply>
+						</ListRow>
+					);
+				} else {
+					return (
+						<ListRow key={`chat_${i}`}>
+							<Send>
+								<img src={item.avatar} className="avatar" />
+								<div className="text-box">
+									<div className="user-name">
+										<span>{item.nickname}</span>
+										<em>({item.id})</em>
+									</div>
+									{renderContent(item)}
+									<time>{item.time}</time>
+								</div>
+								{item.del ? <Tag color="red">已删除</Tag> : null}
+							</Send>
+						</ListRow>
+					);
+				}
+			});
 	};
 
 	if (helper.isNullOrUndefinedOrEmptyArray(data)) {

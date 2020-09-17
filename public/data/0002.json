@@ -15,8 +15,26 @@
 			"id": "2",
 			"nickname": "用户昵称",
             "avatar": "public/images/photo/1f.jpg",
-            "content":"聊天内容",
-            "type":"text",
+            "content":"public/images/photo/1f.jpg",
+            "type":"photo",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},{
+			"id": "2",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/1f.jpg",
+            "content":"public/images/photo/long.jpg",
+            "type":"photo",
+            "time":"2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},{
+			"id": "2",
+			"nickname": "用户昵称",
+            "avatar": "public/images/photo/1f.jpg",
+            "content":"public/images/photo/wid.jpg",
+            "type":"photo",
             "time":"2020-09-17 12:32:25",
 			"send": false,
 			"del": false
@@ -24,8 +42,8 @@
 			"id": "3",
 			"nickname": "用户昵称",
             "avatar": "public/images/photo/default_avatar.jpg",
-            "content":"聊天内容",
-            "type":"text",
+            "content":"public/audio/sodagreen.mp3",
+            "type":"audio",
             "time":"2020-09-17 12:32:25",
 			"send": true,
 			"del": false
@@ -33,8 +51,8 @@
 			"id": "4",
 			"nickname": "用户昵称",
             "avatar": "public/images/photo/default_avatar.jpg",
-            "content":"聊天内容-回复",
-            "type":"text",
+            "content":"public/video/1.mp4",
+            "type":"video",
             "time":"2020-09-17 12:32:25",
 			"send": false,
 			"del": false
@@ -51,8 +69,8 @@
 			"id": "6",
 			"nickname": "用户昵称",
             "avatar": "public/images/photo/default_avatar.jpg",
-            "content":"聊天内容",
-            "type":"text",
+            "content":"public/file/python.7z",
+            "type":"file",
             "time":"2020-09-17 12:32:25",
 			"send": false,
 			"del": true
@@ -87,8 +105,8 @@
 			"id": "10",
 			"nickname": "用户昵称",
             "avatar": "public/images/photo/default_avatar.jpg",
-            "content":"聊天内容",
-            "type":"text",
+            "content":"恭喜发财，大吉大利",
+            "type":"reward",
             "time":"2020-09-17 12:32:25",
 			"send": false,
 			"del": false

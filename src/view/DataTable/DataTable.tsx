@@ -94,7 +94,7 @@ const DataTable: FC<Prop> = (props) => {
 			</PanelBox>
 			<PanelBox>
 				<PartBox>
-					<PartCaption>标题</PartCaption>
+					<PartCaption>{data.caption ?? ''}</PartCaption>
 					<PartContent>
 						<DisplayTable
 							columns={data.column ?? []}

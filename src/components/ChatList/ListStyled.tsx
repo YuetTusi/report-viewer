@@ -37,17 +37,17 @@ const Send = styled.div`
 
 	& .talk {
 		position: relative;
-		max-width: 500px;
+		max-width: 600px;
 		height: auto;
 		border: 1px solid #d1d8dc;
-		padding: 5px;
+		padding: 6px;
 		color: #3d4c5a;
 		line-height: 2rem;
 		background-color: #fff;
 		:after {
 			display: block;
 			position: absolute;
-			top: 9px;
+			top: calc(50% - 5px);
 			left: -6px;
 			width: 10px;
 			height: 10px;
@@ -56,6 +56,12 @@ const Send = styled.div`
 			border-left: 1px solid #d1d8dc;
 			transform: rotate(45deg);
 			background-color: #fff;
+		}
+
+		& img {
+			max-width: 480px;
+			max-height: 400px;
+			cursor: pointer;
 		}
 	}
 
@@ -102,16 +108,16 @@ const Reply = styled.div`
 
 	& .talk {
 		position: relative;
-		max-width: 500px;
+		max-width: 600px;
 		border: 1px solid #d1d8dc;
-		padding: 5px;
+		padding: 6px;
 		color: #3d4c5a;
 		line-height: 2rem;
 		background-color: #94ee6a;
 		:after {
 			display: block;
 			position: absolute;
-			top: 9px;
+			top: calc(50% - 5px);
 			right: -6px;
 			width: 10px;
 			height: 10px;
@@ -120,6 +126,11 @@ const Reply = styled.div`
 			border-right: 1px solid #d1d8dc;
 			transform: rotate(45deg);
 			background-color: #94ee6a;
+		}
+		& img {
+			max-width: 480px;
+			max-height: 400px;
+			cursor: pointer;
 		}
 	}
 
