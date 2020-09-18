@@ -10,7 +10,7 @@ const config = {
 	mode: 'production',
 	entry: './src/index.tsx',
 	output: {
-		filename: 'bundle.js',
+		filename: '[hash:16].js',
 		path: path.resolve(__dirname, './dist')
 	},
 	resolve: {
