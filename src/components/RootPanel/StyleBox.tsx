@@ -14,13 +14,16 @@ const FullScreenBox = styled.div`
 
 const CenterBox = styled.div`
 	display: block;
-	width: 20px;
-	height: 25px;
+	width: 40px;
+	height: 40px;
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	margin-left: -10px;
-	margin-top: -12px;
+	margin-left: -20px;
+	margin-top: -20px;
+	.ant-spin-dot-item {
+		background-color: #1890ff !important;
+	}
 `;
 
 export { FullScreenBox, CenterBox };

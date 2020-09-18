@@ -18,7 +18,7 @@ const RootPanel: FC<Prop> = (props) => {
             <div>{props.children}</div>
             <FullScreenBox style={{ display: props.loading ? 'block' : 'none' }}>
                 <CenterBox>
-                    <Spin spinning={props.loading} />
+                    <Spin spinning={true} size="large" />
                 </CenterBox>
             </FullScreenBox>
         </>
