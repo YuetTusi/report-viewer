@@ -1,53 +1,57 @@
 ;var data=[
-    {
-        "name": "测试案件",
-        "path":"/case/0000",
-        "type":"list",
-        "icon":"public/images/tree/case.png",
-        "children": [
-            {
-                "name":"iPhoneXs(100/<em>500</em>)",
-                "path":"/iphone/0001",
-                "type":"table",
-                "dir":"public/data/",
-                "icon":"public/images/tree/device.png",
-                "children":[
-                    {
-                        "name":"微信",
-                        "path":"/iphone-wechat/0002",
-                        "type":"chat",
-                        "icon":"public/images/tree/wechat.png"
-                    },{
-                        "name":"照片",
-                        "path":"/iphone-photo/0003",
-                        "type":"table",
-                        "icon":"public/images/tree/photo.png"
-                    }
-                ]
-            },{
-                "name":"三星GalaxyA90",
-                "path":"/samsung/0004",
-                "type":"table",
-                "icon":"public/images/tree/device.png",
-                "children":[
-                    {
-                        "name":"微信",
-                        "path":"/samsung-wechat/0005",
-                        "type":"chat",
-                        "icon":"public/images/tree/wechat.png"
-                    },{
-                        "name":"照片",
-                        "path":"/samsung-photo/0006",
-                        "type":"table",
-                        "icon":"public/images/tree/photo.png"
-                    },{
-                        "name":"帐户",
-                        "path":"/samsung-account/0007",
-                        "type":"table",
-                        "icon":"public/images/tree/account.png"
-                    }
-                ]
-            }
-        ]
-    }
+	{
+		"name": "测试案件",
+		"path": "/case/0000",
+		"type": "list",
+		"icon": "public/images/tree/case.png",
+		"children": [
+			{
+				"name": "iPhoneXs(100/<em>500</em>)",
+				"path": "/iphone/0001",
+				"type": "table",
+				"dir": "public/data/",
+				"icon": "public/images/tree/device.png",
+				"children": [
+					{
+						"name": "微信",
+						"path": "/iphone-wechat/0002",
+						"type": "chat",
+						"icon": "public/images/tree/wechat.png"
+					},
+					{
+						"name": "照片",
+						"path": "/iphone-photo/0003",
+						"type": "table",
+						"icon": "public/images/tree/photo.png"
+					}
+				]
+			},
+			{
+				"name": "三星GalaxyA90",
+				"path": "/samsung/0004",
+				"type": "table",
+				"icon": "public/images/tree/device.png",
+				"children": [
+					{
+						"name": "微信",
+						"path": "/samsung-wechat/0005",
+						"type": "chat",
+						"icon": "public/images/tree/wechat.png"
+					},
+					{
+						"name": "照片",
+						"path": "/samsung-photo/0006",
+						"type": "table",
+						"icon": "public/images/tree/photo.png"
+					},
+					{
+						"name": "帐户",
+						"path": "/samsung-account/0007",
+						"type": "table",
+						"icon": "public/images/tree/account.png"
+					}
+				]
+			}
+		]
+	}
 ]

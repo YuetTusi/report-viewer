@@ -6,6 +6,24 @@ import $ from 'jquery';
 interface Prop {}
 
 /**
+ * 将第n层之前的结点展开
+ * @param context 树对象
+ * @param nodes 树结点数据
+ * @param level 展开层级
+ */
+function expandNodes(context: any, nodes: any[], level: number) {
+	if (nodes === undefined || nodes.length === 0) {
+		return;
+	}
+	for (let i = 0; i < nodes.length; i++) {
+		if (nodes[i].level < level) {
+			context.expandNode(nodes[i], true);
+		}
+		expandNodes(context, nodes[i].children, level);
+	}
+}
+
+/**
  * 树导航组件
  */
 const NavTree: FC<Prop> = (props) => {
@@ -28,7 +46,7 @@ const NavTree: FC<Prop> = (props) => {
 			},
 			data
 		);
-		tree.expandAll(true);
+		expandNodes(tree, tree.getNodes(), 2);
 	}, [data]);
 
 	return <ul id="navTree" className="ztree"></ul>;

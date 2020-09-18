@@ -10,7 +10,7 @@ import { ListRoot, ListRow, Reply, Send, PageBox } from './ListStyled';
 import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
 
-const defaultPageSize = 10;
+const defaultPageSize = 20; //默认分页尺寸
 
 /**
  * 聊天展示组件

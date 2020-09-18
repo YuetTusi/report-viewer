@@ -3,9 +3,15 @@ import Spin from 'antd/lib/spin';
 import { FullScreenBox, CenterBox } from './StyleBox';
 
 interface Prop {
+    /**
+     * 读取中
+     */
     loading: boolean;
 }
 
+/**
+ * 根视图
+ */
 const RootPanel: FC<Prop> = (props) => {
     return (
         <>

@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import React, { FC, useEffect, useState, useRef } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
 import throttle from 'lodash/throttle';
 import ConfigProvider from 'antd/lib/config-provider';
@@ -21,6 +21,9 @@ const Index: FC<Prop> = (props) => {
 
 	const rightWidth = useRef<number>(document.body.clientWidth - 300);
 
+	/**
+	 * 更新窗口大小handle
+	 */
 	const resizeHandle = throttle((event: any) => {
 		const [, $second] = document.querySelectorAll<HTMLDivElement>('.layout-pane');
 		$second.style.width = `${document.body.clientWidth - 300}px`;
