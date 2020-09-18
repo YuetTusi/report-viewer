@@ -4,8 +4,8 @@ import Icon from 'antd/lib/icon';
 import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
 import { DisplayTableColumn } from './types';
+import { FileLink } from './TableStyled';
 import { Prop } from './componentTypes';
-
 /**
  * 根据列头数据生成表头
  * @param columns 列头数据
@@ -76,6 +76,22 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						key: `col_${i}`,
 						align: 'center',
 						width: 80
+					};
+				case ColumnType.File:
+					return {
+						title: header,
+						render: (val: string, record: DisplayTableColumn) => (
+							<FileLink
+								onClick={() => {
+									props.actionHandle(val, type);
+								}}
+								style={{ cursor: 'pointer', textDecoration: 'underline' }}>
+								{val}
+							</FileLink>
+						),
+						dataIndex: `col_${i}`,
+						key: `col_${i}`,
+						align: 'center'
 					};
 				default:
 					return {

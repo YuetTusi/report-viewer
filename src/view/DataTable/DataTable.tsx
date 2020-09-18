@@ -61,6 +61,8 @@ const DataTable: FC<Prop> = (props) => {
 			case ColumnType.Audio:
 				setAudioModalVisible(true);
 				break;
+			case ColumnType.File:
+				window.open(val);
 			default:
 				break;
 		}

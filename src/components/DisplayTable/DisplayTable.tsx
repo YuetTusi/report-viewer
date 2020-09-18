@@ -5,7 +5,7 @@ import { getDataSource } from './getDataSource';
 import { Prop } from './componentTypes';
 import { DisplayTableCell } from './types';
 
-const defaultPageSize = 15;
+const defaultPageSize = 50;
 
 /**
  * 表格组件

@@ -1,8 +1,9 @@
 ;var data={
 	"title": "表格Mock数据测试",
-	"caption":"标题",
+	"caption": "标题",
 	"column": [
 		{ "header": "id", "type": "text" },
+		{ "header": "文件", "type": "file" },
 		{ "header": "预览", "type": "preview" },
 		{ "header": "视频", "type": "video" },
 		{ "header": "照片", "type": "photo" },
@@ -11,6 +12,7 @@
 	"row": [
 		[
 			{ "value": "1" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -18,6 +20,7 @@
 		],
 		[
 			{ "value": "2" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -25,6 +28,7 @@
 		],
 		[
 			{ "value": "3" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -32,6 +36,7 @@
 		],
 		[
 			{ "value": "4" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -39,6 +44,7 @@
 		],
 		[
 			{ "value": "5" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -46,6 +52,7 @@
 		],
 		[
 			{ "value": "6" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -53,6 +60,7 @@
 		],
 		[
 			{ "value": "7" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -60,6 +68,7 @@
 		],
 		[
 			{ "value": "8" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -67,6 +76,7 @@
 		],
 		[
 			{ "value": "9" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -74,6 +84,7 @@
 		],
 		[
 			{ "value": "10" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -81,6 +92,7 @@
 		],
 		[
 			{ "value": "11" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -88,6 +100,7 @@
 		],
 		[
 			{ "value": "12" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -95,6 +108,7 @@
 		],
 		[
 			{ "value": "13" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
@@ -102,6 +116,7 @@
 		],
 		[
 			{ "value": "14" },
+			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },

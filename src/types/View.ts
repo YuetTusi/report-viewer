@@ -43,7 +43,11 @@ enum ColumnType {
     /**
      * 预览
      */
-    Preview = 'preview'
+    Preview = 'preview',
+    /**
+     * 文件
+     */
+    File = 'file'
 }
 
 /**
