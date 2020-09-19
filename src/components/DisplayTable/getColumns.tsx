@@ -4,7 +4,6 @@ import Icon from 'antd/lib/icon';
 import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
 import { DisplayTableColumn } from './types';
-import { FileLink } from './TableStyled';
 import { Prop } from './componentTypes';
 /**
  * 根据列头数据生成表头
@@ -84,11 +83,9 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 							<Button
 								type="primary"
 								size="small"
-								download={true}
-								href={val}
-								// onClick={() => {
-								// 	props.actionHandle(val, type);
-								// }}
+								onClick={() => {
+									props.actionHandle(val, type);
+								}}
 								>
 								<Icon type="download" />
 							</Button>
