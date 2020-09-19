@@ -20,9 +20,17 @@ enum ChatType {
      */
     Reward = 'reward',
     /**
+     * 转帐
+     */
+    Transfer = 'transfer',
+    /**
      * 文件
      */
-    File = 'file'
+    File = 'file',
+    /**
+     * 系统消息
+     */
+    Message = 'message'
 }
 
 /**

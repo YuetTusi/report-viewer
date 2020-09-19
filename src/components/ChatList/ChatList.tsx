@@ -5,8 +5,9 @@ import Empty from 'antd/lib/empty';
 import Pagination from 'antd/lib/pagination';
 import Tag from 'antd/lib/tag';
 import RedBag from './RedBag';
+import Transfer from './Transfer';
 import AttachFile from './AttachFile';
-import { ListRoot, ListRow, Reply, Send, PageBox } from './ListStyled';
+import { ListRoot, ListRow, Reply, Send, Message, PageBox } from './ListStyled';
 import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
 
@@ -70,6 +71,12 @@ const ChatList: FC<Prop> = (props) => {
 						<RedBag msg={record.content} />
 					</div>
 				);
+			case ChatType.Transfer:
+				return (
+					<div className="talk">
+						<Transfer msg={record.content} />
+					</div>
+				);
 			case ChatType.File:
 				return (
 					<div className="talk">
@@ -93,7 +100,19 @@ const ChatList: FC<Prop> = (props) => {
 		return records
 			.slice((pageIndex - 1) * pageSize, (pageIndex - 1) * pageSize + pageSize)
 			.map((item, i) => {
-				if (item.send) {
+				if (item.type === ChatType.Message) {
+					return (
+						<ListRow key={`chat_${i}`}>
+							<Message>
+								<p>{item.content}</p>
+								<div className="other">
+									<time>{item.time}</time>
+									{item?.del ? <del>已删除</del> : null}
+								</div>
+							</Message>
+						</ListRow>
+					);
+				} else if (item.send) {
 					return (
 						<ListRow key={`chat_${i}`}>
 							<Reply>
@@ -134,7 +153,7 @@ const ChatList: FC<Prop> = (props) => {
 	if (helper.isNullOrUndefinedOrEmptyArray(data)) {
 		return (
 			<div>
-				<Empty />
+				<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
 			</div>
 		);
 	} else {

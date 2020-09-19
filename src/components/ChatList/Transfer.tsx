@@ -3,20 +3,17 @@ import Icon from 'antd/lib/icon';
 import styled from 'styled-components';
 
 interface Prop {
-	/**
-	 * 消息
-	 */
 	msg?: string;
 }
 
-const BagBox = styled.div`
+const TansferBox = styled.div`
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	color: #fff;
 	padding: 10px;
-	background-color: #e18d35;
+	background-color: #af6e2a;
 
 	.left-ico {
 		display: flex;
@@ -35,21 +32,21 @@ const BagBox = styled.div`
 `;
 
 /**
- * 红包
+ * 转账
  */
-const RedBag: FC<Prop> = (props) => {
+const Transfer: FC<Prop> = (props) => {
 	return (
-		<BagBox>
+		<TansferBox>
 			<div className="left-ico">
-				<Icon type="red-envelope" />
+				<Icon type="transaction" />
 			</div>
 			<div className="msg">{props.msg}</div>
-		</BagBox>
+		</TansferBox>
 	);
 };
 
-RedBag.defaultProps = {
-	msg: '恭喜发财，大吉大利'
+Transfer.defaultProps = {
+	msg: ''
 };
 
-export default RedBag;
+export default Transfer;

@@ -23,7 +23,7 @@ const renderTable = (data: Array<string[]>) => {
 				<tbody>
 					<RowBox>
 						<CellBox>
-							<Empty />
+							<Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
 						</CellBox>
 					</RowBox>
 				</tbody>

@@ -147,6 +147,27 @@ const Reply = styled.div`
 		padding: 5px 0;
 	}
 `;
+const Message = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	p {
+		color: #222;
+		background-color: #dddddd;
+		padding: 5px 20px;
+		border-radius: 5px;
+	}
+	.other {
+		display: flex;
+		flex-direction: row;
+		del {
+			color: #f00;
+			text-decoration: none;
+			margin-left: 10px;
+		}
+	}
+`;
 
 const PageBox = styled.div`
 	display: flex;
@@ -156,4 +177,4 @@ const PageBox = styled.div`
 	border-top: 1px solid #efefef;
 `;
 
-export { ListRoot, ListRow, Send, Reply, PageBox };
+export { ListRoot, ListRow, Send, Reply, Message, PageBox };
