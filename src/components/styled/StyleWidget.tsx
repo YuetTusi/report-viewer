@@ -8,6 +8,10 @@ const MainTitle = styled.div`
 	font-size: 2.4rem;
 	color: #4d585f;
 	font-family: 'Microsoft Yahei';
+	em {
+		color: #f00;
+		font-style:normal;
+	}
 `;
 
 /**
