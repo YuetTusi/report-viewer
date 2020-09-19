@@ -84,9 +84,12 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 							<Button
 								type="primary"
 								size="small"
-								onClick={() => {
-									props.actionHandle(val, type);
-								}}>
+								download={true}
+								href={val}
+								// onClick={() => {
+								// 	props.actionHandle(val, type);
+								// }}
+								>
 								<Icon type="download" />
 							</Button>
 						),
