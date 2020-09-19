@@ -81,17 +81,19 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					return {
 						title: header,
 						render: (val: string, record: DisplayTableColumn) => (
-							<FileLink
+							<Button
+								type="primary"
+								size="small"
 								onClick={() => {
 									props.actionHandle(val, type);
-								}}
-								style={{ cursor: 'pointer', textDecoration: 'underline' }}>
-								{val}
-							</FileLink>
+								}}>
+								<Icon type="download" />
+							</Button>
 						),
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
-						align: 'center'
+						align: 'center',
+						width: 60
 					};
 				default:
 					return {
