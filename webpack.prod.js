@@ -1,5 +1,6 @@
 const path = require('path');
 const { IgnorePlugin } = require('webpack');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
@@ -98,6 +99,7 @@ const config = {
 		new HtmlWebpackPlugin({
 			template: path.resolve(__dirname, './template/default.html')
 		}),
+		new CleanWebpackPlugin({ verbose: false }),
 		new CopyWebpackPlugin({
 			patterns: [
 				{ from: 'assert', to: 'assert' },
