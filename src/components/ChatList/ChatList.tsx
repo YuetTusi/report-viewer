@@ -90,14 +90,14 @@ const ChatList: FC<Prop> = (props) => {
 
 	/**
 	 * 渲染聊天记录
-	 * @param {ChatData[]} records 聊天数据
+	 * @param {ChatData[]} row 聊天数据
 	 */
 	const renderList = (
-		records: ChatData[],
+		row: ChatData[],
 		pageIndex: number,
 		pageSize: number = defaultPageSize
 	) => {
-		return records
+		return row
 			.slice((pageIndex - 1) * pageSize, (pageIndex - 1) * pageSize + pageSize)
 			.map((item, i) => {
 				if (item.type === ChatType.Message) {

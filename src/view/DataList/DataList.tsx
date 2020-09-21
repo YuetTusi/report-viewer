@@ -38,7 +38,7 @@ const DataList: FC<Prop> = (props) => {
 	return (
 		<RootPanel loading={loading}>
 			<PanelBox>
-				<MainTitle>{data.title ?? ''}</MainTitle>
+				<MainTitle dangerouslySetInnerHTML={{ __html: data.title ?? '' }} />
 			</PanelBox>
 			<PanelBox>
 				<PartBox>

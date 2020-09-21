@@ -54,14 +54,14 @@ const Chat: FC<Prop> = (props) => {
 	return (
 		<RootPanel loading={loading}>
 			<PanelBox>
-				<MainTitle>{data.title ?? ''}</MainTitle>
+				<MainTitle dangerouslySetInnerHTML={{ __html: data.title ?? '' }} />
 			</PanelBox>
 			<PanelBox>
 				<PartBox>
 					<PartCaption>{data.caption ?? ''}</PartCaption>
 					<PartContent>
 						<ChatList
-							data={data.records}
+							data={data.row}
 							photoHandle={(src: string) => {
 								fileSrc.current = src;
 								setPhotoModalVisible(true);
