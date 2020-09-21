@@ -2,12 +2,12 @@ import React, { FC, useState } from 'react';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import Empty from 'antd/lib/empty';
-import Pagination from 'antd/lib/pagination';
+// import Pagination from 'antd/lib/pagination';
 import Tag from 'antd/lib/tag';
 import RedBag from './RedBag';
 import Transfer from './Transfer';
 import AttachFile from './AttachFile';
-import { ListRoot, ListRow, Reply, Send, Message, PageBox } from './ListStyled';
+import { ListRoot, ListRow, Reply, Send, Message } from './ListStyled';
 import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
 
@@ -92,62 +92,60 @@ const ChatList: FC<Prop> = (props) => {
 	 * 渲染聊天记录
 	 * @param {ChatData[]} row 聊天数据
 	 */
-	const renderList = (
-		row: ChatData[],
-		pageIndex: number,
-		pageSize: number = defaultPageSize
-	) => {
-		return row
-			.slice((pageIndex - 1) * pageSize, (pageIndex - 1) * pageSize + pageSize)
-			.map((item, i) => {
-				if (item.type === ChatType.Message) {
-					return (
-						<ListRow key={`chat_${i}`}>
-							<Message>
-								<p>{item.content}</p>
-								<div className="other">
-									<time>{item.time}</time>
-									{item?.del ? <del>已删除</del> : null}
-								</div>
-							</Message>
-						</ListRow>
-					);
-				} else if (item.send) {
-					return (
-						<ListRow key={`chat_${i}`}>
-							<Reply>
-								<img src={item.avatar} className="avatar" />
-								<div className="text-box">
-									<div className="user-name">
-										<span>{item.nickname}</span>
-										<em>({item.id})</em>
+	const renderList = (row: ChatData[], pageIndex: number, pageSize: number = defaultPageSize) => {
+		return (
+			row
+				// .slice((pageIndex - 1) * pageSize, (pageIndex - 1) * pageSize + pageSize) //不启用分页，需要时放开
+				.map((item, i) => {
+					if (item.type === ChatType.Message) {
+						return (
+							<ListRow key={`chat_${i}`}>
+								<Message>
+									<p>{item.content}</p>
+									<div className="other">
+										<time>{item.time}</time>
+										{item?.del ? <del>已删除</del> : null}
 									</div>
-									{renderContent(item)}
-									<time>{item.time}</time>
-								</div>
-								{item.del ? <Tag color="red">已删除</Tag> : null}
-							</Reply>
-						</ListRow>
-					);
-				} else {
-					return (
-						<ListRow key={`chat_${i}`}>
-							<Send>
-								<img src={item.avatar} className="avatar" />
-								<div className="text-box">
-									<div className="user-name">
-										<span>{item.nickname}</span>
-										<em>({item.id})</em>
+								</Message>
+							</ListRow>
+						);
+					} else if (item.send) {
+						return (
+							<ListRow key={`chat_${i}`}>
+								<Reply>
+									<img src={item.avatar} className="avatar" />
+									<div className="text-box">
+										<div className="user-name">
+											<span>{item.nickname}</span>
+											<em>({item.id})</em>
+										</div>
+										{renderContent(item)}
+										<time>{item.time}</time>
 									</div>
-									{renderContent(item)}
-									<time>{item.time}</time>
-								</div>
-								{item.del ? <Tag color="red">已删除</Tag> : null}
-							</Send>
-						</ListRow>
-					);
-				}
-			});
+									{item.del ? <Tag color="red">已删除</Tag> : null}
+								</Reply>
+							</ListRow>
+						);
+					} else {
+						return (
+							<ListRow key={`chat_${i}`}>
+								<Send>
+									<img src={item.avatar} className="avatar" />
+									<div className="text-box">
+										<div className="user-name">
+											<span>{item.nickname}</span>
+											<em>({item.id})</em>
+										</div>
+										{renderContent(item)}
+										<time>{item.time}</time>
+									</div>
+									{item.del ? <Tag color="red">已删除</Tag> : null}
+								</Send>
+							</ListRow>
+						);
+					}
+				})
+		);
 	};
 
 	if (helper.isNullOrUndefinedOrEmptyArray(data)) {
@@ -160,7 +158,7 @@ const ChatList: FC<Prop> = (props) => {
 		return (
 			<>
 				<ListRoot>{renderList(data, current, defaultPageSize)}</ListRoot>
-				<PageBox>
+				{/* <PageBox>
 					<Pagination
 						onChange={pageChange}
 						current={current}
@@ -168,7 +166,7 @@ const ChatList: FC<Prop> = (props) => {
 						total={data.length}
 						size="small"
 					/>
-				</PageBox>
+				</PageBox> */}
 			</>
 		);
 	}
