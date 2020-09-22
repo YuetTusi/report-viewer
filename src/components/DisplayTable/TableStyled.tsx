@@ -8,4 +8,14 @@ const FileLink = styled.a`
 	}
 `;
 
-export { FileLink };
+const RedText = styled.span`
+	display: inline;
+	color: #222;
+`;
+
+const BlackText = styled.span`
+	display: inline;
+	color: #f00;
+`;
+
+export { FileLink, RedText, BlackText };

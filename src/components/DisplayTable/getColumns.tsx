@@ -5,6 +5,7 @@ import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
 import { DisplayTableColumn } from './types';
 import { Prop } from './componentTypes';
+import { BlackText, RedText } from './TableStyled';
 /**
  * 根据列头数据生成表头
  * @param columns 列头数据
@@ -19,7 +20,14 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					return {
 						title: header,
 						dataIndex: `col_${i}`,
-						key: `col_${i}`
+						key: `col_${i}`,
+						render: (val: string, row: Record<string, any>) => {
+							return row.del ? (
+								<BlackText>{val}</BlackText>
+							) : (
+								<RedText>{val}</RedText>
+							);
+						}
 					};
 				case ColumnType.Audio:
 				case ColumnType.Video:
@@ -85,8 +93,7 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 								size="small"
 								onClick={() => {
 									props.actionHandle(val, type);
-								}}
-								>
+								}}>
 								<Icon type="download" />
 							</Button>
 						),
