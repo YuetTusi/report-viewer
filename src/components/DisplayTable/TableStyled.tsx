@@ -10,12 +10,12 @@ const FileLink = styled.a`
 
 const RedText = styled.span`
 	display: inline;
-	color: #222;
+	color: #f00;
 `;
 
 const BlackText = styled.span`
 	display: inline;
-	color: #f00;
+	color: #222;
 `;
 
 export { FileLink, RedText, BlackText };

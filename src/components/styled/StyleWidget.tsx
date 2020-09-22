@@ -7,10 +7,11 @@ const MainTitle = styled.div`
 	padding: 5px;
 	font-size: 2.4rem;
 	color: #4d585f;
+	min-height: 46px;
 	font-family: 'Microsoft Yahei';
 	em {
 		color: #f00;
-		font-style:normal;
+		font-style: normal;
 	}
 `;
 
@@ -41,6 +42,7 @@ const PartCaption = styled.div`
 	text-indent: 0.5rem;
 	background-color: #3d4c5a;
 	padding: 5px;
+	height: 31px;
 `;
 
 /**

@@ -21,13 +21,8 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						title: header,
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
-						render: (val: string, row: Record<string, any>) => {
-							return row.del ? (
-								<BlackText>{val}</BlackText>
-							) : (
-								<RedText>{val}</RedText>
-							);
-						}
+						render: (val: string, row: Record<string, any>) =>
+							row.del ? <RedText>{val}</RedText> : <BlackText>{val}</BlackText>
 					};
 				case ColumnType.Audio:
 				case ColumnType.Video:
@@ -88,14 +83,7 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					return {
 						title: header,
 						render: (val: string, record: DisplayTableColumn) => (
-							<Button
-								type="primary"
-								size="small"
-								onClick={() => {
-									props.actionHandle(val, type);
-								}}>
-								<Icon type="download" />
-							</Button>
+							<Icon type="file-text" style={{ fontSize: '2rem' }} />
 						),
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
@@ -106,7 +94,9 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					return {
 						title: header,
 						dataIndex: `col_${i}`,
-						key: `col_${i}`
+						key: `col_${i}`,
+						render: (val: string, row: Record<string, any>) =>
+							row.del ? <RedText>{val}</RedText> : <BlackText>{val}</BlackText>
 					};
 			}
 		});
