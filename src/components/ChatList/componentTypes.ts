@@ -64,7 +64,7 @@ interface ChatData {
     /**
      * 聊天内容
      */
-    content: string,
+    content: any,
     /**
      * 消息类型
      */

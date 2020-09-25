@@ -7,6 +7,7 @@ import Tag from 'antd/lib/tag';
 import RedBag from './RedBag';
 import Transfer from './Transfer';
 import AttachFile from './AttachFile';
+import News from './News';
 import { ListRoot, ListRow, Reply, Send, Message, PageBox } from './ListStyled';
 import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
@@ -92,6 +93,12 @@ const ChatList: FC<Prop> = (props) => {
 				return (
 					<div className="talk">
 						<VideoCall />
+					</div>
+				);
+			case ChatType.News:
+				return (
+					<div className="talk">
+						<News data={record.content} />
 					</div>
 				);
 			default:
