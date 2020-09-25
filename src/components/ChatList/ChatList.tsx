@@ -5,6 +5,7 @@ import Empty from 'antd/lib/empty';
 import Pagination from 'antd/lib/pagination';
 import Tag from 'antd/lib/tag';
 import RedBag from './RedBag';
+import VideoPreview from './VideoPreview';
 import Transfer from './Transfer';
 import AttachFile from './AttachFile';
 import News from './News';
@@ -46,13 +47,13 @@ const ChatList: FC<Prop> = (props) => {
 			case ChatType.Video:
 				return (
 					<div className="talk">
-						<label htmlFor="videoPlayButton">视频：</label>
-						<Button
+						<VideoPreview src={record.content} />
+						{/* <Button
 							onClick={() => props.videoHandle(record.content)}
 							name="videoPlayButton"
 							type="primary">
 							<Icon type="play-circle" />
-						</Button>
+						</Button> */}
 					</div>
 				);
 			case ChatType.Photo:
