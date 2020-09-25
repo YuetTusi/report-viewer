@@ -10,6 +10,8 @@ import AttachFile from './AttachFile';
 import { ListRoot, ListRow, Reply, Send, Message, PageBox } from './ListStyled';
 import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
+import AudioCall from './AudioCall';
+import VideoCall from './VideoCall';
 
 /**
  * 聊天展示组件
@@ -78,6 +80,18 @@ const ChatList: FC<Prop> = (props) => {
 				return (
 					<div className="talk">
 						<AttachFile msg={record.content} />
+					</div>
+				);
+			case ChatType.AudioCall:
+				return (
+					<div className="talk">
+						<AudioCall />
+					</div>
+				);
+			case ChatType.VideoCall:
+				return (
+					<div className="talk">
+						<VideoCall />
 					</div>
 				);
 			default:

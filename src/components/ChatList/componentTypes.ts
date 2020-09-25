@@ -30,7 +30,19 @@ enum ChatType {
     /**
      * 系统消息
      */
-    Message = 'message'
+    Message = 'message',
+    /**
+     * 语音通话
+     */
+    AudioCall = 'audio_call',
+    /**
+     * 视频通话
+     */
+    VideoCall = 'video_call',
+    /**
+     * 公众号新闻
+     */
+    News = 'news'
 }
 
 /**

@@ -55,7 +55,7 @@ const Send = styled.div`
 			content: ' ';
 			border-bottom: 1px solid #d1d8dc;
 			border-left: 1px solid #d1d8dc;
-			transform: rotate(0.78539rad);
+			transform: rotate(45deg);
 			background-color: #fff;
 		}
 
@@ -125,7 +125,7 @@ const Reply = styled.div`
 			content: ' ';
 			border-top: 1px solid #d1d8dc;
 			border-right: 1px solid #d1d8dc;
-			transform: rotate(0.78539rad);
+			transform: rotate(45deg);
 			background-color: #94ee6a;
 		}
 		& img {

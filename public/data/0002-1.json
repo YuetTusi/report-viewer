@@ -1,6 +1,7 @@
 ;var data={
 	"title": "微信聊天Mock测试",
 	"caption": "聊天记录",
+	"total":13,
 	"row": [
 		{
 			"id": "1",
@@ -144,6 +145,26 @@
 			"avatar": "public/images/photo/default_avatar.jpg",
 			"content": "这是最后一条记录",
 			"type": "text",
+			"time": "2020-09-17 12:34:00",
+			"send": false,
+			"del": true
+		},
+		{
+			"id": "12",
+			"nickname": "用户昵称",
+			"avatar": "public/images/photo/default_avatar.jpg",
+			"content": "这是最后一条记录",
+			"type": "video_call",
+			"time": "2020-09-17 12:34:00",
+			"send": false,
+			"del": true
+		},
+		{
+			"id": "13",
+			"nickname": "用户昵称",
+			"avatar": "public/images/photo/default_avatar.jpg",
+			"content": "这是最后一条记录",
+			"type": "audio_call",
 			"time": "2020-09-17 12:34:00",
 			"send": false,
 			"del": true
