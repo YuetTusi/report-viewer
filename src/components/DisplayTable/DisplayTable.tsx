@@ -5,8 +5,6 @@ import { getDataSource } from './getDataSource';
 import { Prop } from './componentTypes';
 import { DisplayTableCell } from './types';
 
-const defaultPageSize = 50;
-
 /**
  * 表格组件
  * 可由数据定制列（对应ColumnType枚举）
@@ -14,6 +12,8 @@ const defaultPageSize = 50;
  * video:视频列,audio:音频列,photo:照片列
  */
 const DisplayTable: FC<Prop> = (props) => {
+	const { pageIndex, pageSize, total, pageChangeHandle } = props;
+
 	return (
 		<div>
 			<Table<DisplayTableCell>
@@ -25,7 +25,10 @@ const DisplayTable: FC<Prop> = (props) => {
 				rowClassName={() => 'az-report-row'}
 				scroll={props.scroll}
 				pagination={{
-					defaultPageSize
+					current: pageIndex,
+					pageSize,
+					total,
+					onChange: pageChangeHandle
 				}}
 			/>
 		</div>

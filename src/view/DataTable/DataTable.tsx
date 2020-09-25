@@ -13,6 +13,7 @@ import { useMount } from '@src/hooks';
 import { BaseView, ColumnType } from '@src/types/View';
 import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
 
+const defaultPageSize = 500;
 interface Prop extends BaseView {}
 
 /**
@@ -20,8 +21,12 @@ interface Prop extends BaseView {}
  */
 const DataTable: FC<Prop> = (props) => {
 	const { file } = useParams<{ file: string }>();
+	const [fileMd5, index] = file.split('-');
+	const [pageIndex, setPageIndex] = useState<number>(
+		helper.isNullOrUndefined(index) ? 1 : Number(index)
+	); //当前页
 	const actionVal = useRef<any>(null); //当前用户击中的值
-	const [data, setData] = useState<Record<string, any>>({}); //页面数据
+	const [data, setData] = useState<any>({}); //页面数据
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [audioModalVisible, setAudioModalVisible] = useState<boolean>(false); //音频框显示
 	const [photoModalVisible, setPhotoModalVisible] = useState<boolean>(false); //照片框显示
@@ -31,10 +36,7 @@ const DataTable: FC<Prop> = (props) => {
 	useMount(async () => {
 		setLoading(true);
 		try {
-			const next = await helper.loadJSON<Record<string, any>>(
-				`public/data/${file}.json`,
-				'data'
-			);
+			const next = await helper.loadJSON<any>(`public/data/${file}.json`, 'data');
 			setData(next);
 		} catch (error) {
 			message.error('读取数据失败');
@@ -42,6 +44,25 @@ const DataTable: FC<Prop> = (props) => {
 			setLoading(false);
 		}
 	});
+
+	/**
+	 * 分页Change
+	 * @param pageIndex 当页页
+	 * @param pageSize 分页尺寸
+	 */
+	const pageChangeHandle = async (pageIndex: number, pageSize?: number) => {
+		console.log(pageIndex, pageSize);
+		setLoading(true);
+		try {
+			const next = await helper.loadJSON(`public/data/${fileMd5}-${pageIndex}.json`, 'data');
+			setPageIndex(pageIndex);
+			setData(next);
+		} catch (error) {
+			message.error('读取数据失败');
+		} finally {
+			setLoading(false);
+		}
+	};
 
 	/**
 	 * 点中行action回调
@@ -101,6 +122,10 @@ const DataTable: FC<Prop> = (props) => {
 						<DisplayTable
 							columns={data.column ?? []}
 							data={data.row ?? []}
+							pageIndex={helper.isNullOrUndefined(pageIndex) ? 1 : Number(pageIndex)}
+							pageSize={defaultPageSize}
+							total={data.total ?? 0}
+							pageChangeHandle={pageChangeHandle}
 							actionHandle={actionHandle}
 							scroll={{ x: 'max-content' }}
 						/>

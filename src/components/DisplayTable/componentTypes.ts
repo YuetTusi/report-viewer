@@ -11,6 +11,22 @@ interface Prop {
      */
     data: Array<DisplayTableCell[]>,
     /**
+     * 当前页
+     */
+    pageIndex: number,
+    /**
+     * 分页尺寸
+     */
+    pageSize: number,
+    /**
+     * 总记录数
+     */
+    total: number,
+    /**
+     * 换页Handle
+     */
+    pageChangeHandle: (pageIndex: number, pageSize?: number) => void,
+    /**
      * 列动作回调
      * @param val 值
      * @param type 列类型

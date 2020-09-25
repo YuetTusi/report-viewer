@@ -1,0 +1,31 @@
+;var data={
+	"title": "表格Mock数据测试",
+	"caption": "标题",
+	"total":5,
+	"column": [
+		{ "header": "id", "type": "text" },
+		{ "header": "文件", "type": "file" },
+		{ "header": "预览", "type": "preview" },
+		{ "header": "视频", "type": "video" },
+		{ "header": "照片", "type": "photo" },
+		{ "header": "音频", "type": "audio" }
+	],
+	"row": [
+		[
+			{ "value": "1","del":true },
+			{ "value": "public/file/python.7z" },
+			{ "value": "public/images/photo/1f.jpg" },
+			{ "value": "public/video/1.mp4" },
+			{ "value": "public/images/photo/1f.jpg" },
+			{ "value": "public/audio/sodagreen.mp3" }
+		],
+		[
+			{ "value": "2" },
+			{ "value": "public/file/python.7z" },
+			{ "value": "public/images/photo/1f.jpg" },
+			{ "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },
+			{ "value": "public/images/photo/1f.jpg" },
+			{ "value": "public/audio/sodagreen.mp3" }
+		]
+	]
+}
