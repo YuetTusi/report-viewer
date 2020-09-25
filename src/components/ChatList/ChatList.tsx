@@ -2,24 +2,20 @@ import React, { FC, useState } from 'react';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import Empty from 'antd/lib/empty';
-// import Pagination from 'antd/lib/pagination';
+import Pagination from 'antd/lib/pagination';
 import Tag from 'antd/lib/tag';
 import RedBag from './RedBag';
 import Transfer from './Transfer';
 import AttachFile from './AttachFile';
-import { ListRoot, ListRow, Reply, Send, Message } from './ListStyled';
+import { ListRoot, ListRow, Reply, Send, Message, PageBox } from './ListStyled';
 import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
-
-const defaultPageSize = 20; //默认分页尺寸
 
 /**
  * 聊天展示组件
  */
 const ChatList: FC<Prop> = (props) => {
-	const { data } = props;
-
-	const [current, setCurrent] = useState<number>(1); //当前页
+	const { data, pageIndex, pageSize, total } = props;
 
 	/**
 	 * 翻页Change事件
@@ -27,7 +23,8 @@ const ChatList: FC<Prop> = (props) => {
 	 * @param pageSize 分页尺寸
 	 */
 	const pageChange = (page: number, pageSize?: number) => {
-		setCurrent(page);
+		const { pageChangeHandle } = props;
+		pageChangeHandle(page, pageSize!);
 	};
 
 	/**
@@ -92,7 +89,7 @@ const ChatList: FC<Prop> = (props) => {
 	 * 渲染聊天记录
 	 * @param {ChatData[]} row 聊天数据
 	 */
-	const renderList = (row: ChatData[], pageIndex: number, pageSize: number = defaultPageSize) => {
+	const renderList = (row: ChatData[], pageIndex: number, pageSize: number) => {
 		return (
 			row
 				// .slice((pageIndex - 1) * pageSize, (pageIndex - 1) * pageSize + pageSize) //不启用分页，需要时放开
@@ -157,16 +154,16 @@ const ChatList: FC<Prop> = (props) => {
 	} else {
 		return (
 			<>
-				<ListRoot>{renderList(data, current, defaultPageSize)}</ListRoot>
-				{/* <PageBox>
+				<ListRoot>{renderList(data, pageIndex, pageSize)}</ListRoot>
+				<PageBox>
 					<Pagination
 						onChange={pageChange}
-						current={current}
-						pageSize={defaultPageSize}
-						total={data.length}
+						current={pageIndex}
+						pageSize={pageSize}
+						total={total}
 						size="small"
 					/>
-				</PageBox> */}
+				</PageBox>
 			</>
 		);
 	}

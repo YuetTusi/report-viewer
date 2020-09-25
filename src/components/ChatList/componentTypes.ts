@@ -80,6 +80,22 @@ interface Prop {
      */
     data: ChatData[],
     /**
+     * 页码
+     */
+    pageIndex: number,
+    /**
+     * 分页尺寸
+     */
+    pageSize: number,
+    /**
+     * 总记录数
+     */
+    total: number,
+    /**
+     * 换页Handle
+     */
+    pageChangeHandle: (pageIndex: number, pageSize: number) => void,
+    /**
      * 打开照片handle
      */
     photoHandle: (src: string) => void,

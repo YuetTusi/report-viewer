@@ -1,7 +1,7 @@
 ;var data={
 	"title": "微信聊天Mock测试",
 	"caption": "聊天记录",
-	"records": [
+	"row": [
 		{
 			"id": "1",
 			"nickname": "用户昵称",

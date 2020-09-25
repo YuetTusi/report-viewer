@@ -44,6 +44,7 @@ const Send = styled.div`
 		color: #3d4c5a;
 		line-height: 2rem;
 		background-color: #fff;
+		word-break: break-all;
 		:after {
 			display: block;
 			position: absolute;

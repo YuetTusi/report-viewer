@@ -1,0 +1,17 @@
+;var data={
+	"caption": "京医通( | gh_185f3f05e838)",
+	"title":"京医通( | gh_185f3f05e838)(27/0)",
+	"row": [
+		{
+			"avatar": "public/default/default_avatar.jpg",
+			"content": "欢迎使用京医通！ \n\n<a href=\"https://wechat.benmu-health.com/wechatV2/#/register.hospitals\">------去挂号------</a>\n30秒挂号、号源多、随时预约\n\n<a href=\"https://wechat.benmu-health.com/wechatV2/#/consult.guide?orderSource=dkfewm\">------去咨询------</a>\n执业医师、即时解答\n\n<a href=\"https://wechat.benmu-health.com/wechatV2/#/physical.imgs?id=29\">------约体检------</a> \n公立三甲、专业权威\n \n· 如您已就诊，还可体验：\n在线缴费 |  在线查报告 | 管理就诊卡\n    \n【更多疑问】直接回复问题或常见病名称如「腹泻」，获取解答或疾病锦囊。 \n—— 北京市卫生健康委员会、北京市医院管理中心",
+			"del": false,
+			"id": "gh_185f3f05e838",
+			"nickname": "京医通7",
+			"send": false,
+			"time": "2020-01-08 17:24:18",
+			"type": "text"
+		}
+	],
+	"total":7
+};
