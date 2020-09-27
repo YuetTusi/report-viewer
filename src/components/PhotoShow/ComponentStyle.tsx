@@ -6,6 +6,7 @@ const FullScreenMask = styled.div`
 	left: 0;
 	bottom: 0;
 	right: 0;
+	cursor: wait;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
