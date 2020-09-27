@@ -28,8 +28,8 @@ const FullScreenMask = styled.div`
 
 	img {
 		cursor: pointer;
-		max-height: 80%;
-		max-width: 80%;
+		max-height: 70%;
+		max-width: 70%;
 	}
 `;
 
