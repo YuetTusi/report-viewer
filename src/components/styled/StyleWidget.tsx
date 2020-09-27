@@ -13,6 +13,16 @@ const MainTitle = styled.div`
 		color: #f00;
 		font-style: normal;
 	}
+	b {
+		color: #00cece;
+		font-style: normal;
+		font-weight: normal;
+	}
+	i {
+		color: #ffb100;
+		font-style: normal;
+		font-weight: normal;
+	}
 `;
 
 /**
