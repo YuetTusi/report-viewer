@@ -10,7 +10,7 @@ import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/st
 import ChatList from '@src/components/ChatList';
 import { BaseView } from '@src/types/View';
 import VideoModal from '@src/components/VideoModal';
-import PhotoModal from '@src/components/PhotoModal';
+import PhotoShow from '@src/components/PhotoShow';
 
 interface Prop extends BaseView {}
 
@@ -28,7 +28,7 @@ const Chat: FC<Prop> = (props) => {
 	); //当前页
 	const fileSrc = useRef<any>(null); //当前聊天组件返回的文件路径
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
-	const [photoModalVisible, setPhotoModalVisible] = useState<boolean>(false); //照片框显示
+	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
 
 	const { loading, setLoading } = LoadingContainer.useContainer();
 
@@ -50,7 +50,6 @@ const Chat: FC<Prop> = (props) => {
 	 * @param pageSize 分页尺寸
 	 */
 	const pageChangeHandle = async (pageIndex: number, pageSize: number) => {
-		console.log(pageIndex, pageSize);
 		setLoading(true);
 		try {
 			const next = await helper.loadJSON(`public/data/${fileMd5}-${pageIndex}.json`, 'data');
@@ -73,9 +72,9 @@ const Chat: FC<Prop> = (props) => {
 	/**
 	 * 关闭照片框
 	 */
-	const closePhotoModalHandle = useCallback(() => {
-		setPhotoModalVisible(false);
-	}, [photoModalVisible]);
+	const closePhotoShowHandle = useCallback(() => {
+		setPhotoShowVisible(false);
+	}, [photoShowVisible]);
 
 	return (
 		<RootPanel loading={loading}>
@@ -94,7 +93,7 @@ const Chat: FC<Prop> = (props) => {
 							pageChangeHandle={pageChangeHandle}
 							photoHandle={(src: string) => {
 								fileSrc.current = src;
-								setPhotoModalVisible(true);
+								setPhotoShowVisible(true);
 							}}
 							videoHandle={(src: string) => {
 								fileSrc.current = src;
@@ -109,10 +108,15 @@ const Chat: FC<Prop> = (props) => {
 				src={fileSrc.current}
 				closeHandle={closeVideoModalHandle}
 			/>
-			<PhotoModal
+			{/* <PhotoModal
 				visible={photoModalVisible}
 				src={fileSrc.current}
 				closeHandle={closePhotoModalHandle}
+			/> */}
+			<PhotoShow
+				visible={photoShowVisible}
+				src={fileSrc.current}
+				closeHandle={closePhotoShowHandle}
 			/>
 		</RootPanel>
 	);

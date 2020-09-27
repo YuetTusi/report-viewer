@@ -45,7 +45,7 @@ const AudioCall: FC<Prop> = (props) => {
 	return (
 		<CallBox>
 			<div className="left-ico">
-				<Icon type="phone" />
+				<Icon type="sound" />
 			</div>
 			<div className="msg">
 				<span>语音通话</span>

@@ -25,6 +25,7 @@ const WechatNewsPanel = styled.div`
 			background-color: rgba(34, 34, 34, 0.6);
 			bottom: 0;
 			left: 0;
+			padding: 0 5px;
 			color: #fff;
 		}
 	}
