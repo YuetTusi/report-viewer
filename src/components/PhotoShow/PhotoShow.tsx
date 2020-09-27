@@ -1,4 +1,4 @@
-import React, { useState, FC, SyntheticEvent } from 'react';
+import React, { useState, memo, FC } from 'react';
 import Icon from 'antd/lib/icon';
 import { FullScreenMask } from './ComponentStyle';
 import { Prop } from './componentTypes';
@@ -14,14 +14,13 @@ const openHandle = (src: string) => window.open(src);
  */
 const PhotoShow: FC<Prop> = (props) => {
 	const { visible, src, closeHandle } = props;
-
 	const [arc, setArc] = useState<number>(0);
 
 	/**
-	 * 旋转
+	 * 图片旋转
 	 * @param isAnti 是否是逆时针
 	 */
-	const rorateHandle = (isAnti: boolean) => {
+	const rotateHandle = (isAnti: boolean) => {
 		isAnti ? setArc((prev) => prev - 90) : setArc((prev) => prev + 90);
 	};
 
@@ -31,10 +30,10 @@ const PhotoShow: FC<Prop> = (props) => {
 				<a onClick={() => openHandle(src)} title="导出图片">
 					<Icon type="export" />
 				</a>
-				<a onClick={() => rorateHandle(true)} title="向左旋转">
+				<a onClick={() => rotateHandle(true)} title="向左旋转">
 					<Icon type="undo" />
 				</a>
-				<a onClick={() => rorateHandle(false)} title="向右旋转">
+				<a onClick={() => rotateHandle(false)} title="向右旋转">
 					<Icon type="redo" />
 				</a>
 				<a
@@ -56,4 +55,4 @@ const PhotoShow: FC<Prop> = (props) => {
 	);
 };
 
-export default PhotoShow;
+export default memo(PhotoShow);

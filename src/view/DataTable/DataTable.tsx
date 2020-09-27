@@ -51,7 +51,6 @@ const DataTable: FC<Prop> = (props) => {
 	 * @param pageSize 分页尺寸
 	 */
 	const pageChangeHandle = async (pageIndex: number, pageSize?: number) => {
-		console.log(pageIndex, pageSize);
 		setLoading(true);
 		try {
 			const next = await helper.loadJSON(`public/data/${fileMd5}-${pageIndex}.json`, 'data');
