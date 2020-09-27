@@ -5,7 +5,7 @@ import { PanelBox } from '@src/components/styled/BoxStyle';
 import RootPanel from '@src/components/RootPanel';
 import AudioModal from '@src/components/AudioModal';
 import VideoModal from '@src/components/VideoModal';
-import PhotoModal from '@src/components/PhotoModal';
+import PhotoShow from '@src/components/PhotoShow';
 import DisplayTable from '@src/components/DisplayTable';
 import LoadingContainer from '@src/containers/Loading';
 import { helper } from '@src/utils/helper';
@@ -29,7 +29,7 @@ const DataTable: FC<Prop> = (props) => {
 	const [data, setData] = useState<any>({}); //页面数据
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [audioModalVisible, setAudioModalVisible] = useState<boolean>(false); //音频框显示
-	const [photoModalVisible, setPhotoModalVisible] = useState<boolean>(false); //照片框显示
+	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
 
 	const { loading, setLoading } = LoadingContainer.useContainer();
 
@@ -77,7 +77,7 @@ const DataTable: FC<Prop> = (props) => {
 				break;
 			case ColumnType.Photo:
 			case ColumnType.Preview:
-				setPhotoModalVisible(true);
+				setPhotoShowVisible(true);
 				break;
 			case ColumnType.Audio:
 				setAudioModalVisible(true);
@@ -107,8 +107,8 @@ const DataTable: FC<Prop> = (props) => {
 	 * 关闭照片框
 	 */
 	const closePhotoModalHandle = useCallback(() => {
-		setPhotoModalVisible(false);
-	}, [photoModalVisible]);
+		setPhotoShowVisible(false);
+	}, [photoShowVisible]);
 
 	return (
 		<RootPanel loading={loading}>
@@ -142,8 +142,8 @@ const DataTable: FC<Prop> = (props) => {
 				src={actionVal.current}
 				closeHandle={closeVideoModalHandle}
 			/>
-			<PhotoModal
-				visible={photoModalVisible}
+			<PhotoShow
+				visible={photoShowVisible}
 				src={actionVal.current}
 				closeHandle={closePhotoModalHandle}
 			/>
