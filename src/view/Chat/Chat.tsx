@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useRef, useState } from 'react';
 import message from 'antd/lib/message';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useMount } from '@src/hooks';
 import LoadingContainer from '@src/containers/Loading';
 import { helper } from '@src/utils/helper';
@@ -21,6 +21,7 @@ const defaultPageSize = 500; //默认分页尺寸
  */
 const Chat: FC<Prop> = (props) => {
 	const { file } = useParams<{ file: string }>();
+	const [, pageCount] = useLocation().search.split('=');
 	const [data, setData] = useState<any>({});
 	const [fileMd5, index] = file.split('-');
 	const [pageIndex, setPageIndex] = useState<number>(
@@ -89,7 +90,7 @@ const Chat: FC<Prop> = (props) => {
 							data={data.row}
 							pageIndex={helper.isNullOrUndefined(pageIndex) ? 1 : Number(pageIndex)}
 							pageSize={defaultPageSize}
-							total={data.total ?? 0}
+							pageCount={pageCount as any}
 							pageChangeHandle={pageChangeHandle}
 							photoHandle={(src: string) => {
 								fileSrc.current = src;

@@ -1,0 +1,57 @@
+;var data={
+	"title": "微信聊天Mock测试",
+	"caption": "聊天记录",
+	"total":13,
+	"row": [
+		{
+			"id": "11",
+			"nickname": "用户昵称",
+			"avatar": "public/images/photo/default_avatar.jpg",
+			"content": "public/file/python.7z",
+			"type": "file",
+			"time": "2020-09-17 12:32:25",
+			"send": false,
+			"del": true
+		},
+		{
+			"id": "12",
+			"nickname": "用户昵称",
+			"avatar": "public/images/photo/1f.jpg",
+			"content": "聊天内容",
+			"type": "text",
+			"time": "2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},
+		{
+			"id": "13",
+			"nickname": "用户昵称",
+			"avatar": "public/images/photo/default_avatar.jpg",
+			"content": "聊天内容-回复",
+			"type": "text",
+			"time": "2020-09-17 12:32:25",
+			"send": true,
+			"del": false
+		},
+		{
+			"id": "14",
+			"nickname": "用户昵称",
+			"avatar": "public/images/photo/default_avatar.jpg",
+			"content": "聊天内容",
+			"type": "text",
+			"time": "2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},
+		{
+			"id": "15",
+			"nickname": "用户昵称",
+			"avatar": "public/images/photo/default_avatar.jpg",
+			"content": "恭喜发财，大吉大利",
+			"type": "reward",
+			"time": "2020-09-17 12:32:25",
+			"send": false,
+			"del": false
+		},
+    ]
+}

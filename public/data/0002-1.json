@@ -4,7 +4,7 @@
 	"total":13,
 	"row": [
 		{
-			"id": "14",
+			"id": "1",
 			"nickname": "用户昵称",
 			"avatar": "public/images/photo/default_avatar.jpg",
 			"content": {
@@ -42,7 +42,7 @@
 			"del": true
 		},
 		{
-			"id": "1",
+			"id": "2",
 			"nickname": "用户昵称",
 			"avatar": "public/images/photo/default_avatar.jpg",
 			"content": "聊天内容",
@@ -52,7 +52,7 @@
 			"del": true
 		},
 		{
-			"id": "2123",
+			"id": "3",
 			"nickname": "用户昵称",
 			"avatar": "public/images/photo/1f.jpg",
 			"content": "转帐200元（已领取）",
@@ -62,13 +62,14 @@
 			"del": false
 		},
 		{
+			"id":"4",
 			"content": "吴大仙邀请你加入了群聊",
 			"type": "message",
 			"time": "2020-09-17 12:32:25",
 			"del": true
 		},
 		{
-			"id": "2",
+			"id": "5",
 			"nickname": "用户昵称",
 			"avatar": "public/images/photo/1f.jpg",
 			"content": "public/images/photo/1f.jpg",
@@ -76,136 +77,6 @@
 			"time": "2020-09-17 12:32:25",
 			"send": false,
 			"del": false
-		},
-		{
-			"id": "2",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/1f.jpg",
-			"content": "public/images/photo/long.jpg",
-			"type": "photo",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "2",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/1f.jpg",
-			"content": "public/images/photo/wid.jpg",
-			"type": "photo",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "3",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "public/audio/sodagreen.mp3",
-			"type": "audio",
-			"time": "2020-09-17 12:32:25",
-			"send": true,
-			"del": false
-		},
-		{
-			"id": "4",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "public/video/0E3656FB718619607AF989A2F840D266.mp4",
-			"type": "video",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "5",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "聊天内容",
-			"type": "text",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "6",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "public/file/python.7z",
-			"type": "file",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": true
-		},
-		{
-			"id": "7",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/1f.jpg",
-			"content": "聊天内容",
-			"type": "text",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "8",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "聊天内容-回复",
-			"type": "text",
-			"time": "2020-09-17 12:32:25",
-			"send": true,
-			"del": false
-		},
-		{
-			"id": "9",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "聊天内容",
-			"type": "text",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "10",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "恭喜发财，大吉大利",
-			"type": "reward",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "11",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "这是最后一条记录",
-			"type": "text",
-			"time": "2020-09-17 12:34:00",
-			"send": false,
-			"del": true
-		},
-		{
-			"id": "12",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "这是最后一条记录",
-			"type": "video_call",
-			"time": "2020-09-17 12:34:00",
-			"send": false,
-			"del": true
-		},
-		{
-			"id": "13",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "这是最后一条记录",
-			"type": "audio_call",
-			"time": "2020-09-17 12:34:00",
-			"send": false,
-			"del": true
 		}
 	]
 }

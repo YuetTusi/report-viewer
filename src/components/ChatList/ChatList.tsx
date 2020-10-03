@@ -1,6 +1,4 @@
-import React, { FC, useState } from 'react';
-import Button from 'antd/lib/button';
-import Icon from 'antd/lib/icon';
+import React, { FC } from 'react';
 import Empty from 'antd/lib/empty';
 import Pagination from 'antd/lib/pagination';
 import Tag from 'antd/lib/tag';
@@ -19,7 +17,7 @@ import VideoCall from './VideoCall';
  * 聊天展示组件
  */
 const ChatList: FC<Prop> = (props) => {
-	const { data, pageIndex, pageSize, total } = props;
+	const { data, pageIndex, pageSize, pageCount } = props;
 
 	/**
 	 * 翻页Change事件
@@ -112,59 +110,55 @@ const ChatList: FC<Prop> = (props) => {
 	 * @param {ChatData[]} row 聊天数据
 	 */
 	const renderList = (row: ChatData[], pageIndex: number, pageSize: number) => {
-		return (
-			row
-				// .slice((pageIndex - 1) * pageSize, (pageIndex - 1) * pageSize + pageSize) //不启用分页，需要时放开
-				.map((item, i) => {
-					if (item.type === ChatType.Message) {
-						return (
-							<ListRow key={`chat_${i}`}>
-								<Message>
-									<p>{item.content}</p>
-									<div className="other">
-										<time>{item.time}</time>
-										{item?.del ? <del>已删除</del> : null}
-									</div>
-								</Message>
-							</ListRow>
-						);
-					} else if (item.send) {
-						return (
-							<ListRow key={`chat_${i}`}>
-								<Reply>
-									<img src={item.avatar} className="avatar" />
-									<div className="text-box">
-										<div className="user-name">
-											<span>{item.nickname}</span>
-											<em>({item.id})</em>
-										</div>
-										{renderContent(item)}
-										<time>{item.time}</time>
-									</div>
-									{item.del ? <Tag color="red">已删除</Tag> : null}
-								</Reply>
-							</ListRow>
-						);
-					} else {
-						return (
-							<ListRow key={`chat_${i}`}>
-								<Send>
-									<img src={item.avatar} className="avatar" />
-									<div className="text-box">
-										<div className="user-name">
-											<span>{item.nickname}</span>
-											<em>({item.id})</em>
-										</div>
-										{renderContent(item)}
-										<time>{item.time}</time>
-									</div>
-									{item.del ? <Tag color="red">已删除</Tag> : null}
-								</Send>
-							</ListRow>
-						);
-					}
-				})
-		);
+		return row.map((item, i) => {
+			if (item.type === ChatType.Message) {
+				return (
+					<ListRow key={`chat_${i}`}>
+						<Message>
+							<p>{item.content}</p>
+							<div className="other">
+								<time>{item.time}</time>
+								{item?.del ? <del>已删除</del> : null}
+							</div>
+						</Message>
+					</ListRow>
+				);
+			} else if (item.send) {
+				return (
+					<ListRow key={`chat_${i}`}>
+						<Reply>
+							<img src={item.avatar} className="avatar" />
+							<div className="text-box">
+								<div className="user-name">
+									<span>{item.nickname}</span>
+									<em>({item.id})</em>
+								</div>
+								{renderContent(item)}
+								<time>{item.time}</time>
+							</div>
+							{item.del ? <Tag color="red">已删除</Tag> : null}
+						</Reply>
+					</ListRow>
+				);
+			} else {
+				return (
+					<ListRow key={`chat_${i}`}>
+						<Send>
+							<img src={item.avatar} className="avatar" />
+							<div className="text-box">
+								<div className="user-name">
+									<span>{item.nickname}</span>
+									<em>({item.id})</em>
+								</div>
+								{renderContent(item)}
+								<time>{item.time}</time>
+							</div>
+							{item.del ? <Tag color="red">已删除</Tag> : null}
+						</Send>
+					</ListRow>
+				);
+			}
+		});
 	};
 
 	if (helper.isNullOrUndefinedOrEmptyArray(data)) {
@@ -182,7 +176,7 @@ const ChatList: FC<Prop> = (props) => {
 						onChange={pageChange}
 						current={pageIndex}
 						pageSize={pageSize}
-						total={total}
+						total={pageSize * pageCount}
 						size="small"
 					/>
 				</PageBox>
