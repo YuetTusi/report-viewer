@@ -12,7 +12,7 @@ import { DisplayTableCell } from './types';
  * video:视频列,audio:音频列,photo:照片列
  */
 const DisplayTable: FC<Prop> = (props) => {
-	const { pageIndex, pageSize, total, pageChangeHandle } = props;
+	const { pageIndex, pageSize, pageCount, pageChangeHandle } = props;
 
 	return (
 		<div>
@@ -27,8 +27,8 @@ const DisplayTable: FC<Prop> = (props) => {
 				pagination={{
 					current: pageIndex,
 					pageSize,
-					total,
-					onChange: pageChangeHandle
+					total: pageSize * pageCount,
+					onChange: pageChangeHandle,
 				}}
 			/>
 		</div>
@@ -37,7 +37,7 @@ const DisplayTable: FC<Prop> = (props) => {
 
 DisplayTable.defaultProps = {
 	columns: [],
-	data: []
+	data: [],
 };
 
 export default DisplayTable;

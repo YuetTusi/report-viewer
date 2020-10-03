@@ -1,7 +1,6 @@
 ;var data={
 	"title": "表格Mock数据测试",
 	"caption": "标题",
-	"total":5,
 	"column": [
 		{ "header": "id", "type": "text" },
 		{ "header": "文件", "type": "file" },

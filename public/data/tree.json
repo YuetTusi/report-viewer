@@ -15,12 +15,14 @@
 					{
 						"name": "微信",
 						"path": "/iphone-wechat/0002-1",
+						"page": 1,
 						"type": "chat",
 						"icon": "public/images/tree/wechat.png"
 					},
 					{
 						"name": "照片",
 						"path": "/iphone-photo/0003-1",
+						"page": 4,
 						"type": "table",
 						"icon": "public/images/tree/photo.png"
 					}

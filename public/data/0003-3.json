@@ -1,7 +1,6 @@
 ;var data={
 	"title": "表格Mock数据测试",
 	"caption": "标题",
-	"total":5,
 	"column": [
 		{ "header": "id", "type": "text" },
 		{ "header": "文件", "type": "file" },
@@ -16,6 +15,14 @@
 			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
+			{ "value": "public/images/photo/1f.jpg" },
+			{ "value": "public/audio/sodagreen.mp3" }
+		],
+		[
+			{ "value": "6" },
+			{ "value": "public/file/python.7z" },
+			{ "value": "public/images/photo/1f.jpg" },
+			{ "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/audio/sodagreen.mp3" }
 		]

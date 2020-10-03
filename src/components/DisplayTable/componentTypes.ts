@@ -19,9 +19,9 @@ interface Prop {
      */
     pageSize: number,
     /**
-     * 总记录数
+     * 总分页数
      */
-    total: number,
+    pageCount: number,
     /**
      * 换页Handle
      */

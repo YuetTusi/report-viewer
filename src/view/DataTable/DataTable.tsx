@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import message from 'antd/lib/message';
 import { PanelBox } from '@src/components/styled/BoxStyle';
 import RootPanel from '@src/components/RootPanel';
@@ -21,6 +21,8 @@ interface Prop extends BaseView {}
  */
 const DataTable: FC<Prop> = (props) => {
 	const { file } = useParams<{ file: string }>();
+	const [, pageCount] = useLocation().search.split('=');
+
 	const [fileMd5, index] = file.split('-');
 	const [pageIndex, setPageIndex] = useState<number>(
 		helper.isNullOrUndefined(index) ? 1 : Number(index)
@@ -123,7 +125,7 @@ const DataTable: FC<Prop> = (props) => {
 							data={data.row ?? []}
 							pageIndex={helper.isNullOrUndefined(pageIndex) ? 1 : Number(pageIndex)}
 							pageSize={defaultPageSize}
-							total={data.total ?? 0}
+							pageCount={pageCount as any}
 							pageChangeHandle={pageChangeHandle}
 							actionHandle={actionHandle}
 							scroll={{ x: 'max-content' }}

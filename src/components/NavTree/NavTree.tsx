@@ -37,12 +37,13 @@ const NavTree: FC<Prop> = (props) => {
 			{
 				callback: {
 					onClick(event: MouseEvent, id: string, node: any) {
-						history.replace(node.path);
-					}
+						let url = node.path + `?p=${node.page ?? 0}`;
+						history.replace(url);
+					},
 				},
 				view: {
-					nameIsHTML: true
-				}
+					nameIsHTML: true,
+				},
 			},
 			data
 		);
