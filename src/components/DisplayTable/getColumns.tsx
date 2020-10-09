@@ -22,7 +22,11 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
 						render: (val: string, row: Record<string, any>) =>
-							row.del ? <RedText>{val}</RedText> : <BlackText>{val}</BlackText>
+							row.del ? (
+								<RedText dangerouslySetInnerHTML={{ __html: val }} />
+							) : (
+								<BlackText dangerouslySetInnerHTML={{ __html: val }} />
+							)
 					};
 				case ColumnType.Audio:
 				case ColumnType.Video:

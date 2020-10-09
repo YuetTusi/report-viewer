@@ -11,11 +11,19 @@ const FileLink = styled.a`
 const RedText = styled.span`
 	display: inline;
 	color: #f00;
+	em {
+		color: #ff0033;
+		font-style: normal;
+	}
 `;
 
 const BlackText = styled.span`
 	display: inline;
 	color: #222;
+	em {
+		color: #ff0033;
+		font-style: normal;
+	}
 `;
 
 export { FileLink, RedText, BlackText };

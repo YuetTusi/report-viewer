@@ -11,7 +11,7 @@
 	],
 	"row": [
 		[
-			{ "value": "1","del":true },
+			{ "value": "1" },
 			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },
