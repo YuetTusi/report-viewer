@@ -42,7 +42,7 @@ const DataList: FC<Prop> = (props) => {
 			</PanelBox>
 			<PanelBox>
 				<PartBox>
-					<PartCaption>{data?.part?.caption}</PartCaption>
+					<PartCaption dangerouslySetInnerHTML={{ __html: data?.part?.caption }} />
 					<PartContent>
 						<VerticalTable data={data?.part?.listData} />
 					</PartContent>

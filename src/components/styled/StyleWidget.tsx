@@ -53,6 +53,22 @@ const PartCaption = styled.div`
 	background-color: #3d4c5a;
 	padding: 5px;
 	height: 31px;
+
+	em {
+		color: #ff0033;
+		font-style: normal;
+		font-weight: normal;
+	}
+	b {
+		color: #00ffff;
+		font-style: normal;
+		font-weight: normal;
+	}
+	i {
+		color: #ffcc00;
+		font-style: normal;
+		font-weight: normal;
+	}
 `;
 
 /**

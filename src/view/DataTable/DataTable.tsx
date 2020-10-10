@@ -118,7 +118,7 @@ const DataTable: FC<Prop> = (props) => {
 			</PanelBox>
 			<PanelBox>
 				<PartBox>
-					<PartCaption>{data.caption ?? ''}</PartCaption>
+					<PartCaption dangerouslySetInnerHTML={{ __html: data.caption ?? '' }} />
 					<PartContent>
 						<DisplayTable
 							columns={data.column ?? []}

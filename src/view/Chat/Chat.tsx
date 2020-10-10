@@ -84,7 +84,7 @@ const Chat: FC<Prop> = (props) => {
 			</PanelBox>
 			<PanelBox>
 				<PartBox>
-					<PartCaption>{data.caption ?? ''}</PartCaption>
+					<PartCaption dangerouslySetInnerHTML={{ __html: data.caption ?? '' }} />
 					<PartContent>
 						<ChatList
 							data={data.row}
