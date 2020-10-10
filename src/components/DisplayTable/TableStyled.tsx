@@ -15,6 +15,16 @@ const RedText = styled.span`
 		color: #ff0033;
 		font-style: normal;
 	}
+	b {
+		color: #00cece;
+		font-style: normal;
+		font-weight: normal;
+	}
+	i {
+		color: #ffb100;
+		font-style: normal;
+		font-weight: normal;
+	}
 `;
 
 const BlackText = styled.span`
@@ -23,6 +33,16 @@ const BlackText = styled.span`
 	em {
 		color: #ff0033;
 		font-style: normal;
+	}
+	b {
+		color: #00cece;
+		font-style: normal;
+		font-weight: normal;
+	}
+	i {
+		color: #ffb100;
+		font-style: normal;
+		font-weight: normal;
 	}
 `;
 
