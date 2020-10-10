@@ -25,7 +25,16 @@ const PhotoShow: FC<Prop> = (props) => {
 	};
 
 	return (
-		<FullScreenMask style={{ display: visible ? 'flex' : 'none' }}>
+		<FullScreenMask
+			style={{ display: visible ? 'flex' : 'none' }}
+			data-fn="mask"
+			onClick={(e: any) => {
+				const { dataset } = e.target;
+				if (dataset?.fn === 'mask') {
+					setArc(0);
+					closeHandle();
+				}
+			}}>
 			<div className="fn-bar">
 				<a onClick={() => openHandle(src)} title="导出图片">
 					<Icon type="export" />
