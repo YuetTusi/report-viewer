@@ -13,7 +13,7 @@ import { useMount } from '@src/hooks';
 import { BaseView, ColumnType } from '@src/types/View';
 import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
 
-const defaultPageSize = 500;
+let defaultPageSize = 0;
 interface Prop extends BaseView {}
 
 /**
@@ -39,6 +39,7 @@ const DataTable: FC<Prop> = (props) => {
 		setLoading(true);
 		try {
 			const next = await helper.loadJSON<any>(`public/data/${file}.json`, 'data');
+			defaultPageSize = next?.row?.length ?? 0;
 			setData(next);
 		} catch (error) {
 			message.error('读取数据失败');

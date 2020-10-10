@@ -60,7 +60,6 @@ const ChatList: FC<Prop> = (props) => {
 						<img
 							onClick={() => props.photoHandle(record.content)}
 							src={record.content}
-							alt={record.content}
 						/>
 					</div>
 				);

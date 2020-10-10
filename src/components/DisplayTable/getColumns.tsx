@@ -74,7 +74,6 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 									props.actionHandle(url, type);
 								}}
 								src={url}
-								alt={url}
 								style={{ cursor: 'pointer', width: '50px', height: '50px' }}
 							/>
 						),

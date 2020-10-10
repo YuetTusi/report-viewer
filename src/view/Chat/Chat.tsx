@@ -14,7 +14,7 @@ import PhotoShow from '@src/components/PhotoShow';
 
 interface Prop extends BaseView {}
 
-const defaultPageSize = 500; //默认分页尺寸
+let defaultPageSize = 0; //默认分页尺寸
 
 /**
  * 聊天类页面
@@ -36,7 +36,8 @@ const Chat: FC<Prop> = (props) => {
 	useMount(async () => {
 		setLoading(true);
 		try {
-			const next = await helper.loadJSON(`public/data/${file}.json`, 'data');
+			const next = await helper.loadJSON<any>(`public/data/${file}.json`, 'data');
+			defaultPageSize = next?.row?.length ?? 0;
 			setData(next);
 		} catch (error) {
 			message.error('读取数据失败');

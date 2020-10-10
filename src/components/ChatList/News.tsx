@@ -78,7 +78,7 @@ const News: FC<Prop> = (props) => {
 		return items.map((item, i) => (
 			<li key={`N_${i}`} onClick={() => window.open(item.url)}>
 				<span>{item.title ?? ''}</span>
-				<img src={item.cover} alt="" />
+				<img src={item.cover} />
 			</li>
 		));
 	};
