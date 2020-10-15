@@ -46,8 +46,35 @@
 			"nickname": "用户昵称",
 			"avatar": "public/images/photo/default_avatar.jpg",
 			"avatar_export":"public/images/photo/default_avatar.jpg",
-			"content": "聊天内容",
-			"type": "text",
+			"content": {
+				"content": "你以为奥迪很贵吗？\n【联系我们】18500628575\n【欢迎到店】宋梁路56号诚基汽车宋庄派出所南50米\n【我的店铺】http://csl.maiche168.com/x996091/",
+				"url": "http://shmmsns.qpic.cn/mmsns/VGIBgLURV4YtsiaERtkyprOoDPlEO7vCO3McQdviaWcZIhzqN7Jfr3EI2YicERKvuOHShPBhugMFck/0",
+				//位置
+				"locate":{
+					"describe":"xx市xx区xx楼",
+					"lat":"",
+					"lon":""
+				},
+				//点赞
+				"like":["微信好友昵称1","微信好友昵称2"],
+				//评论
+				"comments":[{
+					"username":"张楠","nickname":"张小楠","content":"评论123","refusername":"","createtime":""
+					},{
+						"username":"李涛","nickname":"李小涛","content":"哈哈哈","refusername":"张小楠","createtime":""
+				}],
+				//提醒
+				"remind":["微信好友昵称1","微信好友昵称2"],
+				//缩略图
+				"media":[
+					"http://inews.gtimg.com/newsapp_ls/0/2792428245_640320/0",
+					"http://inews.gtimg.com/newsapp_ls/0/2792447416_8080/0",
+					"http://inews.gtimg.com/newsapp_ls/0/2792360024_8080/0",
+					"http://inews.gtimg.com/newsapp_ls/0/2792186803_8080/0"
+				],
+				"title":"标题",
+			},
+			"type": "moments",
 			"time": "2020-09-17 12:32:25",
 			"send": false,
 			"del": true

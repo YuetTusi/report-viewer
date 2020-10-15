@@ -28,8 +28,8 @@ const LeftBox = styled.div`
  */
 const RightBox = styled.div`
 	box-sizing: border-box;
-	height: 100%;
 	padding: 10px;
+	min-height: 100%;
 	background-color: #ebedee;
 `;
 

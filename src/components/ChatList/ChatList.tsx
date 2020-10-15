@@ -7,6 +7,7 @@ import VideoPreview from './VideoPreview';
 import Transfer from './Transfer';
 import AttachFile from './AttachFile';
 import News from './News';
+import Moments from './Moments';
 import { ListRoot, ListRow, Reply, Send, Message, PageBox } from './ListStyled';
 import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
@@ -112,6 +113,12 @@ const ChatList: FC<Prop> = (props) => {
 				return (
 					<div className="talk">
 						<News data={record.content} />
+					</div>
+				);
+			case ChatType.Moments:
+				return (
+					<div className="talk">
+						<Moments data={record.content} />
 					</div>
 				);
 			default:

@@ -42,7 +42,11 @@ enum ChatType {
     /**
      * 公众号新闻
      */
-    News = 'news'
+    News = 'news',
+    /**
+     * 朋友圈
+     */
+    Moments = 'moments',
 }
 
 /**
