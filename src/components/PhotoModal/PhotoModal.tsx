@@ -1,7 +1,6 @@
-import React, { FC, memo, MouseEvent, SyntheticEvent, useRef } from 'react';
+import React, { FC, memo, MouseEvent, useRef } from 'react';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
-import message from 'antd/lib/message';
 import { PhotoBox } from './ModalStyled';
 
 interface Prop {
@@ -9,6 +8,10 @@ interface Prop {
 	 * 照片文件路径
 	 */
 	src: string;
+	/**
+	 * 备用图片路径（导出后）
+	 */
+	exportSrc: string;
 	/**
 	 * 是否显示
 	 */
@@ -20,19 +23,22 @@ interface Prop {
 }
 
 /**
- * 视频播放弹框
+ * 照片弹框
  */
 const PhotoModal: FC<Prop> = (props) => {
+	const imgRef = useRef<any>();
+
 	const cancelHandle = (event: MouseEvent<HTMLElement>) => {
 		props.closeHandle!();
 	};
 
 	const exportHandle = (event: MouseEvent<HTMLElement>) => {
-		window.open(props.src);
-	};
-
-	const loadError = (event: SyntheticEvent<HTMLImageElement>) => {
-		message.error('照片加载失败');
+		const { has } = imgRef.current?.dataset as any;
+		if (has === '1') {
+			window.open(props.exportSrc);
+		} else {
+			window.open(props.src);
+		}
 	};
 
 	return (
@@ -52,8 +58,17 @@ const PhotoModal: FC<Prop> = (props) => {
 			title="照片">
 			<PhotoBox>
 				<img
+					ref={imgRef}
 					src={props.src}
-					onError={loadError}
+					data-has="0"
+					onError={(e) => {
+						//error事件加载备用图片
+						const { has } = (e.target as any).dataset;
+						if (has === '0') {
+							(e.target as any).setAttribute('data-has', '1');
+							(e.target as any).src = props.exportSrc;
+						}
+					}}
 					alt="照片"
 					style={{ maxWidth: '800px', maxHeight: '550px' }}
 				/>

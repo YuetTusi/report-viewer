@@ -28,6 +28,7 @@ const Chat: FC<Prop> = (props) => {
 		helper.isNullOrUndefined(index) ? 1 : Number(index)
 	); //当前页
 	const fileSrc = useRef<any>(null); //当前聊天组件返回的文件路径
+	const fileExportSrc = useRef<any>(null); //当前聊天组件返回的备用文件路径
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
 
@@ -93,12 +94,14 @@ const Chat: FC<Prop> = (props) => {
 							pageSize={defaultPageSize}
 							pageCount={pageCount as any}
 							pageChangeHandle={pageChangeHandle}
-							photoHandle={(src: string) => {
+							photoHandle={(src: string, exportSrc: string) => {
 								fileSrc.current = src;
+								fileExportSrc.current = exportSrc;
 								setPhotoShowVisible(true);
 							}}
-							videoHandle={(src: string) => {
+							videoHandle={(src: string, exportSrc: string) => {
 								fileSrc.current = src;
+								fileExportSrc.current = exportSrc;
 								setVideoModalVisible(true);
 							}}
 						/>
@@ -108,6 +111,7 @@ const Chat: FC<Prop> = (props) => {
 			<VideoModal
 				visible={videoModalVisible}
 				src={fileSrc.current}
+				exportSrc={fileExportSrc.current}
 				closeHandle={closeVideoModalHandle}
 			/>
 			{/* <PhotoModal
@@ -118,6 +122,7 @@ const Chat: FC<Prop> = (props) => {
 			<PhotoShow
 				visible={photoShowVisible}
 				src={fileSrc.current}
+				exportSrc={fileExportSrc.current}
 				closeHandle={closePhotoShowHandle}
 			/>
 		</RootPanel>

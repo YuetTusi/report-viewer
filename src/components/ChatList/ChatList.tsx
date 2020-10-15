@@ -39,27 +39,42 @@ const ChatList: FC<Prop> = (props) => {
 			case ChatType.Audio:
 				return (
 					<div className="talk">
-						<audio src={record.content} controls={true} />
+						<audio
+							src={record.content}
+							controls={true}
+							data-has="0"
+							onError={(e) => {
+								//error事件加载备用图片
+								const { has } = (e.target as any).dataset;
+								if (has === '0') {
+									(e.target as any).setAttribute('data-has', '1');
+									(e.target as any).src = record.content_export;
+								}
+							}}
+						/>
 					</div>
 				);
 			case ChatType.Video:
 				return (
 					<div className="talk">
-						<VideoPreview src={record.content} />
-						{/* <Button
-							onClick={() => props.videoHandle(record.content)}
-							name="videoPlayButton"
-							type="primary">
-							<Icon type="play-circle" />
-						</Button> */}
+						<VideoPreview src={record.content} exportSrc={record.content_export} />
 					</div>
 				);
 			case ChatType.Photo:
 				return (
 					<div className="talk">
 						<img
-							onClick={() => props.photoHandle(record.content)}
+							onClick={() => props.photoHandle(record.content, record.content_export)}
 							src={record.content}
+							data-has="0"
+							onError={(e) => {
+								//error事件加载备用图片
+								const { has } = (e.target as any).dataset;
+								if (has === '0') {
+									(e.target as any).setAttribute('data-has', '1');
+									(e.target as any).src = record.content_export;
+								}
+							}}
 						/>
 					</div>
 				);
@@ -126,7 +141,19 @@ const ChatList: FC<Prop> = (props) => {
 				return (
 					<ListRow key={`chat_${i}`}>
 						<Reply>
-							<img src={item.avatar} className="avatar" />
+							<img
+								src={item.avatar}
+								className="avatar"
+								data-has="0"
+								onError={(e) => {
+									//error事件加载备用图片
+									const { has } = (e.target as any).dataset;
+									if (has === '0') {
+										(e.target as any).setAttribute('data-has', '1');
+										(e.target as any).src = item.avatar_export;
+									}
+								}}
+							/>
 							<div className="text-box">
 								<div className="user-name">
 									<span>{item.nickname}</span>
@@ -143,7 +170,19 @@ const ChatList: FC<Prop> = (props) => {
 				return (
 					<ListRow key={`chat_${i}`}>
 						<Send>
-							<img src={item.avatar} className="avatar" />
+							<img
+								src={item.avatar}
+								className="avatar"
+								data-has="0"
+								onError={(e) => {
+									//error事件加载备用图片
+									const { has } = (e.target as any).dataset;
+									if (has === '0') {
+										(e.target as any).setAttribute('data-has', '1');
+										(e.target as any).src = item.avatar_export;
+									}
+								}}
+							/>
 							<div className="text-box">
 								<div className="user-name">
 									<span>{item.nickname}</span>

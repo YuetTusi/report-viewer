@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const FullScreenBox = styled.div`
-	position: absolute;
+	position: fixed;
 	z-index: 999;
 	top: 0;
 	left: 0;

@@ -1,20 +1,15 @@
-import React, { useState, memo, FC } from 'react';
+import React, { useRef, useState, memo, FC } from 'react';
 import Icon from 'antd/lib/icon';
 import { FullScreenMask } from './ComponentStyle';
 import { Prop } from './componentTypes';
 
 /**
- * 打开图片
- * @param src 路径
- */
-const openHandle = (src: string) => window.open(src);
-
-/**
  * 图片展示组件
  */
 const PhotoShow: FC<Prop> = (props) => {
-	const { visible, src, closeHandle } = props;
+	const { visible, src, exportSrc, closeHandle } = props;
 	const [arc, setArc] = useState<number>(0);
+	const fileRef = useRef<any>();
 
 	/**
 	 * 图片旋转
@@ -22,6 +17,19 @@ const PhotoShow: FC<Prop> = (props) => {
 	 */
 	const rotateHandle = (isAnti: boolean) => {
 		isAnti ? setArc((prev) => prev - 90) : setArc((prev) => prev + 90);
+	};
+
+	/**
+	 * 打开图片
+	 * @param src 路径
+	 */
+	const openHandle = () => {
+		const { has } = fileRef.current?.dataset as any;
+		if (has === '1') {
+			window.open(exportSrc);
+		} else {
+			window.open(src);
+		}
 	};
 
 	return (
@@ -36,7 +44,7 @@ const PhotoShow: FC<Prop> = (props) => {
 				}
 			}}>
 			<div className="fn-bar">
-				<a onClick={() => openHandle(src)} title="导出图片">
+				<a onClick={() => openHandle()} title="导出图片">
 					<Icon type="export" />
 				</a>
 				<a onClick={() => rotateHandle(true)} title="向左旋转">
@@ -55,10 +63,20 @@ const PhotoShow: FC<Prop> = (props) => {
 				</a>
 			</div>
 			<img
+				ref={fileRef}
 				style={{ transform: `rotate(${arc}deg)` }}
 				src={src}
-				onClick={() => openHandle(src)}
+				onClick={() => openHandle()}
 				alt="图片"
+				data-has="0"
+				onError={(e) => {
+					//error事件加载备用图片
+					const { has } = (e.target as any).dataset;
+					if (has === '0') {
+						(e.target as any).setAttribute('data-has', '1');
+						(e.target as any).src = props.exportSrc;
+					}
+				}}
 			/>
 		</FullScreenMask>
 	);

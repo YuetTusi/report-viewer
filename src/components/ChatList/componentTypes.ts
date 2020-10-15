@@ -62,9 +62,17 @@ interface ChatData {
      */
     avatar: string,
     /**
+     * 备用（导出后）头像路径
+     */
+    avatar_export: string,
+    /**
      * 聊天内容
      */
     content: any,
+    /**
+     * 备用（导出后）值
+     */
+    content_export: any,
     /**
      * 消息类型
      */
@@ -110,11 +118,11 @@ interface Prop {
     /**
      * 打开照片handle
      */
-    photoHandle: (src: string) => void,
+    photoHandle: (src: string, exportSrc: string) => void,
     /**
      * 打开视频handle
      */
-    videoHandle: (src: string) => void
+    videoHandle: (src: string, exportSrc: string) => void
 }
 
 export { Prop, ChatData, ChatType };

@@ -8,6 +8,10 @@ interface Prop {
      */
     src: string,
     /**
+     * 备用图片文件路径
+     */
+    exportSrc: string,
+    /**
      * 关闭handle
      */
     closeHandle: () => void

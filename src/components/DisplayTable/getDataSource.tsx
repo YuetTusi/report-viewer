@@ -5,7 +5,7 @@ function getDataSource(data: Array<DisplayTableCell[]>) {
 
 	for (let i = 0; i < data.length; i++) {
 		let row = data[i].reduce((prev: any, current: DisplayTableCell, index) => {
-			prev[`col_${index}`] = current.value;
+			prev[`col_${index}`] = current;
 			return prev;
 		}, {});
 
@@ -14,6 +14,9 @@ function getDataSource(data: Array<DisplayTableCell[]>) {
 		} else {
 			row['del'] = false;
 		}
+		// if(data[i][0].value_export){
+		// 	row['value_export'] = data[i][0].value_export;
+		// }
 
 		results.push(row);
 		results[i]._id = `R_${i}`;

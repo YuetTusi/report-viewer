@@ -10,6 +10,10 @@ interface Prop {
 	 */
 	src: string;
 	/**
+	 * 备用音频文件路径
+	 */
+	exportSrc: string;
+	/**
 	 * 是否显示
 	 */
 	visible: boolean;
@@ -31,14 +35,15 @@ const AudioModal: FC<Prop> = (props) => {
 	};
 
 	const exportHandle = (event: MouseEvent<HTMLElement>) => {
-		window.open(props.src);
+		const { has } = fileRef.current?.dataset as any;
+		if (has === '1') {
+			window.open(props.exportSrc);
+		} else {
+			window.open(props.src);
+		}
 	};
 
 	const videoCanPlay = (event: SyntheticEvent<HTMLAudioElement>) => {};
-
-	const loadError = (event: SyntheticEvent<HTMLAudioElement>) => {
-		message.error('音频加载失败');
-	};
 
 	return (
 		<Modal
@@ -60,8 +65,18 @@ const AudioModal: FC<Prop> = (props) => {
 					src={props.src}
 					ref={fileRef}
 					onCanPlay={videoCanPlay}
-					onError={loadError}
 					controls={true}
+					data-has="0"
+					onError={(e) => {
+						//error事件加载备用文件
+						const { has } = (e.target as any).dataset;
+						if (has === '0') {
+							(e.target as any).setAttribute('data-has', '1');
+							(e.target as any).src = props.exportSrc;
+						} else {
+							message.error('音频加载失败');
+						}
+					}}
 				/>
 			</AudioBox>
 		</Modal>

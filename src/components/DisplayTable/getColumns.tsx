@@ -3,7 +3,7 @@ import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
-import { DisplayTableColumn } from './types';
+import { DisplayTableCell, DisplayTableColumn } from './types';
 import { Prop } from './componentTypes';
 import { BlackText, RedText } from './TableStyled';
 /**
@@ -21,23 +21,23 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						title: header,
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
-						render: (val: string, row: Record<string, any>) =>
+						render: (cell: DisplayTableCell, row: Record<string, any>) =>
 							row.del ? (
-								<RedText dangerouslySetInnerHTML={{ __html: val }} />
+								<RedText dangerouslySetInnerHTML={{ __html: cell.value }} />
 							) : (
-								<BlackText dangerouslySetInnerHTML={{ __html: val }} />
+								<BlackText dangerouslySetInnerHTML={{ __html: cell.value }} />
 							)
 					};
 				case ColumnType.Audio:
 				case ColumnType.Video:
 					return {
 						title: header,
-						render: (val: any, record: DisplayTableColumn) => (
+						render: (cell: DisplayTableCell, record: DisplayTableColumn) => (
 							<Button
 								type="primary"
 								size="small"
 								onClick={() => {
-									props.actionHandle(val, type);
+									props.actionHandle(cell, type);
 								}}>
 								<Icon type="play-circle" />
 							</Button>
@@ -50,12 +50,12 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 				case ColumnType.Photo:
 					return {
 						title: header,
-						render: (val: any, record: DisplayTableColumn) => (
+						render: (cell: DisplayTableCell, record: DisplayTableColumn) => (
 							<Button
 								type="primary"
 								size="small"
 								onClick={() => {
-									props.actionHandle(val, type);
+									props.actionHandle(cell, type);
 								}}>
 								<Icon type="search" />
 							</Button>
@@ -68,15 +68,26 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 				case ColumnType.Preview:
 					return {
 						title: header,
-						render: (url: string, record: DisplayTableColumn) => (
-							<img
-								onClick={() => {
-									props.actionHandle(url, type);
-								}}
-								src={url}
-								style={{ cursor: 'pointer', width: '50px', height: '50px' }}
-							/>
-						),
+						render: (cell: DisplayTableCell, record: DisplayTableColumn) => {
+							return (
+								<img
+									onClick={() => {
+										props.actionHandle(cell, type);
+									}}
+									src={cell.value}
+									data-has="0"
+									onError={(e) => {
+										//error事件加载备用图片
+										const { has } = (e.target as any).dataset;
+										if (has === '0') {
+											(e.target as any).setAttribute('data-has', '1');
+											(e.target as any).src = cell.value_export;
+										}
+									}}
+									style={{ cursor: 'pointer', width: '50px', height: '50px' }}
+								/>
+							);
+						},
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
 						align: 'center',
@@ -85,7 +96,7 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 				case ColumnType.File:
 					return {
 						title: header,
-						render: (val: string, record: DisplayTableColumn) => (
+						render: (cell: DisplayTableCell, record: DisplayTableColumn) => (
 							<Icon type="file-text" style={{ fontSize: '2rem' }} />
 						),
 						dataIndex: `col_${i}`,
@@ -98,8 +109,8 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						title: header,
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
-						render: (val: string, row: Record<string, any>) =>
-							row.del ? <RedText>{val}</RedText> : <BlackText>{val}</BlackText>
+						render: (cell: DisplayTableCell, row: Record<string, any>) =>
+							row.del ? <RedText>{cell.value}</RedText> : <BlackText>{cell.value}</BlackText>
 					};
 			}
 		});

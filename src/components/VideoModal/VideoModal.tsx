@@ -10,6 +10,10 @@ interface Prop {
 	 */
 	src: string;
 	/**
+	 * 备用视频文件路径
+	 */
+	exportSrc: string;
+	/**
 	 * 是否显示
 	 */
 	visible: boolean;
@@ -31,16 +35,17 @@ const VideoModal: FC<Prop> = (props) => {
 	};
 
 	const exportHandle = (event: MouseEvent<HTMLElement>) => {
-		window.open(props.src);
+		const { has } = videoRef.current?.dataset as any;
+		if (has === '1') {
+			window.open(props.exportSrc);
+		} else {
+			window.open(props.src);
+		}
 	};
 
 	const videoCanPlay = (event: SyntheticEvent<HTMLVideoElement>) => {
 		console.log(event.currentTarget.videoHeight);
 		console.log(event.currentTarget.videoWidth);
-	};
-
-	const loadError = (event: SyntheticEvent<HTMLVideoElement>) => {
-		message.error('视频加载失败');
 	};
 
 	return (
@@ -63,8 +68,18 @@ const VideoModal: FC<Prop> = (props) => {
 					src={props.src}
 					ref={videoRef}
 					onCanPlay={videoCanPlay}
-					onError={loadError}
 					controls={true}
+					data-has="0"
+					onError={(e) => {
+						//error事件加载备用文件
+						const { has } = (e.target as any).dataset;
+						if (has === '0') {
+							(e.target as any).setAttribute('data-has', '1');
+							(e.target as any).src = props.exportSrc;
+						} else {
+							message.error('视频加载失败');
+						}
+					}}
 					style={{ maxWidth: '800px', maxHeight: '550px' }}
 				/>
 			</VideoBox>

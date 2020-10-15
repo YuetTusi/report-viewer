@@ -28,10 +28,10 @@ interface Prop {
     pageChangeHandle: (pageIndex: number, pageSize?: number) => void,
     /**
      * 列动作回调
-     * @param val 值
+     * @param cell 当前单元格数据
      * @param type 列类型
      */
-    actionHandle: (val: any, type: ColumnType) => void,
+    actionHandle: (cell: DisplayTableCell, type: ColumnType) => void,
     /**
      * 横向滚动外界宽度
      */

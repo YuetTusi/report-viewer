@@ -12,6 +12,7 @@ import { helper } from '@src/utils/helper';
 import { useMount } from '@src/hooks';
 import { BaseView, ColumnType } from '@src/types/View';
 import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
+import { DisplayTableCell } from '@src/components/DisplayTable/types';
 
 let defaultPageSize = 0;
 interface Prop extends BaseView {}
@@ -27,7 +28,7 @@ const DataTable: FC<Prop> = (props) => {
 	const [pageIndex, setPageIndex] = useState<number>(
 		helper.isNullOrUndefined(index) ? 1 : Number(index)
 	); //当前页
-	const actionVal = useRef<any>(null); //当前用户击中的值
+	const actionCell = useRef<DisplayTableCell>(); //当前用户击中的单元格值
 	const [data, setData] = useState<any>({}); //页面数据
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [audioModalVisible, setAudioModalVisible] = useState<boolean>(false); //音频框显示
@@ -68,11 +69,11 @@ const DataTable: FC<Prop> = (props) => {
 
 	/**
 	 * 点中行action回调
-	 * @param val 值
+	 * @param cell 单元格值
 	 * @param type 列类型
 	 */
-	const actionHandle = useCallback((val: any, type: ColumnType) => {
-		actionVal.current = val;
+	const actionHandle = useCallback((cell: DisplayTableCell, type: ColumnType) => {
+		actionCell.current = cell;
 		switch (type) {
 			case ColumnType.Video:
 				setVideoModalVisible(true);
@@ -85,7 +86,7 @@ const DataTable: FC<Prop> = (props) => {
 				setAudioModalVisible(true);
 				break;
 			case ColumnType.File:
-				window.open(val);
+				window.open(cell.value);
 			default:
 				break;
 		}
@@ -136,17 +137,20 @@ const DataTable: FC<Prop> = (props) => {
 			</PanelBox>
 			<AudioModal
 				visible={audioModalVisible}
-				src={actionVal.current}
+				src={actionCell.current?.value!}
+				exportSrc={actionCell.current?.value_export}
 				closeHandle={closeAudioModalHandle}
 			/>
 			<VideoModal
 				visible={videoModalVisible}
-				src={actionVal.current}
+				src={actionCell.current?.value!}
+				exportSrc={actionCell.current?.value_export}
 				closeHandle={closeVideoModalHandle}
 			/>
 			<PhotoShow
 				visible={photoShowVisible}
-				src={actionVal.current}
+				src={actionCell.current?.value!}
+				exportSrc={actionCell.current?.value_export}
 				closeHandle={closePhotoModalHandle}
 			/>
 		</RootPanel>
