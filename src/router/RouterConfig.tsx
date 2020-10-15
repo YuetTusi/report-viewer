@@ -35,6 +35,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
 		if (path) {
 			switch (type) {
 				case ViewType.List:
+					//纵表类
 					routes.push(
 						<Route
 							path={`${subPath(path)}/:file`}
@@ -53,6 +54,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
 					);
 					break;
 				case ViewType.Table:
+					//横表类
 					routes.push(
 						<Route
 							path={`${subPath(path)}/:file`}
@@ -71,6 +73,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
 					);
 					break;
 				case ViewType.Display:
+					//展示类
 					routes.push(
 						<Route
 							path={`${subPath(path)}/:file`}
@@ -89,6 +92,7 @@ function recurrenceRoute(nodes: TreeNode[]) {
 					);
 					break;
 				case ViewType.Chat:
+					//聊天类
 					routes.push(
 						<Route
 							path={`${subPath(path)}/:file`}

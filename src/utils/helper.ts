@@ -40,7 +40,7 @@ const helper = {
         }
     },
     /**
-     * 
+     * 加载本地JSON文件
      * @param filePath 文件路径
      * @param exportName 导出变量名称
      */

@@ -9,11 +9,7 @@ interface Prop extends BaseView {}
 
 const Display: FC<Prop> = (props) => {
 	const [data, setData] = useState<ViewData>();
-
 	const { file } = useParams<{ file: string }>();
-
-	// console.log(props.dataFilePath);
-	// console.log(file);
 
 	useMount(async () => {
 		try {

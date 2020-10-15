@@ -5,12 +5,12 @@ import { useMount } from '@src/hooks';
 import LoadingContainer from '@src/containers/Loading';
 import { helper } from '@src/utils/helper';
 import RootPanel from '@src/components/RootPanel';
-import { PanelBox } from '@src/components/styled/BoxStyle';
-import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
-import ChatList from '@src/components/ChatList';
-import { BaseView } from '@src/types/View';
 import VideoModal from '@src/components/VideoModal';
 import PhotoShow from '@src/components/PhotoShow';
+import ChatList from '@src/components/ChatList';
+import { PanelBox } from '@src/components/styled/BoxStyle';
+import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
+import { BaseView } from '@src/types/View';
 
 interface Prop extends BaseView {}
 
