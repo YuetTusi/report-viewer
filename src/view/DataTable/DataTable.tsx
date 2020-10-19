@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import React, { FC, useCallback, useState, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import message from 'antd/lib/message';
@@ -55,6 +56,9 @@ const DataTable: FC<Prop> = (props) => {
 	 * @param pageSize 分页尺寸
 	 */
 	const pageChangeHandle = async (pageIndex: number, pageSize?: number) => {
+		$('[data-has]').each((i: number, element: any) => {
+			$(element).attr('data-has', '0');
+		});
 		setLoading(true);
 		try {
 			const next = await helper.loadJSON(`public/data/${fileMd5}-${pageIndex}.json`, 'data');

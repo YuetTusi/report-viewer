@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import React, { FC, useCallback, useRef, useState } from 'react';
 import message from 'antd/lib/message';
 import { useLocation, useParams } from 'react-router-dom';
@@ -53,6 +54,9 @@ const Chat: FC<Prop> = (props) => {
 	 * @param pageSize 分页尺寸
 	 */
 	const pageChangeHandle = async (pageIndex: number, pageSize: number) => {
+		$('[data-has]').each((i: number, element: any) => {
+			$(element).attr('data-has', '0');
+		});
 		setLoading(true);
 		try {
 			const next = await helper.loadJSON(`public/data/${fileMd5}-${pageIndex}.json`, 'data');
