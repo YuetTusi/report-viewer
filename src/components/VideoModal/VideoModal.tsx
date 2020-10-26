@@ -1,4 +1,5 @@
-import React, { FC, memo, MouseEvent, SyntheticEvent, useRef } from 'react';
+import $ from 'jquery';
+import React, { FC, memo, MouseEvent, SyntheticEvent, useEffect, useRef } from 'react';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
@@ -28,6 +29,12 @@ interface Prop {
  */
 const VideoModal: FC<Prop> = (props) => {
 	const videoRef = useRef<HTMLVideoElement | null>(null);
+
+	useEffect(() => {
+		$('[data-has]').each((i: number, element: any) => {
+			$(element).attr('data-has', '0');
+		});
+	}, [props.visible]);
 
 	const cancelHandle = (event: MouseEvent<HTMLElement>) => {
 		videoRef.current!.pause();

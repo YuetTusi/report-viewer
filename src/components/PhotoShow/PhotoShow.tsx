@@ -1,4 +1,5 @@
-import React, { useRef, useState, memo, FC } from 'react';
+import $ from 'jquery';
+import React, { useRef, useState, useEffect, memo, FC } from 'react';
 import Icon from 'antd/lib/icon';
 import { FullScreenMask } from './ComponentStyle';
 import { Prop } from './componentTypes';
@@ -10,6 +11,12 @@ const PhotoShow: FC<Prop> = (props) => {
 	const { visible, src, exportSrc, closeHandle } = props;
 	const [arc, setArc] = useState<number>(0);
 	const fileRef = useRef<any>();
+
+	useEffect(() => {
+		$('[data-has]').each((i: number, element: any) => {
+			$(element).attr('data-has', '0');
+		});
+	}, [visible]);
 
 	/**
 	 * 图片旋转

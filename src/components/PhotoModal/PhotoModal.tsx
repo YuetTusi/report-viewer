@@ -1,4 +1,5 @@
-import React, { FC, memo, MouseEvent, useRef } from 'react';
+import $ from 'jquery';
+import React, { FC, memo, MouseEvent, useEffect, useRef } from 'react';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
 import { PhotoBox } from './ModalStyled';
@@ -27,6 +28,12 @@ interface Prop {
  */
 const PhotoModal: FC<Prop> = (props) => {
 	const imgRef = useRef<any>();
+
+	useEffect(() => {
+		$('[data-has]').each((i: number, element: any) => {
+			$(element).attr('data-has', '0');
+		});
+	}, [props.visible]);
 
 	const cancelHandle = (event: MouseEvent<HTMLElement>) => {
 		props.closeHandle!();
