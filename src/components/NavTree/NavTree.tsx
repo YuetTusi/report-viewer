@@ -39,15 +39,16 @@ const NavTree: FC<Prop> = (props) => {
 					onClick(event: MouseEvent, id: string, node: any) {
 						let url = node.path + `?p=${node.page ?? 0}`;
 						history.replace(url);
-					},
+					}
 				},
 				view: {
-					nameIsHTML: true,
-				},
+					nameIsHTML: true
+				}
 			},
 			data
 		);
-		expandNodes(tree, tree.getNodes(), 3);
+		// expandNodes(tree, tree.getNodes(), 3);
+		tree.expandAll(true);
 	}, [data]);
 
 	return <ul id="navTree" className="ztree"></ul>;

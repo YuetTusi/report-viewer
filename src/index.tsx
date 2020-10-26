@@ -16,9 +16,8 @@ import '@root/styles/default.less';
 
 interface Prop {}
 
-const Index: FC<Prop> = (props) => {
+const Index: FC<Prop> = () => {
 	const { clientWidth } = document.body;
-
 	const rightWidth = useRef<number>(document.body.clientWidth - 320);
 
 	/**
@@ -31,9 +30,7 @@ const Index: FC<Prop> = (props) => {
 
 	useEffect(() => {
 		window.addEventListener('resize', resizeHandle);
-		return () => {
-			window.removeEventListener('resize', resizeHandle);
-		};
+		return () => window.removeEventListener('resize', resizeHandle);
 	}, []);
 
 	return (
