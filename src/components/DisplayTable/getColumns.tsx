@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
 import { ColumnType } from '@src/types/View';
@@ -97,7 +97,13 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					return {
 						title: header,
 						render: (cell: DisplayTableCell, record: DisplayTableColumn) => (
-							<Icon type="file-text" style={{ fontSize: '2rem' }} />
+							<a
+								onClick={(event: MouseEvent<HTMLAnchorElement>) => {
+									event.preventDefault();
+									window.open(cell.value);
+								}}>
+								<Icon type="file-text" style={{ fontSize: '2rem' }} />
+							</a>
 						),
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
@@ -110,7 +116,11 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
 						render: (cell: DisplayTableCell, row: Record<string, any>) =>
-							row.del ? <RedText>{cell.value}</RedText> : <BlackText>{cell.value}</BlackText>
+							row.del ? (
+								<RedText>{cell.value}</RedText>
+							) : (
+								<BlackText>{cell.value}</BlackText>
+							)
 					};
 			}
 		});
