@@ -3,6 +3,7 @@
 	"caption": "标题",
 	"column": [
 		{ "header": "id", "type": "text" },
+		{ "header": "链接", "type": "anchor"},
 		{ "header": "文件", "type": "file" },
 		{ "header": "预览", "type": "preview" },
 		{ "header": "视频", "type": "video" },
@@ -12,6 +13,7 @@
 	"row": [
 		[
 			{ "value": "1<em>test</em><b>test</b><i>test</i>" },
+			{ "value": "http://www.baidu.com" },
 			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/wid.jpg", "value_export": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/3.mp4", "value_export": "public/video/2.mp4" },
@@ -20,6 +22,7 @@
 		],
 		[
 			{ "value": "2" },
+			{ "value": "http://www.baidu.com" },
 			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/0E3656FB718619607AF989A2F840D266.mp4" },

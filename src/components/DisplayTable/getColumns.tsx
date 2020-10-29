@@ -5,7 +5,7 @@ import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
 import { DisplayTableCell, DisplayTableColumn } from './types';
 import { Prop } from './componentTypes';
-import { BlackText, RedText } from './TableStyled';
+import { AnchorLink, BlackText, RedText } from './TableStyled';
 /**
  * 根据列头数据生成表头
  * @param columns 列头数据
@@ -109,6 +109,17 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						key: `col_${i}`,
 						align: 'center',
 						width: 60
+					};
+				case ColumnType.Anchor:
+					return {
+						title: header,
+						render: (cell: DisplayTableCell, record: DisplayTableColumn) => (
+							<AnchorLink href={cell.value} target="_blank">
+								{cell.value}
+							</AnchorLink>
+						),
+						dataIndex: `col_${i}`,
+						key: `col_${i}`
 					};
 				default:
 					return {

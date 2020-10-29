@@ -3,6 +3,7 @@
 	"caption": "标题",
 	"column": [
 		{ "header": "id", "type": "text" },
+		{ "header": "链接", "type": "anchor"},
 		{ "header": "文件", "type": "file" },
 		{ "header": "预览", "type": "preview" },
 		{ "header": "视频", "type": "video" },
@@ -12,6 +13,7 @@
 	"row": [
 		[
 			{ "value": "7" },
+			{ "value": "http://www.baidu.com" },
 			{ "value": "public/file/python.7z" },
 			{ "value": "public/images/photo/1f.jpg" },
 			{ "value": "public/video/1.mp4" },

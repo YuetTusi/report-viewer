@@ -46,4 +46,12 @@ const BlackText = styled.span`
 	}
 `;
 
-export { FileLink, RedText, BlackText };
+const AnchorLink = styled.a`
+	cursor: pointer;
+	text-decoration: underline;
+	&:hover {
+		text-decoration: underline;
+	}
+`;
+
+export { FileLink, RedText, BlackText, AnchorLink };

@@ -47,7 +47,11 @@ enum ColumnType {
     /**
      * 文件
      */
-    File = 'file'
+    File = 'file',
+    /**
+     * 链接
+     */
+    Anchor = 'anchor'
 }
 
 /**
