@@ -23,9 +23,15 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						key: `col_${i}`,
 						render: (cell: DisplayTableCell, row: Record<string, any>) =>
 							row.del ? (
-								<RedText dangerouslySetInnerHTML={{ __html: cell.value }} />
+								<RedText
+									title={cell.value}
+									dangerouslySetInnerHTML={{ __html: cell.value }}
+								/>
 							) : (
-								<BlackText dangerouslySetInnerHTML={{ __html: cell.value }} />
+								<BlackText
+									title={cell.value}
+									dangerouslySetInnerHTML={{ __html: cell.value }}
+								/>
 							)
 					};
 				case ColumnType.Audio:
@@ -114,7 +120,7 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					return {
 						title: header,
 						render: (cell: DisplayTableCell, record: DisplayTableColumn) => (
-							<AnchorLink href={cell.value} target="_blank">
+							<AnchorLink href={cell.value} target="_blank" title={cell.value}>
 								{cell.value}
 							</AnchorLink>
 						),
@@ -128,9 +134,9 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						key: `col_${i}`,
 						render: (cell: DisplayTableCell, row: Record<string, any>) =>
 							row.del ? (
-								<RedText>{cell.value}</RedText>
+								<RedText title={cell.value}>{cell.value}</RedText>
 							) : (
-								<BlackText>{cell.value}</BlackText>
+								<BlackText title={cell.value}>{cell.value}</BlackText>
 							)
 					};
 			}

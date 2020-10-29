@@ -9,8 +9,12 @@ const FileLink = styled.a`
 `;
 
 const RedText = styled.span`
-	display: inline;
+	display: inline-block;
 	color: #f00;
+	max-width: 280px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 	em {
 		color: #ff0033;
 		font-style: normal;
@@ -28,8 +32,12 @@ const RedText = styled.span`
 `;
 
 const BlackText = styled.span`
-	display: inline;
+	display: inline-block;
 	color: #222;
+	max-width: 280px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 	em {
 		color: #ff0033;
 		font-style: normal;
@@ -47,7 +55,12 @@ const BlackText = styled.span`
 `;
 
 const AnchorLink = styled.a`
+	display: inline-block;
 	cursor: pointer;
+	max-width: 280px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 	text-decoration: underline;
 	&:hover {
 		text-decoration: underline;
