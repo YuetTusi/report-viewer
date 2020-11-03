@@ -47,8 +47,8 @@ const NavTree: FC<Prop> = (props) => {
 			},
 			data
 		);
-		// expandNodes(tree, tree.getNodes(), 3);
-		tree.expandAll(true);
+		expandNodes(tree, tree.getNodes(), 5);
+		// tree.expandAll(true);
 	}, [data]);
 
 	return <ul id="navTree" className="ztree"></ul>;

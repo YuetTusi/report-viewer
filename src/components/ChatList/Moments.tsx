@@ -225,9 +225,11 @@ const Moments: FC<Prop> = (props) => {
 			<div className="moments-content">
 				<div>{data.title ?? ''}</div>
 				<span>{data.content}</span>
-				<a href={data.url} target="__blank">
-					{data.url.substring(0, 20)}
-				</a>
+				{!helper.isNullOrUndefined(data?.url) ? (
+					<a href={data.url} target="__blank">
+						{data.url.substring(0, 20)}
+					</a>
+				) : null}
 			</div>
 			<div className="moments-media">{renderMedia(data.media)}</div>
 			<div className="moments-locate">{renderLocate(data.locate)}</div>
