@@ -11,7 +11,7 @@ const config = {
 	mode: 'production',
 	entry: './src/index.tsx',
 	output: {
-		filename: '[hash:16].js',
+		filename: 'report.min.js',
 		path: path.resolve(__dirname, './dist')
 	},
 	resolve: {
