@@ -19,6 +19,7 @@ const WechatNewsPanel = styled.div`
 	.major {
 		display: block;
 		position: relative;
+		min-width: 300px;
 		mark {
 			display: block;
 			position: absolute;
