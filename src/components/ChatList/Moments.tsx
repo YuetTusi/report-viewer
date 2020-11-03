@@ -17,6 +17,10 @@ const MomentsRoot = styled.div`
 		color: #222;
 		padding-bottom: 5px;
 		border-bottom: 1px solid #efefef;
+		a {
+			cursor: pointer;
+			text-decoration: underline;
+		}
 	}
 	.moments-media {
 		padding-top: 5px;
@@ -84,9 +88,9 @@ const MomentsRoot = styled.div`
 	}
 	.moments-comments {
 		padding-top: 5px;
-        padding-bottom: 5px;
-        
-        &:empty {
+		padding-bottom: 5px;
+
+		&:empty {
 			padding: 0;
 		}
 
@@ -222,7 +226,7 @@ const Moments: FC<Prop> = (props) => {
 				<div>{data.title ?? ''}</div>
 				<span>{data.content}</span>
 				<a href={data.url} target="__blank">
-					<Icon type="link" style={{ color: '#3d4c5a', fontSize: '1.4rem' }} />
+					{data.url.substring(0, 20)}
 				</a>
 			</div>
 			<div className="moments-media">{renderMedia(data.media)}</div>
