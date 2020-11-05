@@ -16,9 +16,10 @@ function expandNodes(context: any, nodes: any[], level: number) {
 		return;
 	}
 	for (let i = 0; i < nodes.length; i++) {
-		if (nodes[i].level < level) {
+		if (nodes[i].level < level && !nodes[i].name.includes('短信')) {
 			context.expandNode(nodes[i], true);
 		}
+
 		expandNodes(context, nodes[i].children, level);
 	}
 }
