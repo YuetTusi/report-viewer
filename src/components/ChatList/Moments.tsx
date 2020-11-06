@@ -226,7 +226,7 @@ const Moments: FC<Prop> = (props) => {
 				<div>{data.title ?? ''}</div>
 				<span>{data.content}</span>
 				{!helper.isNullOrUndefined(data?.url) ? (
-					<a href={data.url} target="__blank">
+					<a href={data.url} title={data.url} target="__blank">
 						{data.url.substring(0, 20)}
 					</a>
 				) : null}
