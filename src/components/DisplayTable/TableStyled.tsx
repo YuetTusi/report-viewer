@@ -67,4 +67,12 @@ const AnchorLink = styled.a`
 	}
 `;
 
-export { FileLink, RedText, BlackText, AnchorLink };
+const FullText = styled.span`
+	display: block;
+	max-width: 600px;
+	max-height: 300px;
+	overflow: auto;
+	word-break: break-all;
+`;
+
+export { FileLink, RedText, BlackText, AnchorLink, FullText };

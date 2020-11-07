@@ -1,11 +1,12 @@
 import React, { MouseEvent } from 'react';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
+import Popover from 'antd/lib/popover';
 import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
 import { DisplayTableCell, DisplayTableColumn } from './types';
 import { Prop } from './componentTypes';
-import { AnchorLink, BlackText, RedText } from './TableStyled';
+import { AnchorLink, BlackText, FullText, RedText } from './TableStyled';
 /**
  * 根据列头数据生成表头
  * @param columns 列头数据
@@ -23,15 +24,23 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						key: `col_${i}`,
 						render: (cell: DisplayTableCell, row: Record<string, any>) =>
 							row.del ? (
-								<RedText
-									title={cell.value}
-									dangerouslySetInnerHTML={{ __html: cell.value }}
-								/>
+								<Popover
+									content={<FullText>{cell.value}</FullText>}
+									trigger="contextMenu">
+									<RedText
+										title="右键查看全部内容"
+										dangerouslySetInnerHTML={{ __html: cell.value }}
+									/>
+								</Popover>
 							) : (
-								<BlackText
-									title={cell.value}
-									dangerouslySetInnerHTML={{ __html: cell.value }}
-								/>
+								<Popover
+									content={<FullText>{cell.value}</FullText>}
+									trigger="contextMenu">
+									<BlackText
+										title="右键查看全部内容"
+										dangerouslySetInnerHTML={{ __html: cell.value }}
+									/>
+								</Popover>
 							)
 					};
 				case ColumnType.Audio:
@@ -133,11 +142,25 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
 						render: (cell: DisplayTableCell, row: Record<string, any>) =>
-							row.del ? (
-								<RedText title={cell.value}>{cell.value}</RedText>
-							) : (
-								<BlackText title={cell.value}>{cell.value}</BlackText>
-							)
+						row.del ? (
+							<Popover
+								content={<FullText>{cell.value}</FullText>}
+								trigger="contextMenu">
+								<RedText
+									title="右键查看全部内容"
+									dangerouslySetInnerHTML={{ __html: cell.value }}
+								/>
+							</Popover>
+						) : (
+							<Popover
+								content={<FullText>{cell.value}</FullText>}
+								trigger="contextMenu">
+								<BlackText
+									title="右键查看全部内容"
+									dangerouslySetInnerHTML={{ __html: cell.value }}
+								/>
+							</Popover>
+						)
 					};
 			}
 		});

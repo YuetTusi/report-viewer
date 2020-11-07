@@ -4,6 +4,7 @@
 	"main": "index.js",
 	"author": "yuet",
 	"license": "MIT",
+	"description": "智能终端取证报表展示",
 	"scripts": {
 		"build": "webpack --config webpack.dev.js",
 		"build:prod": "webpack --config webpack.prod.js",
