@@ -5,8 +5,8 @@ import Popover from 'antd/lib/popover';
 import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
 import { DisplayTableCell, DisplayTableColumn } from './types';
-import { Prop } from './componentTypes';
 import { AnchorLink, BlackText, FullText, RedText } from './TableStyled';
+import { Prop } from './componentTypes';
 /**
  * 根据列头数据生成表头
  * @param columns 列头数据

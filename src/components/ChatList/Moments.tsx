@@ -18,8 +18,13 @@ const MomentsRoot = styled.div`
 		padding-bottom: 5px;
 		border-bottom: 1px solid #efefef;
 		a {
+			color: #00b4bb;
+			font-weight: bold;
 			cursor: pointer;
-			text-decoration: underline;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 	.moments-media {
@@ -227,7 +232,8 @@ const Moments: FC<Prop> = (props) => {
 				<span>{data.content}</span>
 				{!helper.isNullOrUndefined(data?.url) ? (
 					<a href={data.url} title={data.url} target="__blank">
-						{data.url.substring(0, 20)}
+						<Icon type="link" />
+						<span>相关链接</span>
 					</a>
 				) : null}
 			</div>
