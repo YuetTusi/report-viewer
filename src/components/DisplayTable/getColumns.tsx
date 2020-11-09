@@ -26,18 +26,16 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 							row.del ? (
 								<Popover
 									content={<FullText>{cell.value}</FullText>}
-									trigger="contextMenu">
+									trigger="hover">
 									<RedText
-										title="右键查看全部内容"
 										dangerouslySetInnerHTML={{ __html: cell.value }}
 									/>
 								</Popover>
 							) : (
 								<Popover
 									content={<FullText>{cell.value}</FullText>}
-									trigger="contextMenu">
+									trigger="hover">
 									<BlackText
-										title="右键查看全部内容"
 										dangerouslySetInnerHTML={{ __html: cell.value }}
 									/>
 								</Popover>
@@ -145,18 +143,16 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						row.del ? (
 							<Popover
 								content={<FullText>{cell.value}</FullText>}
-								trigger="contextMenu">
+								trigger="hover">
 								<RedText
-									title="右键查看全部内容"
 									dangerouslySetInnerHTML={{ __html: cell.value }}
 								/>
 							</Popover>
 						) : (
 							<Popover
 								content={<FullText>{cell.value}</FullText>}
-								trigger="contextMenu">
+								trigger="hover">
 								<BlackText
-									title="右键查看全部内容"
 									dangerouslySetInnerHTML={{ __html: cell.value }}
 								/>
 							</Popover>
