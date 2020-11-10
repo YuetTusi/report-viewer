@@ -13,6 +13,7 @@ import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
 import AudioCall from './AudioCall';
 import VideoCall from './VideoCall';
+import Locate from './Locate';
 
 /**
  * 聊天展示组件
@@ -121,6 +122,8 @@ const ChatList: FC<Prop> = (props) => {
 						<Moments data={record.content} />
 					</div>
 				);
+			case ChatType.Locate:
+				return <Locate>{record.content}</Locate>;
 			default:
 				return <div className="talk">{record.content}</div>;
 		}

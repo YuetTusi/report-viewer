@@ -47,6 +47,10 @@ enum ChatType {
      * 朋友圈
      */
     Moments = 'moments',
+    /**
+     * 位置
+     */
+    Locate = 'locate'
 }
 
 /**

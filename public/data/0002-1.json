@@ -4,6 +4,16 @@
 	"total":13,
 	"row": [
 		{
+			"id":"0",
+			"nickname":"测试",
+			"avatar":"public/images/photo/default_avatar.jpg",
+			"content":"北京大红门",
+			"type":"locate",
+			"send":false,
+			"time":"2020-09-17 12:34:00",
+			"del":false
+		},
+		{
 			"id": "1",
 			"nickname": "用户昵称",
 			"avatar": "public/images/photo/default_avatar.jpg",
