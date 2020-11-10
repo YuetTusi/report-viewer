@@ -48,7 +48,7 @@ const MomentsRoot = styled.div`
 	}
 	.moments-locate {
 		color: #3d4c5a;
-		font-size: 1.2rem;
+		font-size: 1.4rem;
 		border-bottom: 1px solid #efefef;
 		&:empty {
 			border-bottom: none;

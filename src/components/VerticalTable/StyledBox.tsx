@@ -6,7 +6,7 @@ const TableBox = styled.table`
 	border-top: 1px solid #e8e8e8;
 	border-spacing: 0;
 	color: #4d585f;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 `;
 
 const RowBox = styled.tr`
