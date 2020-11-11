@@ -30,7 +30,7 @@ const RightBox = styled.div`
 	box-sizing: border-box;
 	padding: 10px;
 	min-height: 100%;
-	background-color: #ebedee;
+	background-color: #fff;
 `;
 
 const PanelBox = styled.div`
