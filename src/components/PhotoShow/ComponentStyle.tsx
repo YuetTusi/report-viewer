@@ -12,6 +12,7 @@ const FullScreenMask = styled.div`
 	justify-content: center;
 	align-items: center;
 	background-color: rgba(34, 34, 34, 0.6);
+	user-select: none;
 
 	.fn-bar {
 		position: absolute;
