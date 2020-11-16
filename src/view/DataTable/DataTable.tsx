@@ -67,7 +67,7 @@ const DataTable: FC<Prop> = (props) => {
 		} catch (error) {
 			message.error('读取数据失败');
 		} finally {
-			setLoading(false);
+			setTimeout(() => setLoading(false), 400);
 		}
 	};
 
