@@ -218,8 +218,17 @@ const ChatList: FC<Prop> = (props) => {
 	} else {
 		return (
 			<>
+				<PageBox className="top">
+					<Pagination
+						onChange={pageChange}
+						current={pageIndex}
+						pageSize={pageSize}
+						total={pageSize * pageCount}
+						size="small"
+					/>
+				</PageBox>
 				<ListRoot>{renderList(data, pageIndex, pageSize)}</ListRoot>
-				<PageBox>
+				<PageBox className="bottom">
 					<Pagination
 						onChange={pageChange}
 						current={pageIndex}

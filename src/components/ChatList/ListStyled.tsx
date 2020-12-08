@@ -173,9 +173,13 @@ const Message = styled.div`
 const PageBox = styled.div`
 	display: flex;
 	justify-content: flex-end;
-	margin-top: 10px;
 	padding: 20px 10px;
-	border-top: 1px solid #efefef;
+	&.top {
+		border-bottom: 1px solid #efefef;
+	}
+	&.bottom {
+		border-top: 1px solid #efefef;
+	}
 `;
 
 export { ListRoot, ListRow, Send, Reply, Message, PageBox };
