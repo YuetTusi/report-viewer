@@ -15,6 +15,7 @@ const RedText = styled.span`
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	vertical-align: middle;
 	em {
 		color: #ff0033;
 		font-style: normal;
@@ -38,6 +39,7 @@ const BlackText = styled.span`
 	white-space: nowrap;
 	text-overflow: ellipsis;
 	overflow: hidden;
+	vertical-align: middle;
 	em {
 		color: #ff0033;
 		font-style: normal;

@@ -3,59 +3,16 @@
 	"caption": "聊天记录",
 	"total":13,
 	"row": [
-        {
-			"id": "6",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/1f.jpg",
-			"content": "public/images/photo/long.jpg",
-			"type": "photo",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
+		//照片
 		{
-			"id": "7",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/1f.jpg",
-			"content": "public/images/photo/wid.jpg",
-			"content_export": "public/images/photo/wid.jpg",
-			"type": "photo",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "8",
+			"id": "13",
 			"nickname": "用户昵称",
 			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "public/audio/234.mp3",
-			"content_export": "public/audio/2.mp3",
-			"type": "audio",
+			"content": "聊天内容-回复",
+			"type": "text",
 			"time": "2020-09-17 12:32:25",
 			"send": true,
 			"del": false
-		},
-		{
-			"id": "9",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar2.jpg",
-			"avatar_export":"https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png",
-			"content": "public/video/3.mp4",
-			"content_export": "public/video/1.mp4",
-			"type": "video",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
-		{
-			"id": "10",
-			"nickname": "用户昵称",
-			"avatar": "public/images/photo/default_avatar.jpg",
-			"content": "聊天内容",
-			"type": "text",
-			"time": "2020-09-17 12:32:25",
-			"send": false,
-			"del": false
-		},
+		}
     ]
 }

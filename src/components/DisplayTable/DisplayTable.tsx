@@ -29,6 +29,7 @@ const DisplayTable: FC<Prop> = (props) => {
 					pageSize,
 					total: pageSize * pageCount,
 					onChange: pageChangeHandle,
+					position: 'both'
 				}}
 			/>
 		</div>
@@ -37,7 +38,7 @@ const DisplayTable: FC<Prop> = (props) => {
 
 DisplayTable.defaultProps = {
 	columns: [],
-	data: [],
+	data: []
 };
 
 export default DisplayTable;
