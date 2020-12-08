@@ -6,6 +6,7 @@ import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
 import { DisplayTableCell, DisplayTableColumn } from './types';
 import { AnchorLink, BlackText, FullText, RedText } from './TableStyled';
+import VideoPreview from './VideoPreview';
 import { Prop } from './componentTypes';
 /**
  * 根据列头数据生成表头
@@ -27,22 +28,17 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 								<Popover
 									content={<FullText>{cell.value}</FullText>}
 									trigger="hover">
-									<RedText
-										dangerouslySetInnerHTML={{ __html: cell.value }}
-									/>
+									<RedText dangerouslySetInnerHTML={{ __html: cell.value }} />
 								</Popover>
 							) : (
 								<Popover
 									content={<FullText>{cell.value}</FullText>}
 									trigger="hover">
-									<BlackText
-										dangerouslySetInnerHTML={{ __html: cell.value }}
-									/>
+									<BlackText dangerouslySetInnerHTML={{ __html: cell.value }} />
 								</Popover>
 							)
 					};
 				case ColumnType.Audio:
-				case ColumnType.Video:
 					return {
 						title: header,
 						render: (cell: DisplayTableCell, record: DisplayTableColumn) => (
@@ -59,6 +55,23 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						key: `col_${i}`,
 						align: 'center',
 						width: 60
+					};
+				case ColumnType.Video:
+					return {
+						title: header,
+						render: (cell: DisplayTableCell, record: DisplayTableColumn) => {
+							console.log(cell);
+							return (
+								<VideoPreview
+									data={cell}
+									openHandle={() => props.actionHandle(cell, type)}
+								/>
+							);
+						},
+						dataIndex: `col_${i}`,
+						key: `col_${i}`,
+						align: 'center',
+						width: '80px'
 					};
 				case ColumnType.Photo:
 					return {
@@ -140,23 +153,19 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						dataIndex: `col_${i}`,
 						key: `col_${i}`,
 						render: (cell: DisplayTableCell, row: Record<string, any>) =>
-						row.del ? (
-							<Popover
-								content={<FullText>{cell.value}</FullText>}
-								trigger="hover">
-								<RedText
-									dangerouslySetInnerHTML={{ __html: cell.value }}
-								/>
-							</Popover>
-						) : (
-							<Popover
-								content={<FullText>{cell.value}</FullText>}
-								trigger="hover">
-								<BlackText
-									dangerouslySetInnerHTML={{ __html: cell.value }}
-								/>
-							</Popover>
-						)
+							row.del ? (
+								<Popover
+									content={<FullText>{cell.value}</FullText>}
+									trigger="hover">
+									<RedText dangerouslySetInnerHTML={{ __html: cell.value }} />
+								</Popover>
+							) : (
+								<Popover
+									content={<FullText>{cell.value}</FullText>}
+									trigger="hover">
+									<BlackText dangerouslySetInnerHTML={{ __html: cell.value }} />
+								</Popover>
+							)
 					};
 			}
 		});
