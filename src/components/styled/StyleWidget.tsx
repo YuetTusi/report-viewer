@@ -49,6 +49,7 @@ const PartBox = styled.div`
 const PartCaption = styled.div`
 	color: #fff;
 	font-size: 1.4rem;
+	font-family: 'Microsoft YaHei';
 	text-indent: 0.5rem;
 	background-color: #3d4c5a;
 	padding: 5px;

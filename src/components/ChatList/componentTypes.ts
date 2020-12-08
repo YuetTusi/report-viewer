@@ -50,7 +50,11 @@ enum ChatType {
     /**
      * 位置
      */
-    Locate = 'locate'
+    Locate = 'locate',
+    /**
+     * 视频缩略图
+     */
+    VideoPreview = 'video_preview'
 }
 
 /**

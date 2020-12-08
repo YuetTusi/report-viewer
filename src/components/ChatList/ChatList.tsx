@@ -14,6 +14,7 @@ import { helper } from '@src/utils/helper';
 import AudioCall from './AudioCall';
 import VideoCall from './VideoCall';
 import Locate from './Locate';
+import Cover from './Cover';
 
 /**
  * 聊天展示组件
@@ -124,6 +125,8 @@ const ChatList: FC<Prop> = (props) => {
 				);
 			case ChatType.Locate:
 				return <Locate>{record.content}</Locate>;
+			case ChatType.VideoPreview:
+				return <Cover record={record} photoHandle={props.photoHandle} />;
 			default:
 				return <div className="talk">{record.content}</div>;
 		}

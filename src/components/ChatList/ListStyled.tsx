@@ -67,6 +67,7 @@ const Send = styled.div`
 	}
 
 	& .user-name {
+		font-family: 'Microsoft YaHei';
 		color: #222;
 		em {
 			font-style: normal;
@@ -100,6 +101,7 @@ const Reply = styled.div`
 	}
 
 	& .user-name {
+		font-family: 'Microsoft YaHei';
 		color: #222;
 		em {
 			font-style: normal;
@@ -136,6 +138,7 @@ const Reply = styled.div`
 	}
 
 	& .user-name {
+		font-family: 'Microsoft YaHei';
 		color: #222;
 		em {
 			font-style: normal;
