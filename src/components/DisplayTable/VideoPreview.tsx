@@ -2,7 +2,13 @@ import React, { FC, useRef } from 'react';
 import { DisplayTableCell } from './types';
 
 interface Prop {
-	data: DisplayTableCell;
+    /**
+     * 单元格数据
+     */
+    data: DisplayTableCell;
+    /**
+     * 打开视频框handle
+     */
 	openHandle: () => void;
 }
 
@@ -12,15 +18,6 @@ interface Prop {
  */
 const VideoPreview: FC<Prop> = (props) => {
 	const videoRef = useRef<any>();
-
-	// const openHandle = () => {
-	// 	const { has } = videoRef.current.dataset as any;
-	// 	if (has === '1') {
-	// 		window.open(props.data.value_export);
-	// 	} else {
-	// 		window.open(props.data.value);
-	// 	}
-	// };
 
 	return (
 		<video

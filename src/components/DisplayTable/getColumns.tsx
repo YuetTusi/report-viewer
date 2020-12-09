@@ -60,7 +60,6 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 					return {
 						title: header,
 						render: (cell: DisplayTableCell, record: DisplayTableColumn) => {
-							console.log(cell);
 							return (
 								<VideoPreview
 									data={cell}
