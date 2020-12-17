@@ -16,11 +16,6 @@ import { PageBox } from './TableStyled';
 const DisplayTable: FC<Prop> = (props) => {
 	const { pageIndex, pageSize, pageCount, pageChangeHandle } = props;
 
-	console.log(pageIndex);
-	console.log(pageSize);
-	console.log(pageCount);
-	console.log('++++++++++++++++++++++');
-
 	return (
 		<div>
 			<PageBox className="top">
