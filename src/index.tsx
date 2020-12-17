@@ -16,30 +16,16 @@ import '@root/styles/default.less';
 
 interface Prop {}
 
+const defaultRightPercent = 82; //默认右栏百分比
+
 const Index: FC<Prop> = () => {
-	const { clientWidth } = document.body;
-	const rightWidth = useRef<number>(document.body.clientWidth - 320);
-
-	/**
-	 * 更新窗口大小handle
-	 */
-	const resizeHandle = throttle((event: any) => {
-		const [, $second] = document.querySelectorAll<HTMLDivElement>('.layout-pane');
-		$second.style.width = `${document.body.clientWidth - 320}px`;
-	}, 400);
-
-	useEffect(() => {
-		window.addEventListener('resize', resizeHandle);
-		return () => window.removeEventListener('resize', resizeHandle);
-	}, []);
-
 	return (
 		<Router>
 			<NavTreeContainer.Provider>
 				<SplitterLayout
-					primaryMinSize={320}
-					secondaryInitialSize={clientWidth - 320}
-					onSecondaryPaneSizeChange={(size: number) => (rightWidth.current = size)}>
+					percentage={true}
+					secondaryInitialSize={defaultRightPercent}
+					primaryMinSize={10}>
 					<LeftBox>
 						<TreeBox>
 							<NavTree />
