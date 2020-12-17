@@ -14,6 +14,8 @@ const FullScreenMask = styled.div`
 	background-color: rgba(34, 34, 34, 0.6);
 	user-select: none;
 	z-index: 100;
+	animation-name: maskFadeIn;
+	animation-duration: 0.4s;
 
 	.fn-bar {
 		position: absolute;
@@ -33,6 +35,15 @@ const FullScreenMask = styled.div`
 		cursor: pointer;
 		max-height: 70%;
 		max-width: 70%;
+	}
+
+	@keyframes maskFadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 `;
 
