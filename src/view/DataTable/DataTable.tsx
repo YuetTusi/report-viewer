@@ -131,7 +131,7 @@ const DataTable: FC<Prop> = (props) => {
 							data={data.row ?? []}
 							pageIndex={helper.isNullOrUndefined(pageIndex) ? 1 : Number(pageIndex)}
 							pageSize={defaultPageSize}
-							pageCount={pageCount as any}
+							pageCount={Number(pageCount) == 0 ? 1 : Number(pageCount)}
 							pageChangeHandle={pageChangeHandle}
 							actionHandle={actionHandle}
 							scroll={{ x: 'max-content' }}

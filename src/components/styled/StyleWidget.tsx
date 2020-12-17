@@ -76,7 +76,7 @@ const PartCaption = styled.div`
  * 分类框内容
  */
 const PartContent = styled.div`
-	padding: 5px;
+	padding: 0;
 `;
 
 export { MainTitle, SubTitle, PartBox, PartCaption, PartContent };

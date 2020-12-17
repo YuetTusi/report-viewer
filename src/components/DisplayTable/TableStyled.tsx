@@ -77,4 +77,25 @@ const FullText = styled.span`
 	word-break: break-all;
 `;
 
-export { FileLink, RedText, BlackText, AnchorLink, FullText };
+/**
+ * 分页区
+ */
+const PageBox = styled.div`
+	position: sticky;
+	z-index: 99;
+	display: flex;
+	justify-content: flex-end;
+	padding: 10px 10px;
+	&.top {
+		top: 0;
+		background-color: #f9f9f9;
+	}
+	&.bottom {
+		bottom: 0;
+		background-color: #f9f9f9;
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
+	}
+`;
+
+export { FileLink, RedText, BlackText, AnchorLink, FullText, PageBox };

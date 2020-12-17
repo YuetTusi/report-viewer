@@ -1,9 +1,11 @@
 import React, { FC } from 'react';
 import Table from 'antd/lib/table';
+import Pagination from 'antd/lib/pagination';
 import { getColumns } from './getColumns';
 import { getDataSource } from './getDataSource';
 import { Prop } from './componentTypes';
 import { DisplayTableCell } from './types';
+import { PageBox } from './TableStyled';
 
 /**
  * 表格组件
@@ -14,8 +16,23 @@ import { DisplayTableCell } from './types';
 const DisplayTable: FC<Prop> = (props) => {
 	const { pageIndex, pageSize, pageCount, pageChangeHandle } = props;
 
+	console.log(pageIndex);
+	console.log(pageSize);
+	console.log(pageCount);
+	console.log('++++++++++++++++++++++');
+
 	return (
 		<div>
+			<PageBox className="top">
+				<Pagination
+					onChange={pageChangeHandle}
+					current={pageIndex}
+					pageSize={pageSize}
+					total={pageSize * pageCount}
+					size="small"
+					showQuickJumper={true}
+				/>
+			</PageBox>
 			<Table<DisplayTableCell>
 				columns={getColumns(props)}
 				dataSource={getDataSource(props.data)}
@@ -24,14 +41,18 @@ const DisplayTable: FC<Prop> = (props) => {
 				bordered={true}
 				rowClassName={() => 'az-report-row'}
 				scroll={props.scroll}
-				pagination={{
-					current: pageIndex,
-					pageSize,
-					total: pageSize * pageCount,
-					onChange: pageChangeHandle,
-					position: 'both'
-				}}
+				pagination={false}
 			/>
+			<PageBox className="bottom">
+				<Pagination
+					onChange={pageChangeHandle}
+					current={pageIndex}
+					pageSize={pageSize}
+					total={pageSize * pageCount}
+					size="small"
+					showQuickJumper={true}
+				/>
+			</PageBox>
 		</div>
 	);
 };

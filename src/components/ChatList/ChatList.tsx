@@ -228,6 +228,7 @@ const ChatList: FC<Prop> = (props) => {
 						pageSize={pageSize}
 						total={pageSize * pageCount}
 						size="small"
+						showQuickJumper={true}
 					/>
 				</PageBox>
 				<ListRoot>{renderList(data, pageIndex, pageSize)}</ListRoot>
@@ -238,6 +239,7 @@ const ChatList: FC<Prop> = (props) => {
 						pageSize={pageSize}
 						total={pageSize * pageCount}
 						size="small"
+						showQuickJumper={true}
 					/>
 				</PageBox>
 			</>

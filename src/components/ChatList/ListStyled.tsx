@@ -173,15 +173,29 @@ const Message = styled.div`
 	}
 `;
 
+/**
+ * 分页区
+ */
 const PageBox = styled.div`
+	position: sticky;
+	z-index: 99;
 	display: flex;
 	justify-content: flex-end;
-	padding: 20px 10px;
+	padding: 10px 10px;
 	&.top {
+		top: 0;
+		margin-bottom: 10px;
 		border-bottom: 1px solid #efefef;
+		background-color: #f9f9f9;
+		border: 1px solid #efefef;
 	}
 	&.bottom {
+		bottom: 0;
+		margin-top: 10px;
 		border-top: 1px solid #efefef;
+		background-color: #f9f9f9;
+		border-bottom-left-radius: 4px;
+		border-bottom-right-radius: 4px;
 	}
 `;
 
