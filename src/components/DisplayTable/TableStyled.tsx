@@ -81,8 +81,6 @@ const FullText = styled.span`
  * 分页区
  */
 const PageBox = styled.div`
-	position: sticky;
-	z-index: 99;
 	display: flex;
 	justify-content: flex-end;
 	padding: 10px 10px;
