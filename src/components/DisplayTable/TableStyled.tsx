@@ -85,11 +85,12 @@ const PageBox = styled.div`
 	justify-content: flex-end;
 	padding: 10px 10px;
 	&.top {
+		position: sticky;
+		z-index: 99;
 		top: 0;
 		background-color: #f9f9f9;
 	}
 	&.bottom {
-		bottom: 0;
 		background-color: #f9f9f9;
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
