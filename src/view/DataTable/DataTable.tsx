@@ -67,6 +67,10 @@ const DataTable: FC<Prop> = (props) => {
 		} catch (error) {
 			message.error('读取数据失败');
 		} finally {
+			const rightPane = $('.layout-pane')[1];
+			if (rightPane) {
+				rightPane.scrollTo(0, 0);
+			}
 			setTimeout(() => setLoading(false), 400);
 		}
 	};

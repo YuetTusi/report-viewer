@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+/**
+ * 文件链接
+ */
 const FileLink = styled.a`
 	cursor: pointer;
 	text-decoration: underline;
@@ -8,6 +11,10 @@ const FileLink = styled.a`
 	}
 `;
 
+/**
+ * 红色提示文本
+ * 文字过多省略显示
+ */
 const RedText = styled.span`
 	display: inline-block;
 	color: #f00;
@@ -32,6 +39,10 @@ const RedText = styled.span`
 	}
 `;
 
+/**
+ * 黑色默认文本
+ * 文字过多省略显示
+ */
 const BlackText = styled.span`
 	display: inline-block;
 	color: #222;
