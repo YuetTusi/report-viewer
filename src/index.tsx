@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom';
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC } from 'react';
 import { HashRouter as Router } from 'react-router-dom';
-import throttle from 'lodash/throttle';
 import ConfigProvider from 'antd/lib/config-provider';
 import zhCN from 'antd/es/locale/zh_CN';
 import SplitterLayout from 'react-splitter-layout';
