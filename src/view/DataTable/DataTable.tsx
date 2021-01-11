@@ -69,7 +69,7 @@ const DataTable: FC<Prop> = (props) => {
 		} finally {
 			const rightPane = $('.layout-pane')[1];
 			if (rightPane) {
-				rightPane.scrollTo(0, 0);
+				$(rightPane).scrollTop(0);
 			}
 			setTimeout(() => setLoading(false), 400);
 		}
