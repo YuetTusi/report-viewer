@@ -22,9 +22,8 @@ const PhotoShow: FC<Prop> = (props) => {
 	 * 图片旋转
 	 * @param isAnti 是否是逆时针
 	 */
-	const rotateHandle = (isAnti: boolean) => {
+	const rotateHandle = (isAnti: boolean) =>
 		isAnti ? setArc((prev) => prev - 90) : setArc((prev) => prev + 90);
-	};
 
 	/**
 	 * 打开图片

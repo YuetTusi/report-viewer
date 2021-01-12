@@ -103,23 +103,21 @@ const DataTable: FC<Prop> = (props) => {
 	/**
 	 * 关闭音频框
 	 */
-	const closeAudioModalHandle = useCallback(() => {
-		setAudioModalVisible(false);
-	}, [audioModalVisible]);
+	const closeAudioModalHandle = useCallback(() => setAudioModalVisible(false), [
+		audioModalVisible
+	]);
 
 	/**
 	 * 关闭视频框
 	 */
-	const closeVideoModalHandle = useCallback(() => {
-		setVideoModalVisible(false);
-	}, [videoModalVisible]);
+	const closeVideoModalHandle = useCallback(() => setVideoModalVisible(false), [
+		videoModalVisible
+	]);
 
 	/**
 	 * 关闭照片框
 	 */
-	const closePhotoModalHandle = useCallback(() => {
-		setPhotoShowVisible(false);
-	}, [photoShowVisible]);
+	const closePhotoModalHandle = useCallback(() => setPhotoShowVisible(false), [photoShowVisible]);
 
 	return (
 		<RootPanel loading={loading}>

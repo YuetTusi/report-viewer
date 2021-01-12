@@ -76,16 +76,14 @@ const Chat: FC<Prop> = (props) => {
 	/**
 	 * 关闭视频框
 	 */
-	const closeVideoModalHandle = useCallback(() => {
-		setVideoModalVisible(false);
-	}, [videoModalVisible]);
+	const closeVideoModalHandle = useCallback(() => setVideoModalVisible(false), [
+		videoModalVisible
+	]);
 
 	/**
 	 * 关闭照片框
 	 */
-	const closePhotoShowHandle = useCallback(() => {
-		setPhotoShowVisible(false);
-	}, [photoShowVisible]);
+	const closePhotoShowHandle = useCallback(() => setPhotoShowVisible(false), [photoShowVisible]);
 
 	return (
 		<RootPanel loading={loading}>
