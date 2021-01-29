@@ -41,14 +41,7 @@ const AudioModal: FC<Prop> = (props) => {
 		props.closeHandle!();
 	};
 
-	const exportHandle = (event: MouseEvent<HTMLElement>) => {
-		const { has } = fileRef.current?.dataset as any;
-		if (has === '1') {
-			window.open(props.exportSrc);
-		} else {
-			window.open(props.src);
-		}
-	};
+	const exportHandle = (event: MouseEvent<HTMLElement>) => window.open(fileRef.current?.src);
 
 	const videoCanPlay = (event: SyntheticEvent<HTMLAudioElement>) => {};
 

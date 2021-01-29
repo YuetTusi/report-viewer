@@ -108,4 +108,18 @@ const PageBox = styled.div`
 	}
 `;
 
-export { FileLink, RedText, BlackText, AnchorLink, FullText, PageBox };
+const ExportPane = styled.div`
+	position: relative;
+	background-color: #f9f9f9;
+	border: 1px solid #e8e8e8;
+	border-radius: 3px;
+
+	.ant-btn {
+		position: absolute;
+		top: 5px;
+		right: 5px;
+		z-index: 9;
+	}
+`;
+
+export { FileLink, RedText, BlackText, AnchorLink, FullText, PageBox, ExportPane };

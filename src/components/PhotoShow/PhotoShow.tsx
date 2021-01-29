@@ -29,14 +29,7 @@ const PhotoShow: FC<Prop> = (props) => {
 	 * 打开图片
 	 * @param src 路径
 	 */
-	const openHandle = () => {
-		const { has } = fileRef.current?.dataset as any;
-		if (has === '1') {
-			window.open(exportSrc);
-		} else {
-			window.open(src);
-		}
-	};
+	const openHandle = () => window.open(fileRef.current?.src);
 
 	return (
 		<FullScreenMask
