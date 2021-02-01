@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import React, { FC, memo, MouseEvent, SyntheticEvent, useEffect, useRef } from 'react';
+import React, { FC, memo, MouseEvent, useEffect, useRef } from 'react';
 import Button from 'antd/lib/button';
 import Modal from 'antd/lib/modal';
 import message from 'antd/lib/message';
@@ -50,11 +50,6 @@ const VideoModal: FC<Prop> = (props) => {
 		}
 	};
 
-	const videoCanPlay = (event: SyntheticEvent<HTMLVideoElement>) => {
-		console.log(event.currentTarget.videoHeight);
-		console.log(event.currentTarget.videoWidth);
-	};
-
 	return (
 		<Modal
 			visible={props.visible}
@@ -69,12 +64,12 @@ const VideoModal: FC<Prop> = (props) => {
 			]}
 			width={850}
 			maskClosable={false}
+			destroyOnClose={true}
 			title="视频">
 			<VideoBox>
 				<video
 					src={props.src}
 					ref={videoRef}
-					onCanPlay={videoCanPlay}
 					controls={true}
 					data-has="0"
 					onError={(e) => {
