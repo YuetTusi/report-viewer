@@ -14,6 +14,7 @@ const config = {
 		filename: 'report.min.js',
 		path: path.resolve(__dirname, './dist')
 	},
+	target: ['web', 'es5'],
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.json'],
 		alias: {
