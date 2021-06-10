@@ -29,7 +29,7 @@ const CenterBox = styled.div`
 const Default: FC<Prop> = (props) => {
 	return (
 		<CenterBox>
-			<h1>案件分析报告</h1>
+			<h1>分析报告</h1>
 			<hr />
 			<div>
 				<img src={noDataSvg} alt="nodata" />
