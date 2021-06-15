@@ -17,32 +17,30 @@ interface Prop {}
 
 const defaultRightPercent = 82; //默认右栏百分比
 
-const Index: FC<Prop> = () => {
-	return (
-		<Router>
-			<NavTreeContainer.Provider>
-				<SplitterLayout
-					percentage={true}
-					secondaryInitialSize={defaultRightPercent}
-					primaryMinSize={10}>
-					<LeftBox>
-						<TreeBox>
-							<NavTree />
-						</TreeBox>
-					</LeftBox>
-					<RightBox>
-						<ContentBox>
-							<ConfigProvider locale={zhCN}>
-								<LoadingContainer.Provider>
-									<RouterConfig />
-								</LoadingContainer.Provider>
-							</ConfigProvider>
-						</ContentBox>
-					</RightBox>
-				</SplitterLayout>
-			</NavTreeContainer.Provider>
-		</Router>
-	);
-};
+const Index: FC<Prop> = () => (
+	<Router>
+		<NavTreeContainer.Provider>
+			<SplitterLayout
+				percentage={true}
+				secondaryInitialSize={defaultRightPercent}
+				primaryMinSize={10}>
+				<LeftBox>
+					<TreeBox>
+						<NavTree />
+					</TreeBox>
+				</LeftBox>
+				<RightBox>
+					<ContentBox>
+						<ConfigProvider locale={zhCN}>
+							<LoadingContainer.Provider>
+								<RouterConfig />
+							</LoadingContainer.Provider>
+						</ConfigProvider>
+					</ContentBox>
+				</RightBox>
+			</SplitterLayout>
+		</NavTreeContainer.Provider>
+	</Router>
+);
 
 ReactDOM.render(<Index />, document.getElementById('root'));

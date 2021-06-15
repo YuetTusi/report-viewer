@@ -83,13 +83,16 @@ const helper = {
 
         let rec: any[] = [];
         const reg = new RegExp(keyword);
+        const trunc = new RegExp(`.{0,10}${keyword}.{0,10}`);
 
         for (let i = 0, p = data.length; i < p; i++) {
             const { row } = data[i] as { row: PageRow[] };
             for (let j = 0, len = row.length; j < len; j++) {
                 const { type, content } = row[j];
                 if (type === ChatType.Text && typeof content === 'string' && content.includes(keyword)) {
-                    rec = rec.concat([{ chat: row[j].content.replace(reg, `<b>${keyword}</b>`), pageIndex: i + 1 }]);
+
+                    const s = trunc.exec(content)![0];
+                    rec = rec.concat([{ chat: s.replace(reg, `<b>${keyword}</b>`), pageIndex: i + 1 }]);
                     // rec = rec.concat([{ chat: row[j].content, pageIndex: i + 1 }]);
                 }
             }
