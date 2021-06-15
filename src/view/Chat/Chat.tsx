@@ -1,5 +1,7 @@
 import $ from 'jquery';
 import React, { FC, useCallback, useRef, useState } from 'react';
+import debounce from 'lodash/debounce';
+import Input from 'antd/lib/input';
 import message from 'antd/lib/message';
 import { useLocation, useParams } from 'react-router-dom';
 import { useMount } from '@src/hooks';
@@ -8,6 +10,7 @@ import { helper } from '@src/utils/helper';
 import RootPanel from '@src/components/RootPanel';
 import VideoModal from '@src/components/VideoModal';
 import PhotoShow from '@src/components/PhotoShow';
+import SearchChatModal from '@src/components/SearchChatModal';
 import ChatList from '@src/components/ChatList';
 import { PanelBox } from '@src/components/styled/BoxStyle';
 import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
@@ -15,6 +18,7 @@ import { BaseView } from '@src/types/View';
 
 interface Prop extends BaseView {}
 
+const { Search } = Input;
 let defaultPageSize = 0; //默认分页尺寸
 
 /**
@@ -30,8 +34,11 @@ const Chat: FC<Prop> = (props) => {
 	); //当前页
 	const fileSrc = useRef<any>(null); //当前聊天组件返回的文件路径
 	const fileExportSrc = useRef<any>(null); //当前聊天组件返回的备用文件路径
+	const searchRef = useRef<any>(null); //查询文本框
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
+	const [searchChatModalVisible, setSearchChatModalVisible] = useState<boolean>(false); //照片框显示
+	const [foundChat, setFoundChat] = useState<any[]>([]);
 
 	const { loading, setLoading } = LoadingContainer.useContainer();
 
@@ -76,14 +83,49 @@ const Chat: FC<Prop> = (props) => {
 	/**
 	 * 关闭视频框
 	 */
-	const closeVideoModalHandle = useCallback(() => setVideoModalVisible(false), [
-		videoModalVisible
-	]);
+	const closeVideoModalHandle = useCallback(
+		() => setVideoModalVisible(false),
+		[videoModalVisible]
+	);
 
 	/**
 	 * 关闭照片框
 	 */
 	const closePhotoShowHandle = useCallback(() => setPhotoShowVisible(false), [photoShowVisible]);
+
+	/**
+	 * 查询聊天记录handle
+	 * @param value 关键字
+	 */
+	const onSearchChat = debounce(
+		async (value: string) => {
+			if (helper.isNullOrUndefinedOrEmptyString(value)) {
+				message.destroy();
+				message.info('请输入关键字进行查询');
+			} else {
+				setLoading(true);
+				const fileNames = helper.getAllPageNames(file, Number.parseInt(pageCount));
+				const tasks = fileNames.map((f) =>
+					helper.loadJSON<any>(`public/data/${f}.json`, 'data')
+				);
+
+				try {
+					const data = await Promise.all(tasks);
+					if (data && data.length > 0) {
+						const rec = helper.getFoundChatAndPageIndex(data, value);
+						setSearchChatModalVisible(true);
+						setFoundChat(rec);
+					}
+				} catch (error) {
+					message.error('搜索记录失败');
+				} finally {
+					setLoading(false);
+				}
+			}
+		},
+		800,
+		{ leading: true, trailing: false }
+	);
 
 	return (
 		<RootPanel loading={loading}>
@@ -93,6 +135,13 @@ const Chat: FC<Prop> = (props) => {
 			<PanelBox>
 				<PartBox>
 					<PartCaption dangerouslySetInnerHTML={{ __html: data.caption ?? '' }} />
+					<Search
+						ref={searchRef}
+						onSearch={onSearchChat}
+						size="small"
+						placeholder="请输入关键字搜索记录"
+						maxLength={200}
+					/>
 					<PartContent>
 						<ChatList
 							data={data.row}
@@ -130,6 +179,21 @@ const Chat: FC<Prop> = (props) => {
 				src={fileSrc.current}
 				exportSrc={fileExportSrc.current}
 				closeHandle={closePhotoShowHandle}
+			/>
+			<SearchChatModal
+				onGo={(pageIndex: number) => {
+					setSearchChatModalVisible(false);
+					setFoundChat([]);
+
+					const { href } = window.location;
+					const pos = href.indexOf(fileMd5);
+					const prefix = href.substring(0, pos);
+					// console.log(`${prefix}${fileMd5}-${pageIndex}?p=1`);
+					window.location.href = `${prefix}${fileMd5}-${pageIndex}?p=${pageCount}`;
+				}}
+				onClose={() => setSearchChatModalVisible(false)}
+				visibile={searchChatModalVisible}
+				data={foundChat}
 			/>
 		</RootPanel>
 	);

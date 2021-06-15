@@ -1,3 +1,5 @@
+import { ChatType } from "@src/components/ChatList/componentTypes";
+import { PageRow } from "@src/types/View";
 
 const helper = {
 
@@ -58,6 +60,42 @@ const helper = {
             });
             document.body.appendChild($script);
         });
+    },
+    /**
+     * 根据文件名及总页数返回所有JSON文件名
+     * @param firstPageName 首页的文件名
+     * @param pageSize 总页数
+     */
+    getAllPageNames(firstPageName: string, pageSize: number = 1) {
+        let allPages: string[] = [];
+        const [md5] = firstPageName.split('-');
+        for (let i = 1; i <= pageSize; i++) {
+            allPages = allPages.concat(`${md5}-${i}`);
+        }
+        return allPages;
+    },
+    /**
+     * 返回查找到的聊天记录和记录所在的页码
+     * @param data 所有页数据
+     * @param keyword 查找关键字
+     */
+    getFoundChatAndPageIndex(data: any[], keyword: string) {
+
+        let rec: any[] = [];
+        const reg = new RegExp(keyword);
+
+        for (let i = 0, p = data.length; i < p; i++) {
+            const { row } = data[i] as { row: PageRow[] };
+            for (let j = 0, len = row.length; j < len; j++) {
+                const { type, content } = row[j];
+                if (type === ChatType.Text && typeof content === 'string' && content.includes(keyword)) {
+                    rec = rec.concat([{ chat: row[j].content.replace(reg, `<b>${keyword}</b>`), pageIndex: i + 1 }]);
+                    // rec = rec.concat([{ chat: row[j].content, pageIndex: i + 1 }]);
+                }
+            }
+        }
+
+        return rec;
     }
 }
 

@@ -1,3 +1,5 @@
+import { ChatType } from "@src/components/ChatList/componentTypes";
+
 /**
  * 页面类型枚举
  */
@@ -81,4 +83,42 @@ interface BaseView {
     dataFilePath?: string
 }
 
-export { ViewData, ViewType, ColumnType, BaseView };
+/**
+ * 行类型
+ */
+interface PageRow {
+    /**
+     * ID
+     */
+    id: string,
+    /**
+     * 昵称
+     */
+    nickname: string,
+    /**
+     * 头像
+     */
+    avatar: string,
+    /**
+     * 内容
+     */
+    content: string,
+    /**
+     * 类型
+     */
+    type: ChatType,
+    /**
+     * 时间
+     */
+    time: string,
+    /**
+     * 是发送
+     */
+    send: boolean,
+    /**
+     * 已删除
+     */
+    del: boolean
+}
+
+export { ViewData, ViewType, ColumnType, PageRow, BaseView };
