@@ -12,6 +12,7 @@ import VideoModal from '@src/components/VideoModal';
 import PhotoShow from '@src/components/PhotoShow';
 import SearchChatModal from '@src/components/SearchChatModal';
 import ChatList from '@src/components/ChatList';
+import { SearchChatBox } from '@src/components/ChatList/ListStyled';
 import { PanelBox } from '@src/components/styled/BoxStyle';
 import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
 import { BaseView } from '@src/types/View';
@@ -137,13 +138,16 @@ const Chat: FC<Prop> = (props) => {
 			<PanelBox>
 				<PartBox>
 					<PartCaption dangerouslySetInnerHTML={{ __html: data.caption ?? '' }} />
-					<Search
-						ref={searchRef}
-						onSearch={onSearchChat}
-						size="small"
-						placeholder="请输入关键字搜索记录"
-						maxLength={200}
-					/>
+					<SearchChatBox>
+						<Search
+							ref={searchRef}
+							onSearch={onSearchChat}
+							size="small"
+							placeholder="请输入关键字搜索记录"
+							maxLength={200}
+						/>
+					</SearchChatBox>
+
 					<PartContent>
 						<ChatList
 							data={data.row}

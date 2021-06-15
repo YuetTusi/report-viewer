@@ -183,7 +183,7 @@ const PageBox = styled.div`
 	justify-content: flex-end;
 	padding: 10px 10px;
 	&.top {
-		top: 0;
+		top: 24px;
 		margin-bottom: 10px;
 		border-bottom: 1px solid #efefef;
 		background-color: #f9f9f9;
@@ -199,4 +199,10 @@ const PageBox = styled.div`
 	}
 `;
 
-export { ListRoot, ListRow, Send, Reply, Message, PageBox };
+const SearchChatBox = styled.div`
+	position: sticky;
+	z-index: 99;
+	top: 0;
+`;
+
+export { ListRoot, ListRow, Send, Reply, Message, PageBox, SearchChatBox };
