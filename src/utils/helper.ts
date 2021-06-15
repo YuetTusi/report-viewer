@@ -103,6 +103,30 @@ const helper = {
      */
     rnd() {
         return Math.trunc(Math.random() * 100000000);
+    },
+    /**
+     * 解析URL返回?参数
+     * @param name 参数名
+     * @returns 参数值
+     */
+    parseURLSearch(search: string, name: string) {
+        if (window.URLSearchParams !== undefined) {
+            return new URLSearchParams(search).get(name);
+        }
+
+        if (search.startsWith('?')) {
+            search = search.substring(1);
+        }
+        const kv = search.split('&');
+        let value: string | null = null;
+        for (let i = 0; i < kv.length; i++) {
+            const [k, v] = kv[i].split('=');
+            if (k === name) {
+                value = v;
+                break;
+            }
+        }
+        return value;
     }
 }
 

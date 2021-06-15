@@ -36,7 +36,7 @@ const DataTable: FC<Prop> = (props) => {
 	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
 	const { loading, setLoading } = LoadingContainer.useContainer();
 
-	pageCount = new URLSearchParams(search).get('p') ?? '1';
+	pageCount = helper.parseURLSearch(search, 'p') ?? '1';
 
 	useMount(async () => {
 		setLoading(true);
