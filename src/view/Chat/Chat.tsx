@@ -171,11 +171,6 @@ const Chat: FC<Prop> = (props) => {
 				exportSrc={fileExportSrc.current}
 				closeHandle={closeVideoModalHandle}
 			/>
-			{/* <PhotoModal
-				visible={photoModalVisible}
-				src={fileSrc.current}
-				closeHandle={closePhotoModalHandle}
-			/> */}
 			<PhotoShow
 				visible={photoShowVisible}
 				src={fileSrc.current}
@@ -190,10 +185,9 @@ const Chat: FC<Prop> = (props) => {
 					const { href } = window.location;
 					const pos = href.indexOf(fileMd5);
 					const prefix = href.substring(0, pos);
-					// console.log(`${prefix}${fileMd5}-${pageIndex}?p=1`);
-					console.log(
-						`${prefix}${fileMd5}-${pageIndex}?p=${pageCount}&r=${helper.rnd()}`
-					);
+					// console.log(
+					// 	`${prefix}${fileMd5}-${pageIndex}?p=${pageCount}&r=${helper.rnd()}`
+					// );
 					window.location.href = `${prefix}${fileMd5}-${pageIndex}?p=${pageCount}&r=${helper.rnd()}`;
 				}}
 				onClose={() => setSearchChatModalVisible(false)}
