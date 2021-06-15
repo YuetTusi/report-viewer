@@ -16,6 +16,7 @@ import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/st
 import { DisplayTableCell } from '@src/components/DisplayTable/types';
 
 let defaultPageSize = 0;
+let pageCount = '1';
 interface Prop extends BaseView {}
 
 /**
@@ -23,8 +24,7 @@ interface Prop extends BaseView {}
  */
 const DataTable: FC<Prop> = (props) => {
 	const { file } = useParams<{ file: string }>();
-	const [, pageCount] = useLocation().search.split('=');
-
+	const { search } = useLocation();
 	const [fileMd5, index] = file.split('-');
 	const [pageIndex, setPageIndex] = useState<number>(
 		helper.isNullOrUndefined(index) ? 1 : Number(index)
@@ -34,8 +34,9 @@ const DataTable: FC<Prop> = (props) => {
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [audioModalVisible, setAudioModalVisible] = useState<boolean>(false); //音频框显示
 	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
-
 	const { loading, setLoading } = LoadingContainer.useContainer();
+
+	pageCount = new URLSearchParams(search).get('p') ?? '1';
 
 	useMount(async () => {
 		setLoading(true);
@@ -103,16 +104,18 @@ const DataTable: FC<Prop> = (props) => {
 	/**
 	 * 关闭音频框
 	 */
-	const closeAudioModalHandle = useCallback(() => setAudioModalVisible(false), [
-		audioModalVisible
-	]);
+	const closeAudioModalHandle = useCallback(
+		() => setAudioModalVisible(false),
+		[audioModalVisible]
+	);
 
 	/**
 	 * 关闭视频框
 	 */
-	const closeVideoModalHandle = useCallback(() => setVideoModalVisible(false), [
-		videoModalVisible
-	]);
+	const closeVideoModalHandle = useCallback(
+		() => setVideoModalVisible(false),
+		[videoModalVisible]
+	);
 
 	/**
 	 * 关闭照片框

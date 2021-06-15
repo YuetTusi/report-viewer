@@ -96,6 +96,13 @@ const helper = {
         }
 
         return rec;
+    },
+    /**
+     * 得到随机值
+     * @returns 8位随机数
+     */
+    rnd() {
+        return Math.trunc(Math.random() * 100000000);
     }
 }
 

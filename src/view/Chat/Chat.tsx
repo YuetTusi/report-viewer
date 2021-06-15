@@ -20,13 +20,14 @@ interface Prop extends BaseView {}
 
 const { Search } = Input;
 let defaultPageSize = 0; //默认分页尺寸
+let pageCount = '1'; //总页数
 
 /**
  * 聊天类页面
  */
 const Chat: FC<Prop> = (props) => {
 	const { file } = useParams<{ file: string }>();
-	const [, pageCount] = useLocation().search.split('=');
+	const { search } = useLocation();
 	const [data, setData] = useState<any>({});
 	const [fileMd5, index] = file.split('-');
 	const [pageIndex, setPageIndex] = useState<number>(
@@ -39,8 +40,9 @@ const Chat: FC<Prop> = (props) => {
 	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
 	const [searchChatModalVisible, setSearchChatModalVisible] = useState<boolean>(false); //照片框显示
 	const [foundChat, setFoundChat] = useState<any[]>([]);
-
 	const { loading, setLoading } = LoadingContainer.useContainer();
+
+	pageCount = new URLSearchParams(search).get('p') ?? '1';
 
 	useMount(async () => {
 		setLoading(true);
@@ -189,7 +191,10 @@ const Chat: FC<Prop> = (props) => {
 					const pos = href.indexOf(fileMd5);
 					const prefix = href.substring(0, pos);
 					// console.log(`${prefix}${fileMd5}-${pageIndex}?p=1`);
-					window.location.href = `${prefix}${fileMd5}-${pageIndex}?p=${pageCount}`;
+					console.log(
+						`${prefix}${fileMd5}-${pageIndex}?p=${pageCount}&r=${helper.rnd()}`
+					);
+					window.location.href = `${prefix}${fileMd5}-${pageIndex}?p=${pageCount}&r=${helper.rnd()}`;
 				}}
 				onClose={() => setSearchChatModalVisible(false)}
 				visibile={searchChatModalVisible}
