@@ -105,13 +105,15 @@ const Chat: FC<Prop> = (props) => {
 			if (helper.isNullOrUndefinedOrEmptyString(value)) {
 				message.destroy();
 				message.info('请输入关键字进行查询');
+			} else if (/[@#$%^&\[\]\*?+()]/g.test(value)) {
+				message.destroy();
+				message.warn('不允许查询非法字符');
 			} else {
 				setLoading(true);
 				const fileNames = helper.getAllPageNames(file, Number.parseInt(pageCount));
 				const tasks = fileNames.map((f) =>
 					helper.loadJSON<any>(`public/data/${f}.json`, 'data')
 				);
-
 				try {
 					const data = await Promise.all(tasks);
 					if (data && data.length > 0) {
