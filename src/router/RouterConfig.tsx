@@ -108,6 +108,25 @@ function recurrenceRoute(nodes: TreeNode[]) {
 						/>
 					);
 					break;
+				case ViewType.Album:
+					//相册类
+					routes.push(
+						<Route
+							path={`${subPath(path)}/:file`}
+							render={() => {
+								const NextView = lazy<FC<BaseView>>(
+									() => import('@src/view/Album')
+								);
+								return (
+									<Suspense fallback={<LazyLoading />}>
+										<NextView dataFilePath={dir} />
+									</Suspense>
+								);
+							}}
+							key={`N_${acc++}`}
+						/>
+					);
+					break;
 			}
 		}
 		if (children && children.length > 0) {

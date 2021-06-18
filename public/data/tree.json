@@ -42,8 +42,9 @@
 					},
 					{
 						"name": "照片",
-						"path": "/samsung-photo/0006",
-						"type": "table",
+						"path": "/samsung-photo/0006-1",
+						"page": 2,
+						"type": "album",
 						"icon": "public/images/tree/photo.png"
 					},
 					{

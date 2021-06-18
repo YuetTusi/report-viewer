@@ -19,7 +19,11 @@ enum ViewType {
     /**
      * 列表类（纵表）
      */
-    List = 'list'
+    List = 'list',
+    /**
+     * 相册类
+     */
+    Album = 'album'
 }
 
 /**

@@ -54,7 +54,6 @@ const SearchChatModal: FC<SearchChatModalProps> = (props) => {
 					current: pageIndex,
 					pageSize: 5,
 					onChange(page: number) {
-						console.log(data);
 						setPageIndex(page);
 					}
 				}}
