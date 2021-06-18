@@ -14,7 +14,7 @@ import AlbumPicture from '@src/components/AlbumPhoto/AlbumPicture';
 
 interface Prop extends BaseView {}
 
-let defaultPageSize = 10; //默认分页尺寸
+let defaultPageSize = 50; //默认分页尺寸
 let pageCount = '1'; //总页数
 
 /**
@@ -99,6 +99,7 @@ const Album: FC<Prop> = (props) => {
 							pageIndex={pageIndex}
 							pageSize={defaultPageSize}
 							pageCount={Number(pageCount)}
+							total={data.total}
 							pictureClick={pictureClick}
 							pageChange={pageChange}
 						/>

@@ -5,12 +5,13 @@ import { PictureItem } from './PictureItem';
 import { PictureList } from './StyleBox';
 import { AlbumPictureProp } from './AlbumPictureProp';
 import { PageBox } from '../DisplayTable/TableStyled';
+import { helper } from '@src/utils/helper';
 
 /**
  * 相册组件
  */
 const AlbumPicture: FC<AlbumPictureProp> = (props) => {
-	const { data, pageIndex, pageSize, pageCount, pictureClick } = props;
+	const { data, pageIndex, pageSize, pageCount, total, pictureClick } = props;
 
 	/**
 	 * 翻页Change事件
@@ -32,18 +33,23 @@ const AlbumPicture: FC<AlbumPictureProp> = (props) => {
 					onChange={pageChange}
 					current={pageIndex}
 					pageSize={pageSize}
-					total={pageSize * pageCount}
+					total={total ?? pageSize * pageCount}
 					size="small"
 					showQuickJumper={true}
 				/>
 			</PageBox>
-			<PictureList>{renderItem()}</PictureList>
+			{helper.isNullOrUndefinedOrEmptyArray(data) ? (
+				<Empty description="暂无照片" image={Empty.PRESENTED_IMAGE_SIMPLE} />
+			) : (
+				<PictureList>{renderItem()}</PictureList>
+			)}
+
 			<PageBox className="bottom">
 				<Pagination
 					onChange={pageChange}
 					current={pageIndex}
 					pageSize={pageSize}
-					total={pageSize * pageCount}
+					total={total ?? pageSize * pageCount}
 					size="small"
 					showQuickJumper={true}
 				/>

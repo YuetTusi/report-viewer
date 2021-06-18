@@ -16,6 +16,10 @@ interface AlbumPictureProp {
      */
     pageCount: number,
     /**
+     * 总记录数
+     */
+    total: number,
+    /**
      * 照片click
      */
     pictureClick: (src: string, srcExport: string) => void,
