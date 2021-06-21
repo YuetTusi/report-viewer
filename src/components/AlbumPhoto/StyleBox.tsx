@@ -11,7 +11,7 @@ const PictureList = styled.ul`
 const LiItem = styled.li`
 	list-style-type: none;
 	padding: 0;
-	margin: 0;
+	margin: 3px 0;
 
 	fieldset {
 		border: 1px solid #e8e8e8;
@@ -19,9 +19,7 @@ const LiItem = styled.li`
 		margin-top: 1px;
 		legend {
 			width: auto;
-			color: #3d4c5a;
 			font-size: 1.2rem;
-			font-weight: 500;
 			border: 1px solid #e8e8e8;
 			padding: 0 5px;
 			margin-bottom: 5px;
@@ -30,7 +28,17 @@ const LiItem = styled.li`
 		& > div {
 			margin: 0 5px 5px 5px;
 			border: 1px solid #e8e8e8;
-			&:hover {
+		}
+		&:hover {
+			legend {
+				color: #3d4c5a;
+				font-weight: 500;
+				box-shadow: 1px 1px 3px rgba(61, 76, 90, 0.5), -1px -1px 3px rgba(61, 76, 90, 0.5),
+					1px -1px 3px rgba(61, 76, 90, 0.5), -1px 1px 3px rgba(61, 76, 90, 0.5);
+			}
+			& > div {
+				margin: 0 5px 5px 5px;
+				border: 1px solid #e8e8e8;
 				cursor: pointer;
 				border-color: #3d4c5a;
 				box-shadow: 1px 1px 5px rgba(61, 76, 90, 0.5), -1px -1px 5px rgba(61, 76, 90, 0.5),
