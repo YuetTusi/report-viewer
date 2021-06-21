@@ -19,7 +19,9 @@ const LiItem = styled.li`
 		margin-top: 1px;
 		legend {
 			width: auto;
-			font-size: 1.2rem;
+			color: #00b4bb;
+			font-size: 1.4rem;
+			font-weight: 500;
 			border: 1px solid #e8e8e8;
 			padding: 0 5px;
 			margin-bottom: 5px;
@@ -31,7 +33,7 @@ const LiItem = styled.li`
 		}
 		&:hover {
 			legend {
-				color: #3d4c5a;
+				color: #d6000b;
 				font-weight: 500;
 				box-shadow: 1px 1px 3px rgba(61, 76, 90, 0.5), -1px -1px 3px rgba(61, 76, 90, 0.5),
 					1px -1px 3px rgba(61, 76, 90, 0.5), -1px 1px 3px rgba(61, 76, 90, 0.5);

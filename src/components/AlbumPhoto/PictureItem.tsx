@@ -45,7 +45,7 @@ const PictureItem: FC<PictureItemProp> = (props) => {
 	if (tips && tips.length > 0) {
 		return (
 			<LiItem onClick={onClick}>
-				<fieldset style={{ marginTop: data.label ? '0' : '10px' }}>
+				<fieldset style={{ marginTop: data.label ? '0' : '12px' }}>
 					<SimilarLabel>{data.label}</SimilarLabel>
 					<Popover content={<PictureTip data={tips ?? []} />} placement="top">
 						<div style={{ marginTop: data.label ? '0' : '15px' }}>
