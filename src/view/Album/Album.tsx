@@ -81,7 +81,7 @@ const Album: FC<Prop> = (props) => {
 			}
 			setTimeout(() => {
 				setLoading(false);
-			}, 600);
+			}, 700);
 		}
 	};
 

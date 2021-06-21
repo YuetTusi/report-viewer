@@ -3,27 +3,45 @@ import styled from 'styled-components';
 const PictureList = styled.ul`
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 	padding: 0;
 	margin: 0;
 `;
 
 const LiItem = styled.li`
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	list-style-type: none;
-	padding: 5px;
-	margin: 5px 0 0 5px;
-	border: 1px solid #e5e7e8;
+	padding: 0;
+	margin: 0;
 
-	&:hover {
-		cursor: pointer;
-		box-shadow: 0 0 5px 5px #90abad;
+	fieldset {
+		border: 1px solid #e8e8e8;
+		margin-left: 5px;
+		margin-top: 1px;
+		legend {
+			width: auto;
+			color: #3d4c5a;
+			font-size: 1.2rem;
+			font-weight: 500;
+			border: 1px solid #e8e8e8;
+			padding: 0 5px;
+			margin-bottom: 5px;
+			margin-left: 5px;
+		}
+		& > div {
+			margin: 0 5px 5px 5px;
+			border: 1px solid #e8e8e8;
+			&:hover {
+				cursor: pointer;
+				border-color: #3d4c5a;
+				box-shadow: 1px 1px 5px rgba(61, 76, 90, 0.5), -1px -1px 5px rgba(61, 76, 90, 0.5),
+					1px -1px 5px rgba(61, 76, 90, 0.5), -1px 1px 5px rgba(61, 76, 90, 0.5);
+			}
+		}
 	}
 
 	img {
-		max-width: 500px;
-		max-height: 900px;
+		width: 230px;
+		height: 230px;
 	}
 `;
 

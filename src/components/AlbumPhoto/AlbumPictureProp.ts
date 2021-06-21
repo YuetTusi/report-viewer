@@ -39,6 +39,10 @@ interface Picture {
      */
     src_export: string,
     /**
+     * 标签文本
+     */
+    label: string,
+    /**
      * 提示文案
      */
     tips: PictureTip[]
