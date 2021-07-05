@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+        <script src="assert/polyfill/polyfill.min.js"></script>
 		<script
 			src="https://code.jquery.com/jquery-1.12.4.min.js"
 			integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
@@ -229,7 +230,7 @@
 					case 'video':
 						return `<div class="talk">
                             <div>视频：${record.content}</div>
-                            <video src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" style="max-width:580px;width:580px"></video>
+                            <video src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" style="max-width:580px;width:580px;max-height:500px"></video>
                         </div>`;
 					case 'audio':
 						return `<div class="talk">音频：${record.content}</div>`;
