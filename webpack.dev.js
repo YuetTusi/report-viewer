@@ -11,7 +11,7 @@ const config = {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, './dist')
 	},
-	target: ['web', 'es5'],
+	target: 'web',
 	resolve: {
 		extensions: ['.ts', '.tsx', '.js', '.json'],
 		alias: {
@@ -98,7 +98,8 @@ const config = {
 		new CopyWebpackPlugin({
 			patterns: [
 				{ from: 'assert', to: 'assert' },
-				{ from: 'public', to: 'public' }
+				{ from: 'public', to: 'public' },
+				{ from: 'preview.html', to: 'preview.html' }
 			]
 		})
 	]

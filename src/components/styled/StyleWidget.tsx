@@ -47,28 +47,45 @@ const PartBox = styled.div`
  * 分类框标题
  */
 const PartCaption = styled.div`
-	color: #fff;
-	font-size: 1.4rem;
-	font-family: 'Microsoft YaHei';
-	text-indent: 0.5rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 	background-color: #3d4c5a;
-	padding: 5px;
+	padding: 5px 10px;
 	height: 31px;
 
-	em {
-		color: #ff0033;
-		font-style: normal;
-		font-weight: normal;
+	.caption-text {
+		font-family: 'Microsoft YaHei';
+		color: #fff;
+		em {
+			font-size: 1.4rem;
+			color: #ff0033;
+			font-style: normal;
+			font-weight: normal;
+			text-indent: 0.5rem;
+		}
+		b {
+			font-size: 1.4rem;
+			color: #00ffff;
+			font-style: normal;
+			font-weight: normal;
+			text-indent: 0.5rem;
+		}
+		i {
+			font-size: 1.4rem;
+			color: #ffcc00;
+			font-style: normal;
+			font-weight: normal;
+			text-indent: 0.5rem;
+		}
 	}
-	b {
-		color: #00ffff;
-		font-style: normal;
-		font-weight: normal;
-	}
-	i {
-		color: #ffcc00;
-		font-style: normal;
-		font-weight: normal;
+	.caption-action {
+		color: #fff;
+		cursor: pointer;
+		padding-left: 3px;
+		&:hover {
+			color: #00b4bb;
+		}
 	}
 `;
 

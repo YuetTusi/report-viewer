@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import React, { FC, useCallback, useRef, useState } from 'react';
 import debounce from 'lodash/debounce';
+import Icon from 'antd/lib/icon';
 import Input from 'antd/lib/input';
 import message from 'antd/lib/message';
 import { useLocation, useParams } from 'react-router-dom';
@@ -139,7 +140,20 @@ const Chat: FC<Prop> = (props) => {
 			</PanelBox>
 			<PanelBox>
 				<PartBox>
-					<PartCaption dangerouslySetInnerHTML={{ __html: data.caption ?? '' }} />
+					<PartCaption>
+						<div
+							className="caption-text"
+							dangerouslySetInnerHTML={{ __html: data.caption ?? '' }}
+						/>
+						<div
+							onClick={() => {
+								window.open(`preview.html?file=${fileMd5}&p=${pageCount}`);
+							}}
+							className="caption-action">
+							<Icon type="printer" />
+							<span>打印视图</span>
+						</div>
+					</PartCaption>
 					<SearchChatBox>
 						<Search
 							ref={searchRef}
