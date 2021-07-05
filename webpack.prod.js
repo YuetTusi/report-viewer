@@ -104,7 +104,8 @@ const config = {
 		new CopyWebpackPlugin({
 			patterns: [
 				{ from: 'assert', to: 'assert' },
-				{ from: 'public', to: 'public' }
+				{ from: 'public', to: 'public' },
+				{ from: 'preview.html', to: 'preview.html' }
 			]
 		}),
 		new IgnorePlugin(/^\.\/locale$/, /moment$/)
