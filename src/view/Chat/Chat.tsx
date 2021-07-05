@@ -146,6 +146,7 @@ const Chat: FC<Prop> = (props) => {
 							dangerouslySetInnerHTML={{ __html: data.caption ?? '' }}
 						/>
 						<div
+							style={{ display: data.title && data.title.includes('朋友圈') ? 'none' : 'block' }}
 							onClick={() => {
 								window.open(`preview.html?file=${fileMd5}&p=${pageCount}`);
 							}}

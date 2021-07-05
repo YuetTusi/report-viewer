@@ -53,6 +53,7 @@ const PartCaption = styled.div`
 	background-color: #3d4c5a;
 	padding: 5px 10px;
 	height: 31px;
+	color: #fff;
 
 	.caption-text {
 		font-family: 'Microsoft YaHei';
