@@ -117,6 +117,7 @@ const Reply = styled.div`
 		color: #3d4c5a;
 		line-height: 2rem;
 		background-color: #94ee6a;
+		word-break: break-all;
 		:after {
 			display: block;
 			position: absolute;
