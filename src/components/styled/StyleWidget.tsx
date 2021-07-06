@@ -87,6 +87,9 @@ const PartCaption = styled.div`
 		&:hover {
 			color: #00b4bb;
 		}
+		& > span {
+			margin-left: 2px;
+		}
 	}
 `;
 
