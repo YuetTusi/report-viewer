@@ -17,6 +17,7 @@
 				margin: 0;
 				padding: 0;
 				font-size: 1.4rem;
+				font-family: "Microsoft Yahei,NSimSun";
 			}
 			.list-root {
 				margin: 0 20px;
@@ -218,16 +219,9 @@
 					case 'text':
 						return `<div class="talk">${record.content}</div>`;
 					case 'photo':
-						return `
-                        <div class="talk">
-                            <img src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" />
-                        </div>
-                        `;
+						return `<div class="talk"><img src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" /></div>`;
 					case 'video':
-						return `<div class="talk">
-                            <div>视频：${record.content}</div>
-                            <video src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" style="max-width:580px;max-height:500px"></video>
-                        </div>`;
+						return `<div class="talk"><div>视频：${record.content}</div><video src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" style="max-width:580px;max-height:500px"></video></div>`;
 					case 'audio':
 						return `<div class="talk">音频：${record.content}</div>`;
 					case 'reward':
@@ -241,9 +235,7 @@
 					case 'video_call':
 						return `<div class="talk">视频通话</div>`;
 					case 'locate':
-						return `<div class="talk">位置消息：${JSON.stringify(
-							record.content
-						)}</div>`;
+						return `<div class="talk">位置消息：${JSON.stringify(record.content)}</div>`;
 					default:
 						return `<div class="talk">${JSON.stringify(record.content)}</div>`;
 				}
@@ -253,66 +245,13 @@
 				let html = '';
 				data.forEach((item) => {
 					if (item.type === 'message') {
-						html += `
-					        <div class="list-row">
-					            <div class="message">
-					                <p>${item.content}</p>
-									<div className="other">
-										<time>${item.time}</time>
-									</div>
-                                    ${item.del ? '<del>已删除</del>' : ''}
-					            </div>
-					        </div>
-					    `;
+						html += `<div class="list-row"><div class="message"><p>${item.content}</p><div className="other"><time>${item.time}</time></div>${item.del ? '<del>已删除</del>' : ''}</div></div>`;
 					} else if (item.send) {
-						html += `
-						    <div class="list-row">
-						        <div class="reply">
-						            <img
-										src="${item.avatar}"
-                                        data-has-error="0" data-content-export="${
-											item.avatar_export
-										}" onerror="onLoadError(this)"
-										class="avatar"
-									/>
-									<div class="text-box">
-										<div class="user-name">
-											<span>${item.nickname}</span>
-											<em>(${item.id})</em>
-										</div>
-										${renderContent(item)}
-										<time>${item.time}</time>
-									</div>
-									${item.del ? '<del>已删除</del>' : ''}
-						        </div>
-						    </div>
-						`;
+						html += `<div class="list-row"><div class="reply"><img src="${item.avatar}" data-has-error="0" data-content-export="${item.avatar_export}" onerror="onLoadError(this)" class="avatar" /><div class="text-box"><div class="user-name"><span>${item.nickname}</span><em>(${item.id})</em></div>${renderContent(item)}<time>${item.time}</time></div>${item.del ? '<del>已删除</del>' : ''}</div></div>`;
 					} else {
-						html += `
-						    <div class="list-row">
-						        <div class="send">
-						            <img
-										src="${item.avatar}"
-                                        data-has-error="0" data-content-export="${
-											item.avatar_export
-										}" onerror="onLoadError(this)"
-										class="avatar"
-									/>
-									<div class="text-box">
-										<div class="user-name">
-											<span>${item.nickname}</span>
-											<em>(${item.id})</em>
-										</div>
-										${renderContent(item)}
-										<time>${item.time}</time>
-									</div>
-									${item.del ? '<del>已删除</del>' : ''}
-						        </div>
-						    </div>
-						`;
+						html += `<div class="list-row"><div class="send"><img src="${item.avatar}" data-has-error="0" data-content-export="${item.avatar_export}" onerror="onLoadError(this)" class="avatar"/><div class="text-box"><div class="user-name"><span>${item.nickname}</span><em>(${item.id})</em></div>${renderContent(item)}<time>${item.time}</time></div>${item.del ? '<del>已删除</del>' : ''}</div></div>`;
 					}
 				});
-				// return data.map((item, i) => {});
 				return html;
 			}
 
