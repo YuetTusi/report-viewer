@@ -55,7 +55,7 @@ const Chat: FC<Prop> = (props) => {
 		} catch (error) {
 			message.error('读取数据失败');
 		} finally {
-			setLoading(false);
+			setTimeout(() => setLoading(false), 600);
 		}
 	});
 
@@ -80,7 +80,7 @@ const Chat: FC<Prop> = (props) => {
 			if (rightPane) {
 				$(rightPane).scrollTop(0);
 			}
-			setLoading(false);
+			setTimeout(() => setLoading(false), 600);
 		}
 	};
 
@@ -146,7 +146,10 @@ const Chat: FC<Prop> = (props) => {
 							dangerouslySetInnerHTML={{ __html: data.caption ?? '' }}
 						/>
 						<div
-							style={{ display: data.title && data.title.includes('朋友圈') ? 'none' : 'block' }}
+							style={{
+								display:
+									data.title && data.title.includes('朋友圈') ? 'none' : 'block'
+							}}
 							onClick={() => {
 								window.open(`preview.html?file=${fileMd5}&p=${pageCount}`);
 							}}

@@ -11,6 +11,7 @@ import Moments from './Moments';
 import { ListRoot, ListRow, Reply, Send, Message, PageBox } from './ListStyled';
 import { ChatData, ChatType, Prop } from './componentTypes';
 import { helper } from '@src/utils/helper';
+import AudioPlayer from '../AudioPlayer';
 import AudioCall from './AudioCall';
 import VideoCall from './VideoCall';
 import Locate from './Locate';
@@ -26,10 +27,7 @@ const ChatList: FC<Prop> = (props) => {
 	 * @param page 页号
 	 * @param pageSize 分页尺寸
 	 */
-	const pageChange = (page: number, pageSize?: number) => {
-		const { pageChangeHandle } = props;
-		pageChangeHandle(page, pageSize!);
-	};
+	const pageChange = (page: number, pageSize?: number) => props.pageChangeHandle(page, pageSize!);
 
 	/**
 	 * 渲染聊天内容
@@ -41,19 +39,7 @@ const ChatList: FC<Prop> = (props) => {
 			case ChatType.Audio:
 				return (
 					<div className="talk">
-						<audio
-							src={record.content}
-							controls={true}
-							data-has="0"
-							onError={(e) => {
-								//error事件加载备用图片
-								const { has } = (e.target as any).dataset;
-								if (has === '0') {
-									(e.target as any).setAttribute('data-has', '1');
-									(e.target as any).src = record.content_export;
-								}
-							}}
-						/>
+						<AudioPlayer data={record} />
 					</div>
 				);
 			case ChatType.Video:
