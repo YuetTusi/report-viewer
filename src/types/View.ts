@@ -1,6 +1,24 @@
 import { ChatType } from "@src/components/ChatList/componentTypes";
 
 /**
+ * 删除标记
+ */
+enum DelType {
+    /**
+     * 正常
+     */
+    Normal,
+    /**
+     * 删除
+     */
+    Del,
+    /**
+     * 撤回
+     */
+    Recall
+}
+
+/**
  * 页面类型枚举
  */
 enum ViewType {
@@ -125,4 +143,4 @@ interface PageRow {
     del: boolean
 }
 
-export { ViewData, ViewType, ColumnType, PageRow, BaseView };
+export { DelType, ViewData, ViewType, ColumnType, PageRow, BaseView };

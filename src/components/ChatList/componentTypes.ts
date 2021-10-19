@@ -1,3 +1,5 @@
+import { DelType } from "@src/types/View";
+
 enum ChatType {
     /**
      * 文本消息
@@ -96,7 +98,7 @@ interface ChatData {
     /**
      * 是否已删除
      */
-    del: boolean
+    del: DelType
 }
 
 /**

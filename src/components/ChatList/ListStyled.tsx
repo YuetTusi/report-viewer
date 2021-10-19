@@ -65,6 +65,26 @@ const Send = styled.div`
 			cursor: pointer;
 		}
 	}
+	& .del {
+		color: rgb(255, 0, 0);
+		font-size: 1.2rem;
+		border: 1px solid rgb(255, 0, 0);
+		background-color: rgba(255, 0, 0, 0.05);
+		border-radius: 2px;
+		padding: 2px 4px;
+		text-decoration: none;
+		margin-left: 10px;
+	}
+	& .recall {
+		color: rgb(0, 171, 210);
+		font-size: 1.2rem;
+		border: 1px solid rgb(0, 171, 210);
+		background-color: rgba(0, 171, 210, 0.05);
+		border-radius: 2px;
+		padding: 2px 4px;
+		text-decoration: none;
+		margin-left: 10px;
+	}
 
 	& .user-name {
 		font-family: 'Microsoft YaHei';
@@ -138,6 +158,27 @@ const Reply = styled.div`
 		}
 	}
 
+	& .del {
+		color: rgb(255, 0, 0);
+		font-size: 1.2rem;
+		border: 1px solid rgb(255, 0, 0);
+		background-color: rgba(255, 0, 0, 0.05);
+		border-radius: 2px;
+		padding: 2px 4px;
+		text-decoration: none;
+		margin-right: 10px;
+	}
+	& .recall {
+		color: rgb(0, 171, 210);
+		font-size: 1.2rem;
+		border: 1px solid rgb(0, 171, 210);
+		background-color: rgba(0, 171, 210, 0.05);
+		border-radius: 2px;
+		padding: 2px 4px;
+		text-decoration: none;
+		margin-right: 10px;
+	}
+
 	& .user-name {
 		font-family: 'Microsoft YaHei';
 		color: #222;
@@ -166,11 +207,6 @@ const Message = styled.div`
 	.other {
 		display: flex;
 		flex-direction: row;
-		del {
-			color: #f00;
-			text-decoration: none;
-			margin-left: 10px;
-		}
 	}
 `;
 

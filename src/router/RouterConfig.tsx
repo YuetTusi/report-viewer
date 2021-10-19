@@ -143,12 +143,11 @@ function recurrenceRoute(nodes: TreeNode[]) {
  */
 function RouterConfig() {
 	const { data } = NavTreeContainer.useContainer();
-	const temp = recurrenceRoute(data!);
 
 	return (
 		<Switch>
 			<Route path="/default" component={Default} />
-			{temp}
+			{recurrenceRoute(data!)}
 			<Redirect to="/default" />
 		</Switch>
 	);

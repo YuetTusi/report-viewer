@@ -15,6 +15,7 @@ import AudioPlayer from '../AudioPlayer';
 import AudioCall from './AudioCall';
 import VideoCall from './VideoCall';
 import Locate from './Locate';
+import { DelType } from '@src/types/View';
 
 /**
  * 聊天展示组件
@@ -116,6 +117,22 @@ const ChatList: FC<Prop> = (props) => {
 	};
 
 	/**
+	 *删除标记
+	 */
+	const renderDelMark = (del: DelType) => {
+		switch (del) {
+			case DelType.Normal:
+				return null;
+			case DelType.Del:
+				return <span className="del">已删除</span>;
+			case DelType.Recall:
+				return <span className="recall">已撤回</span>;
+			default:
+				return null;
+		}
+	};
+
+	/**
 	 * 渲染聊天记录
 	 * @param {ChatData[]} row 聊天数据
 	 */
@@ -128,7 +145,7 @@ const ChatList: FC<Prop> = (props) => {
 							<p>{item.content}</p>
 							<div className="other">
 								<time>{item.time}</time>
-								{item?.del ? <del>已删除</del> : null}
+								{renderDelMark(item?.del)}
 							</div>
 						</Message>
 					</ListRow>
@@ -158,7 +175,7 @@ const ChatList: FC<Prop> = (props) => {
 								{renderContent(item)}
 								<time>{item.time}</time>
 							</div>
-							{item.del ? <Tag color="red">已删除</Tag> : null}
+							{renderDelMark(item?.del)}
 						</Reply>
 					</ListRow>
 				);
@@ -187,7 +204,7 @@ const ChatList: FC<Prop> = (props) => {
 								{renderContent(item)}
 								<time>{item.time}</time>
 							</div>
-							{item.del ? <Tag color="red">已删除</Tag> : null}
+							{renderDelMark(item?.del)}
 						</Send>
 					</ListRow>
 				);
