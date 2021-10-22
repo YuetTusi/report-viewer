@@ -98,7 +98,7 @@ interface ChatData {
     /**
      * 是否已删除
      */
-    del: DelType
+    del: DelType | boolean
 }
 
 /**

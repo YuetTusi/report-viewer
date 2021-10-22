@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import Empty from 'antd/lib/empty';
 import Pagination from 'antd/lib/pagination';
-import Tag from 'antd/lib/tag';
 import RedBag from './RedBag';
 import VideoPreview from './VideoPreview';
 import Transfer from './Transfer';
@@ -119,10 +118,11 @@ const ChatList: FC<Prop> = (props) => {
 	/**
 	 *删除标记
 	 */
-	const renderDelMark = (del: DelType) => {
+	const renderDelMark = (del: DelType | boolean) => {
 		switch (del) {
 			case DelType.Normal:
 				return null;
+			case true:
 			case DelType.Del:
 				return <span className="del">已删除</span>;
 			case DelType.Recall:
