@@ -55,6 +55,30 @@ const PartCaption = styled.div`
 	height: 31px;
 	color: #fff;
 
+	& > span {
+		em {
+			font-size: 1.4rem;
+			color: #ff0033;
+			font-style: normal;
+			font-weight: normal;
+			text-indent: 0.5rem;
+		}
+		b {
+			font-size: 1.4rem;
+			color: #00ffff;
+			font-style: normal;
+			font-weight: normal;
+			text-indent: 0.5rem;
+		}
+		i {
+			font-size: 1.4rem;
+			color: #ffcc00;
+			font-style: normal;
+			font-weight: normal;
+			text-indent: 0.5rem;
+		}
+	}
+
 	.caption-text {
 		font-family: 'Microsoft YaHei';
 		color: #fff;

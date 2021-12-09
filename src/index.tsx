@@ -13,13 +13,15 @@ import 'antd/dist/antd.less';
 import '@root/styles/splitter-layout.less';
 import '@root/styles/default.less';
 
-interface Prop {}
-
 const defaultRightPercent = 82; //默认右栏百分比
+const { Provider: NavTreeProvider } = NavTreeContainer;
+const { Provider: LoadingProvider } = LoadingContainer;
+
+interface Prop {}
 
 const Index: FC<Prop> = () => (
 	<Router>
-		<NavTreeContainer.Provider>
+		<NavTreeProvider>
 			<SplitterLayout
 				percentage={true}
 				secondaryInitialSize={defaultRightPercent}
@@ -32,14 +34,14 @@ const Index: FC<Prop> = () => (
 				<RightBox>
 					<ContentBox>
 						<ConfigProvider locale={zhCN}>
-							<LoadingContainer.Provider>
+							<LoadingProvider>
 								<RouterConfig />
-							</LoadingContainer.Provider>
+							</LoadingProvider>
 						</ConfigProvider>
 					</ContentBox>
 				</RightBox>
 			</SplitterLayout>
-		</NavTreeContainer.Provider>
+		</NavTreeProvider>
 	</Router>
 );
 
