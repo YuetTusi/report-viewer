@@ -15,7 +15,7 @@ interface Prop extends BaseView {}
 /**
  * 纵表类页面
  */
-const DataList: FC<Prop> = (props) => {
+const DataList: FC<Prop> = () => {
 	const [data, setData] = useState<Record<string, any>>({}); //页面数据
 	const { loading, setLoading } = LoadingContainer.useContainer();
 	const { file } = useParams<{ file: string }>();

@@ -27,7 +27,7 @@ let pageCount = '1'; //总页数
 /**
  * 聊天类页面
  */
-const Chat: FC<Prop> = (props) => {
+const Chat: FC<Prop> = () => {
 	const { file } = useParams<{ file: string }>();
 	const { search } = useLocation();
 	const [data, setData] = useState<any>({});
