@@ -40,7 +40,7 @@ const Chat: FC<Prop> = (props) => {
 	const searchRef = useRef<any>(null); //查询文本框
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
-	const [searchChatModalVisible, setSearchChatModalVisible] = useState<boolean>(false); //照片框显示
+	const [searchChatModalVisible, setSearchChatModalVisible] = useState<boolean>(false); //查询框显示
 	const [foundChat, setFoundChat] = useState<any[]>([]);
 	const { loading, setLoading } = LoadingContainer.useContainer();
 

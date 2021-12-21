@@ -18,7 +18,7 @@ const DisplayTable: FC<Prop> = (props) => {
 
 	return (
 		<div>
-			<PageBox className="top">
+			<PageBox className="top" top="24px">
 				<Pagination
 					onChange={pageChangeHandle}
 					current={pageIndex}

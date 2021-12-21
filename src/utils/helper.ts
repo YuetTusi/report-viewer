@@ -101,6 +101,32 @@ const helper = {
         return rec;
     },
     /**
+    * 返回查找到的表格内容和记录所在的页码
+    * @param data 所有页数据
+    * @param keyword 查找关键字
+    */
+    getFoundContentAndPageIndex(data: any[], keyword: string) {
+        // console.log(data);
+        let rec: any[] = [];
+        const reg = new RegExp(keyword);
+        const trunc = new RegExp(`.{0,10}${keyword}.{0,10}`);
+
+        for (let i = 0, p = data.length; i < p; i++) {
+            const row: any[] = data[i].row ?? [];
+            const pageRows = row.flat();
+
+            for (let j = 0, len = pageRows.length; j < len; j++) {
+                const { value } = pageRows[j] as { value: string };
+                if (value.includes(keyword)) {
+                    const s = trunc.exec(value)![0];
+                    rec = rec.concat([{ chat: s.replace(reg, `<b>${keyword}</b>`), pageIndex: i + 1 }]);
+                }
+            }
+        }
+
+        return rec;
+    },
+    /**
      * 得到随机值
      * @returns 8位随机数
      */
@@ -113,7 +139,7 @@ const helper = {
      * @returns 参数值
      */
     parseURLSearch(search: string, name: string) {
-        if (window.URLSearchParams !== undefined) {
+        if ((window as any).URLSearchParams !== undefined) {
             return new URLSearchParams(search).get(name);
         }
 

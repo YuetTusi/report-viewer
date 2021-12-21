@@ -91,14 +91,14 @@ const FullText = styled.span`
 /**
  * 分页区
  */
-const PageBox = styled.div`
+const PageBox = styled.div<{ top?: string | 0 }>`
 	display: flex;
 	justify-content: flex-end;
 	padding: 10px 10px;
 	&.top {
 		position: sticky;
 		z-index: 99;
-		top: 0;
+		top: ${(prop) => prop.top ?? 0};
 		background-color: #f9f9f9;
 	}
 	&.bottom {
@@ -107,8 +107,6 @@ const PageBox = styled.div`
 		border-bottom-right-radius: 4px;
 	}
 `;
-
-
 
 const ExportPane = styled.div`
 	position: relative;
@@ -124,4 +122,19 @@ const ExportPane = styled.div`
 	}
 `;
 
-export { FileLink, RedText, BlackText, AnchorLink, FullText, PageBox, ExportPane };
+const SearchContentBox = styled.div`
+	position: sticky;
+	z-index: 99;
+	top: 0;
+`;
+
+export {
+	FileLink,
+	RedText,
+	BlackText,
+	AnchorLink,
+	FullText,
+	PageBox,
+	ExportPane,
+	SearchContentBox
+};
