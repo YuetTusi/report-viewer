@@ -37,7 +37,7 @@ const config = {
 	module: {
 		rules: [
 			{
-				test: /\.(ts|tsx)$/,
+				test: /\.tsx?$/,
 				use: [
 					{
 						loader: 'ts-loader'
@@ -68,7 +68,7 @@ const config = {
 				]
 			},
 			{
-				test: /\.(png|jpg|jpeg|gif|ico)$/,
+				test: /\.(png|jpe?g|gif|ico)$/,
 				use: [
 					{
 						loader: 'file-loader',
@@ -80,7 +80,7 @@ const config = {
 				]
 			},
 			{
-				test: /\.(woff|woff2|ttf|otf|eot|svg)$/,
+				test: /\.(woff2?|ttf|otf|eot|svg)$/,
 				use: [
 					{
 						loader: 'file-loader',

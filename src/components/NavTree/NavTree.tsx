@@ -27,7 +27,7 @@ function expandNodes(context: any, nodes: any[], level: number) {
 /**
  * 树导航组件
  */
-const NavTree: FC<Prop> = (props) => {
+const NavTree: FC<Prop> = () => {
 	const history = useHistory();
 
 	const { data } = NavTreeContainer.useContainer();

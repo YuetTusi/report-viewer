@@ -91,9 +91,6 @@ const DataTable: FC<Prop> = () => {
 	const onSearch = debounce(
 		async (value: string) => {
 
-			console.clear();
-			console.log(value);
-
 			if (helper.isNullOrUndefinedOrEmptyString(value)) {
 				message.destroy();
 				message.info('请输入关键字进行查询');

@@ -2,12 +2,12 @@ import React, { FC } from 'react';
 import { PictureTip } from './AlbumPictureProp';
 import { TipList } from './StyleBox';
 
-const PictureTip: FC<{ data: PictureTip[] }> = (props) => {
+const PictureTip: FC<{ data: PictureTip[] }> = ({ data }) => {
 	/**
 	 * 渲染Tip项
 	 */
 	const renderTips = () =>
-		props.data.map((item, i) => (
+		data.map((item, i) => (
 			<li key={`T_${i}`}>
 				<label>{item.name}</label>
 				<span>{item.value}</span>
