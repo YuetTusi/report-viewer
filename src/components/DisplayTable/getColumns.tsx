@@ -1,7 +1,6 @@
 import React, { MouseEvent } from 'react';
 import Button from 'antd/lib/button';
 import Icon from 'antd/lib/icon';
-import Popover from 'antd/lib/popover';
 import { ColumnType } from '@src/types/View';
 import { ColumnGroupProps } from 'antd/lib/table/ColumnGroup';
 import { DisplayTableCell, DisplayTableColumn } from './types';
@@ -25,17 +24,9 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						key: `col_${i}`,
 						render: (cell: DisplayTableCell, row: Record<string, any>) =>
 							row.del ? (
-								<Popover
-									content={<FullText>{cell.value}</FullText>}
-									trigger="hover">
-									<RedText dangerouslySetInnerHTML={{ __html: cell.value }} />
-								</Popover>
+								<RedText dangerouslySetInnerHTML={{ __html: cell.value }} />
 							) : (
-								<Popover
-									content={<FullText>{cell.value}</FullText>}
-									trigger="hover">
-									<BlackText dangerouslySetInnerHTML={{ __html: cell.value }} />
-								</Popover>
+								<BlackText dangerouslySetInnerHTML={{ __html: cell.value }} />
 							)
 					};
 				case ColumnType.Audio:
@@ -153,17 +144,9 @@ function getColumns(props: Prop): ColumnGroupProps[] {
 						key: `col_${i}`,
 						render: (cell: DisplayTableCell, row: Record<string, any>) =>
 							row.del ? (
-								<Popover
-									content={<FullText>{cell.value}</FullText>}
-									trigger="hover">
-									<RedText dangerouslySetInnerHTML={{ __html: cell.value }} />
-								</Popover>
+								<RedText dangerouslySetInnerHTML={{ __html: cell.value }} />
 							) : (
-								<Popover
-									content={<FullText>{cell.value}</FullText>}
-									trigger="hover">
-									<BlackText dangerouslySetInnerHTML={{ __html: cell.value }} />
-								</Popover>
+								<BlackText dangerouslySetInnerHTML={{ __html: cell.value }} />
 							)
 					};
 			}

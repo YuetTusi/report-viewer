@@ -17,11 +17,9 @@ const FileLink = styled.a`
  */
 const RedText = styled.span`
 	display: inline-block;
-	color: #f00;
 	max-width: 280px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+	white-space: normal;
+	word-break: break-all;
 	vertical-align: middle;
 	em {
 		color: #ff0033;
@@ -47,9 +45,8 @@ const BlackText = styled.span`
 	display: inline-block;
 	color: #222;
 	max-width: 280px;
-	white-space: nowrap;
-	text-overflow: ellipsis;
-	overflow: hidden;
+	white-space: normal;
+	word-break: break-all;
 	vertical-align: middle;
 	em {
 		color: #ff0033;
