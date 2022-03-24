@@ -194,11 +194,11 @@
 			window.onload = () => {
 				const { search } = window.location;
 				const file = parseURLSearch(search, 'file');
-				const p = parseURLSearch(search, 'p');
+				const s = parseURLSearch(search, 's') ?? 1; //起始页
+				const p = parseURLSearch(search, 'p'); //终止页
 				let task = [];
-				// console.log(file, p);
 
-				for (let i = 0; i < Number(p); i++) {
+				for (let i = s - 1; i < Number(p); i++) {
 					task = task.concat([loadJSON(`public/data/${file}-${i + 1}.json`, 'data')]);
 				}
 				Promise.all(task)

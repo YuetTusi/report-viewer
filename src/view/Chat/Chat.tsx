@@ -17,12 +17,13 @@ import { SearchChatBox } from '@src/components/ChatList/ListStyled';
 import { PanelBox } from '@src/components/styled/BoxStyle';
 import { MainTitle, PartBox, PartCaption, PartContent } from '@src/components/styled/StyleWidget';
 import { BaseView } from '@src/types/View';
+import PageRangeModal from '@src/components/PageRangeModal';
 
-interface Prop extends BaseView {}
+interface Prop extends BaseView { }
 
 const { Search } = Input;
 let defaultPageSize = 0; //默认分页尺寸
-let pageCount = '1'; //总页数
+let pageCount = '1'; //页数
 
 /**
  * 聊天类页面
@@ -41,6 +42,7 @@ const Chat: FC<Prop> = () => {
 	const [videoModalVisible, setVideoModalVisible] = useState<boolean>(false); //视频框显示
 	const [photoShowVisible, setPhotoShowVisible] = useState<boolean>(false); //照片框显示
 	const [searchChatModalVisible, setSearchChatModalVisible] = useState<boolean>(false); //查询框显示
+	const [pageRangeModalVisible, setPageRangeModalVisible] = useState<boolean>(false); //页码范围框显示
 	const [foundChat, setFoundChat] = useState<any[]>([]);
 	const { loading, setLoading } = LoadingContainer.useContainer();
 
@@ -98,6 +100,14 @@ const Chat: FC<Prop> = () => {
 	const closePhotoShowHandle = useCallback(() => setPhotoShowVisible(false), [photoShowVisible]);
 
 	/**
+	 * 页面范围确定handle
+	 */
+	const pageRangeHandle = (start: number, end: number) => {
+		setPageRangeModalVisible(false);
+		window.open(`preview.html?file=${fileMd5}&s=${start}&p=${end}`);
+	};
+
+	/**
 	 * 查询聊天记录handle
 	 * @param value 关键字
 	 */
@@ -151,7 +161,7 @@ const Chat: FC<Prop> = () => {
 									data.title && data.title.includes('朋友圈') ? 'none' : 'block'
 							}}
 							onClick={() => {
-								window.open(`preview.html?file=${fileMd5}&p=${pageCount}`);
+								setPageRangeModalVisible(true);
 							}}
 							className="caption-action">
 							<Icon type="printer" />
@@ -218,6 +228,11 @@ const Chat: FC<Prop> = () => {
 				visibile={searchChatModalVisible}
 				data={foundChat}
 			/>
+			<PageRangeModal
+				visible={pageRangeModalVisible}
+				max={Number(pageCount)}
+				okHandle={pageRangeHandle}
+				cancelHandle={() => setPageRangeModalVisible(false)} />
 		</RootPanel>
 	);
 };
