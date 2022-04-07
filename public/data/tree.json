@@ -30,7 +30,7 @@
 			},
 			{
 				"name": "三星GalaxyA90",
-				"path": "/samsung/0004",
+				"path": "/samsung/cba41c338351bff27b02264bd3cf5524-1",
 				"type": "table",
 				"icon": "public/images/tree/device.png",
 				"children": [
@@ -51,6 +51,13 @@
 						"name": "帐户",
 						"path": "/samsung-account/0007",
 						"type": "table",
+						"icon": "public/images/tree/account.png"
+					},
+					{
+						"name": "图表",
+						"path": "/test1/0008",
+						"type": "pie",
+						"page": 1,
 						"icon": "public/images/tree/account.png"
 					}
 				]

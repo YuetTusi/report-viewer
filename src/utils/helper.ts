@@ -67,6 +67,7 @@ const helper = {
      * @param pageSize 总页数
      */
     getAllPageNames(firstPageName: string, pageSize: number = 1) {
+        debugger;
         let allPages: string[] = [];
         const [md5] = firstPageName.split('-');
         for (let i = 1; i <= pageSize; i++) {

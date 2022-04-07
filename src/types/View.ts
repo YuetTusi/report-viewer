@@ -41,7 +41,11 @@ enum ViewType {
     /**
      * 相册类
      */
-    Album = 'album'
+    Album = 'album',
+    /**
+     * 饼状图类
+     */
+    Pie = 'pie'
 }
 
 /**

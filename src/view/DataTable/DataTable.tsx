@@ -90,7 +90,6 @@ const DataTable: FC<Prop> = () => {
 	 */
 	const onSearch = debounce(
 		async (value: string) => {
-
 			if (helper.isNullOrUndefinedOrEmptyString(value)) {
 				message.destroy();
 				message.info('请输入关键字进行查询');
@@ -103,6 +102,7 @@ const DataTable: FC<Prop> = () => {
 				const tasks = fileNames.map((f) =>
 					helper.loadJSON<any>(`public/data/${f}.json`, 'data')
 				);
+
 				try {
 					const data = await Promise.all(tasks);
 					if (data && data.length > 0) {

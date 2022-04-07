@@ -127,6 +127,25 @@ function recurrenceRoute(nodes: TreeNode[]) {
 						/>
 					);
 					break;
+				case ViewType.Pie:
+					//饼状图类
+					routes.push(
+						<Route
+							path={`${subPath(path)}/:file`}
+							render={() => {
+								const NextView = lazy<FC<BaseView>>(
+									() => import('@src/view/Pie')
+								);
+								return (
+									<Suspense fallback={<LazyLoading />}>
+										<NextView dataFilePath={dir} />
+									</Suspense>
+								);
+							}}
+							key={`N_${acc++}`}
+						/>
+					);
+					break;
 			}
 		}
 		if (children && children.length > 0) {
