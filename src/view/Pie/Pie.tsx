@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Empty from 'antd/lib/empty';
 import message from 'antd/lib/message';
 import LoadingContainer from '@src/containers/Loading';
@@ -17,11 +17,6 @@ import { PieBox } from '@src/components/PieChart/PieBox';
 const Pie: FC<{}> = () => {
 
     const { file } = useParams<{ file: string }>();
-    const { search } = useLocation();
-    const [fileMd5, index] = file.split('-');
-    const [pageIndex, setPageIndex] = useState<number>(
-        helper.isNullOrUndefined(index) ? 1 : Number(index)
-    ); //当前页
     const [data, setData] = useState<Record<string, any>>({}); //页面数据
     const { loading, setLoading } = LoadingContainer.useContainer();
 
