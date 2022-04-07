@@ -1,13 +1,5 @@
 import React, { FC, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import * as echars from 'echarts/core';
-import { PieChart } from 'echarts/charts'
-import {
-    TitleComponent,
-    LegendComponent,
-    TooltipComponent,
-
-} from 'echarts/components';
 import Empty from 'antd/lib/empty';
 import message from 'antd/lib/message';
 import LoadingContainer from '@src/containers/Loading';
