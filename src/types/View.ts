@@ -45,7 +45,11 @@ enum ViewType {
     /**
      * 饼状图类
      */
-    Pie = 'pie'
+    Pie = 'pie',
+    /**
+     * 柱状图类
+     */
+    Bar = 'bar'
 }
 
 /**

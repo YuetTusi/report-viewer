@@ -40,7 +40,9 @@ const PieChartWidget: FC<PieChartProp> = ({
                 },
                 legend: {
                     orient: 'vertical',
-                    left: 'right'
+                    left: 'right',
+                    formatter: (name: string) =>
+                        `${name}（${data.find(item => item.name === name)?.value ?? '0'}）`
                 },
                 series: [
                     {

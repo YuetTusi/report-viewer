@@ -59,6 +59,13 @@
 						"type": "pie",
 						"page": 1,
 						"icon": "public/images/tree/account.png"
+					},
+					{
+						"name": "图表",
+						"path": "/test2/0009",
+						"type": "bar",
+						"page": 1,
+						"icon": "public/images/tree/account.png"
 					}
 				]
 			}
