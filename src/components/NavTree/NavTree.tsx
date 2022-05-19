@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import NavTreeContainer from '@src/containers/NavTree';
 import $ from 'jquery';
 
-interface Prop {}
+interface Prop { }
 
 /**
  * 将第n层之前的结点展开
@@ -16,7 +16,7 @@ function expandNodes(context: any, nodes: any[], level: number) {
 		return;
 	}
 	for (let i = 0; i < nodes.length; i++) {
-		if (nodes[i].level < level && !nodes[i].name.includes('短信')) {
+		if (nodes[i].level < level && !nodes[i].name.includes('短信') && !nodes[i].name.includes('彩信')) {
 			context.expandNode(nodes[i], true);
 		}
 
