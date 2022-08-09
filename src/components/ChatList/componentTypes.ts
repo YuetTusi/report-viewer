@@ -98,7 +98,15 @@ interface ChatData {
     /**
      * 是否已删除
      */
-    del: DelType | boolean
+    del: DelType | boolean,
+    /**
+     * 彩信内容中的图片路径（无图片为空串）
+     */
+    url: string,
+    /**
+     * 彩信内容中的图片路径（无图片为空串）
+     */
+    url_export: string
 }
 
 /**

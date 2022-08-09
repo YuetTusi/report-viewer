@@ -35,7 +35,26 @@ const ChatList: FC<Prop> = (props) => {
 	const renderContent = (record: ChatData) => {
 		switch (record?.type) {
 			case ChatType.Text:
-				return <div className="talk">{record.content}</div>;
+				return <div className="talk">
+					<div>{record.content}</div>
+					{
+						!helper.isNullOrUndefinedOrEmptyString(record.url)
+							? <img
+								onClick={() => props.photoHandle(record.url, record.url_export)}
+								src={record.url}
+								data-has="0"
+								onError={(e) => {
+									//error事件加载备用图片
+									const { has } = (e.target as any).dataset;
+									if (has === '0') {
+										(e.target as any).setAttribute('data-has', '1');
+										(e.target as any).src = record.url_export;
+									}
+								}}
+							/>
+							: null
+					}
+				</div>;
 			case ChatType.Audio:
 				return (
 					<div className="talk">
