@@ -6,6 +6,10 @@ enum ChatType {
      */
     Text = 'text',
     /**
+     * 引用消息
+     */
+    Reference = 'reference',
+    /**
      * 语音消息
      */
     Audio = 'audio',
@@ -79,6 +83,10 @@ interface ChatData {
      * 聊天内容
      */
     content: any,
+    /**
+     * 聊天引用
+     */
+    cite?: string,
     /**
      * 备用（导出后）值
      */

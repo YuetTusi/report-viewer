@@ -186,43 +186,171 @@
 				display: flex;
 				flex-direction: row;
 			}
+			cite {
+				display: block;
+				margin-top: 5px;
+				font-size: 1.2rem;
+				font-style: italic;
+				padding: 2px 5px;
+				background-color: #ddd;
+				border-radius: 2px;
+				border: 1px solid #d1d8dc;
+				max-width: 600px;
+			}
 		</style>
 	</head>
 	<body>
 		<div id="target" class="list-root"></div>
 		<script type="text/javascript">
-window.onload=()=>{const{search}=window.location;const file=parseURLSearch(search,'file');const s=parseURLSearch(search,'s')??1;const p=parseURLSearch(search,'p');let task=[];for(let i=s-1;i<Number(p);i++){task=task.concat([loadJSON(`public/data/${file}-${i + 1}.json`,'data')]);}
-Promise.all(task).then((data)=>{return data.map((i)=>i.row).reduce((total,current)=>{total=total.concat(current);return total;},[]);}).then((data)=>{$('#target').html(render(data));}).catch((err)=>console.log(err));};function onLoadError($ele){const notError=$ele.getAttribute('data-has-error')==='0';if(notError){$ele.setAttribute('data-has-error','1');const contentExport=$ele.getAttribute('data-content-export');$ele.setAttribute('src',contentExport);}}
-function renderContent(record){switch(record.type){case'text':return`<div class="talk">${record.content}</div>`;case'photo':return`<div class="talk"><img src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" /></div>`;case'video':return`<div class="talk"><div>视频：${record.content}</div><video src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" style="max-width:580px;max-height:500px"></video></div>`;case'audio':return`<div class="talk">音频：${record.content}</div>`;case'reward':return`<div class="talk">红包：${JSON.stringify(record.content)}</div>`;case'transfer':return`<div class="talk">转帐：${JSON.stringify(record.content)}</div>`;case'file':return`<div class="talk">文件/附件：${record.content}</div>`;case'audio_call':return`<div class="talk">音频通话</div>`;case'video_call':return`<div class="talk">视频通话</div>`;case'locate':return`<div class="talk">位置消息：${JSON.stringify(
-       record.content
-      )}</div>`;default:return`<div class="talk">${JSON.stringify(record.content)}</div>`;}}
-function renderDelMark(mark){switch(mark){case 0:return'';case 1:case true:return'<span class="del">已删除</span>';case 2:return'<span class="recall">已撤回</span>';default:return'';}}
-function render(data){let html='';data.forEach((item)=>{if(item.type==='message'){html+=`<div class="list-row"><div class="message"><p>${
-       item.content
-      }</p><div className="other"><time>${item.time}</time></div>${renderDelMark(
-       item.del
-      )}</div></div>`;}else if(item.send){html+=`<div class="list-row"><div class="reply"><img src="${
-       item.avatar
-      }" data-has-error="0" data-content-export="${
-       item.avatar_export
-      }" onerror="onLoadError(this)" class="avatar" /><div class="text-box"><div class="user-name"><span>${
-       item.nickname
-      }</span><em>(${item.id})</em></div>${renderContent(item)}<time>${
-       item.time
-      }</time></div>${renderDelMark(item.del)}</div></div>`;}else{html+=`<div class="list-row"><div class="send"><img src="${
-       item.avatar
-      }" data-has-error="0" data-content-export="${
-       item.avatar_export
-      }" onerror="onLoadError(this)" class="avatar"/><div class="text-box"><div class="user-name"><span>${
-       item.nickname
-      }</span><em>(${item.id})</em></div>${renderContent(item)}<time>${
-       item.time
-      }</time></div>${renderDelMark(item.del)}</div></div>`;}});return html;}
-function loadJSON(filePath,exportName='data'){let $script=document.createElement('script');return new Promise((resolve,reject)=>{$script.src=filePath;$script.addEventListener('load',()=>{document.body.removeChild($script);resolve(window[exportName]);});$script.addEventListener('error',(event)=>{document.body.removeChild($script);reject(event);});document.body.appendChild($script);});}
-function parseURLSearch(search,name){if(window.URLSearchParams!==undefined){return new URLSearchParams(search).get(name);}
-if(search.startsWith('?')){search=search.substring(1);}
-const kv=search.split('&');let value=null;for(let i=0;i<kv.length;i++){const[k,v]=kv[i].split('=');if(k===name){value=v;break;}}
-return value;}
+			window.onload = () => {
+				const { search } = window.location;
+				const file = parseURLSearch(search, 'file');
+				const s = parseURLSearch(search, 's') ?? 1; //起始页
+				const p = parseURLSearch(search, 'p'); //终止页
+				let task = [];
+
+				for (let i = s - 1; i < Number(p); i++) {
+					task = task.concat([loadJSON(`public/data/${file}-${i + 1}.json`, 'data')]);
+				}
+				Promise.all(task)
+					.then((data) => {
+						return data
+							.map((i) => i.row)
+							.reduce((total, current) => {
+								total = total.concat(current);
+								return total;
+							}, []);
+					})
+					.then((data) => {
+						$('#target').html(render(data));
+					})
+					.catch((err) => console.log(err));
+			};
+
+			function onLoadError($ele) {
+				const notError = $ele.getAttribute('data-has-error') === '0';
+				if (notError) {
+					$ele.setAttribute('data-has-error', '1');
+					const contentExport = $ele.getAttribute('data-content-export');
+					$ele.setAttribute('src', contentExport);
+				}
+			}
+
+			function renderContent(record) {
+				switch (record.type) {
+					case 'text':
+						return `<div class="talk">${record.content}</div>`;
+					case 'reference':
+						return `<div class="talk">${record.content}</div>
+								<cite>${record.cite}</cite>
+								`;
+					case 'photo':
+						return `<div class="talk"><img src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" /></div>`;
+					case 'video':
+						return `<div class="talk"><div>视频：${record.content}</div><video src="${record.content}" data-has-error="0" data-content-export="${record.content_export}" onerror="onLoadError(this)" style="max-width:580px;max-height:500px"></video></div>`;
+					case 'audio':
+						return `<div class="talk">音频：${record.content}</div>`;
+					case 'reward':
+						return `<div class="talk">红包：${JSON.stringify(record.content)}</div>`;
+					case 'transfer':
+						return `<div class="talk">转帐：${JSON.stringify(record.content)}</div>`;
+					case 'file':
+						return `<div class="talk">文件/附件：${record.content}</div>`;
+					case 'audio_call':
+						return `<div class="talk">音频通话</div>`;
+					case 'video_call':
+						return `<div class="talk">视频通话</div>`;
+					case 'locate':
+						return `<div class="talk">位置消息：${JSON.stringify(
+							record.content
+						)}</div>`;
+					default:
+						return `<div class="talk">${JSON.stringify(record.content)}</div>`;
+				}
+			}
+
+			function renderDelMark(mark) {
+				switch (mark) {
+					case 0:
+						return '';
+					case 1:
+					case true:
+						return '<span class="del">已删除</span>';
+					case 2:
+						return '<span class="recall">已撤回</span>';
+					default:
+						return '';
+				}
+			}
+
+			function render(data) {
+				let html = '';
+				data.forEach((item) => {
+					if (item.type === 'message') {
+						html += `<div class="list-row"><div class="message"><p>${
+							item.content
+						}</p><div className="other"><time>${item.time}</time></div>${renderDelMark(
+							item.del
+						)}</div></div>`;
+					} else if (item.send) {
+						html += `<div class="list-row"><div class="reply"><img src="${
+							item.avatar
+						}" data-has-error="0" data-content-export="${
+							item.avatar_export
+						}" onerror="onLoadError(this)" class="avatar" /><div class="text-box"><div class="user-name"><span>${
+							item.nickname
+						}</span><em>(${item.id})</em></div>${renderContent(item)}<time>${
+							item.time
+						}</time></div>${renderDelMark(item.del)}</div></div>`;
+					} else {
+						html += `<div class="list-row"><div class="send"><img src="${
+							item.avatar
+						}" data-has-error="0" data-content-export="${
+							item.avatar_export
+						}" onerror="onLoadError(this)" class="avatar"/><div class="text-box"><div class="user-name"><span>${
+							item.nickname
+						}</span><em>(${item.id})</em></div>${renderContent(item)}<time>${
+							item.time
+						}</time></div>${renderDelMark(item.del)}</div></div>`;
+					}
+				});
+				return html;
+			}
+
+			function loadJSON(filePath, exportName = 'data') {
+				let $script = document.createElement('script');
+				return new Promise((resolve, reject) => {
+					$script.src = filePath;
+					$script.addEventListener('load', () => {
+						document.body.removeChild($script);
+						resolve(window[exportName]);
+					});
+					$script.addEventListener('error', (event) => {
+						document.body.removeChild($script);
+						reject(event);
+					});
+					document.body.appendChild($script);
+				});
+			}
+			function parseURLSearch(search, name) {
+				if (window.URLSearchParams !== undefined) {
+					return new URLSearchParams(search).get(name);
+				}
+
+				if (search.startsWith('?')) {
+					search = search.substring(1);
+				}
+				const kv = search.split('&');
+				let value = null;
+				for (let i = 0; i < kv.length; i++) {
+					const [k, v] = kv[i].split('=');
+					if (k === name) {
+						value = v;
+						break;
+					}
+				}
+				return value;
+			}
 		</script>
 	</body>
 </html>
